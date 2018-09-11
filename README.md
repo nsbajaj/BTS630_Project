@@ -1,5 +1,5 @@
 # Team_25
-  * Carlos
+  * Carlos A. Gomez
   * Nitish Bajaj
   * Niramay Patel
   
@@ -19,6 +19,8 @@ We are developing an E-commerce platform, this platform consist of 3 parts:
    * Quantity (In stock/Out of stock)
  * **Orders List/Page**, which will show that which orders has been shipped or has to shipped. As well as, which orders has been delivered to the customer.
  * **Mailbox/Messages** to store customers review or message about their received product, or any information that they require before placing an order.
+### 3. The Shopping System
+ * 
  
 ## Description of Prototype to be delivered in BTS530
  * //
