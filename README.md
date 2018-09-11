@@ -1,10 +1,24 @@
 # Team_25
   * Carlos
-  * Nitish
+  * Nitish Bajaj
   * Niramay Patel
   
 ## System Description
- * //
+We are developing an E-commerce platform, this platform consist of 3 parts:
+ * An admin system which is for our own commerce.
+ * A Marketplace system which is for our customers to list and sell their Product.
+ * A customer side  which is just to buy our and  the marketplace products.
+### The Admin Side
+ * It will be used for approval of marketplace products. 
+ * To add our internal products.
+### The Marketplace System
+ * It will be used for **Product Listing**
+  * It will include customization (colour/model, custom order) 
+  * Description/Instruction
+  * Shipping options
+  * Quantity (In stock/Out of stock)
+ * **Orders List/Page**, which will show that which orders has been shipped or has to shipped. As well as, which orders has been delivered to the customer.
+ * **Mailbox/Messages** to store customers review or message about their received product, or any information that they require before placing an order.
  
 ## Description of Prototype to be delivered in BTS530
  * //
