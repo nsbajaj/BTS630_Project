@@ -7,7 +7,7 @@
 We are developing an E-commerce platform, this platform consist of 3 parts:
  1. **An Admin System** which is for our own commerce.
  2. **A Marketplace System** which is for our customers to list and sell their Product.
- 3. **A Customer Side**  which is just to buy our and  the marketplace products.
+ 3. **A Shopping System** (customer side) which is just to buy our and  the marketplace products.
 ### 1. The Admin System
  * It will be used for approval of marketplace products. 
  * To add our internal products.
