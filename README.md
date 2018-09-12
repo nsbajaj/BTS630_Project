@@ -14,9 +14,10 @@ We are developing an E-commerce platform, this platform consists of 3 parts:
 ### 2. The Marketplace System
  * It will be used for **Product Listing**
    * It will include customization (colour/model, custom order) 
-   * Description/Instruction
+   * Product Name/Description/Instruction/Specifications
    * Shipping options
-   * Quantity (In stock/Out of stock)
+   * Quantity (In stock/Out of stock/Continued/Discontinued), Price
+   * Category, Ratings, Q/A's
  * **Orders List/Page**, which will show that which orders has been shipped or has to shipped. As well as, which orders has been delivered to the customer.
  * **Mailbox/Messages** to store customers review or message about their received product, or any information that they require before placing an order.
 ### 3. The Shopping System
