@@ -22,7 +22,8 @@ We are developing an E-commerce platform, this platform consist of 3 parts:
 ### 3. The Shopping System
  * It will be the online listing of products (which has the ability to search, to buy, and to see the products).
  * The system will also have an online shopping cart.
-The product page will have all the settings to finalize marketplace listing.
+
+The product page will have all the settings to finalize marketplace listing. Verified purchasers will be able to give a product review on the purchased item, so that it helps the other customers to understand it better.
  
 ## Description of Prototype to be delivered in BTS530
  * //
