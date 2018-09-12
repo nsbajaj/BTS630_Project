@@ -12,7 +12,7 @@ We are developing an E-commerce platform, this platform consists of 3 parts:
 NOTE: The product page will have all the settings to finalize marketplace listing. Verified purchasers will be able to give a product review on the purchased item, so that it helps the other customers to understand it better.
  
 ## Description of Prototype to be delivered in BTS530
- * //
+ * Below are the prototypes we plan to deliver thorugh four iterations:
  
 ## Iteration 1 Tasks
 ### To do:
