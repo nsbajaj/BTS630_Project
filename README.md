@@ -4,7 +4,7 @@
   * Niramay Patel
   
 ## System Description
-We are developing an E-commerce platform, this platform consist of 3 parts:
+We are developing an E-commerce platform, this platform consists of 3 parts:
  1. **An Admin System** which is for our own commerce.
  2. **A Marketplace System** which is for our customers to list and sell their Product.
  3. **A Shopping System** (customer side) which is just to buy our and  the marketplace products.
