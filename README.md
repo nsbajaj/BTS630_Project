@@ -21,7 +21,7 @@ We are developing an E-commerce platform, this platform consists of 3 parts:
  * **Orders List/Page**, which will show that which orders has been shipped or has to shipped. As well as, which orders has been delivered to the customer.
  * **Mailbox/Messages** to store customers review or message about their received product, or any information that they require before placing an order.
 ### 3. The Shopping System
- * It will be the online listing of products (which has the ability to search, to buy, and to see the products).
+ * It will be the online listing of products (which has the ability to search, to view and buy the products).
  * The system will also have an online shopping cart.
 
 NOTE: The product page will have all the settings to finalize marketplace listing. Verified purchasers will be able to give a product review on the purchased item, so that it helps the other customers to understand it better.
