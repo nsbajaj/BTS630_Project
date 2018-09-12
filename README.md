@@ -5,7 +5,7 @@
   
 ## System Description
 We are developing an E-commerce platform, this platform consists of 3 parts:
- 1. **An Admin System** which is for our own commerce.
+ 1. **An Admin System** which is a dashboard for our own commerce.
  2. **A Marketplace System** which is for our customers to list and sell their Product.
  3. **A Shopping System** which will allow customers to buy our and the marketplace products.
 ### 1. The Admin System
