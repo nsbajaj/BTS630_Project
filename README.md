@@ -124,6 +124,11 @@ Below are the prototypes we plan to deliver thorugh four iterations:
  
 ## Iteration 1 Tasks
 ### To do:
- * //
+ *Set up Framework, Templates and basic web css
+ *Sign in page will be created and tested   
+ *Register user page will be created and tested
+ *Authentication based on user roles will be created and tested
+ *Sign out functionality will be created and tested
+ 
 ### Completed:
  * (...)
