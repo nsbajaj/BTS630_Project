@@ -67,7 +67,53 @@ NOTE: The product page will have all the settings to finalize marketplace listin
 
 ![](images/seller_usecase.jpg)
 
-//
+### Registration
+ * **Main Success Scenario**
+  * The seller will be prompted for an email address, username, password, a confirm password field, optional Phone Number, Address, PayPal and a checkbox that states that the seller agrees to the Conditions of Use and Privacy Notice. Once the information mentioned above has been entered and meets the registration requirements, the seller will be signed in and will be sent an activation/verification email in order for the seller to begin selling products.
+ * **Alternate Flow**
+  * If the password does not meet the requirements, the seller needs to re enter password that meets the requirements.
+
+### Sign In
+ * **Main Success Scenario**
+  * The seller will be prompted, for a username/email and a password. Once the seller has been successfully authenticated, the seller will be redirected to the front page.
+ * **Alternate Flow**
+  * The seller has forgotten the password: Click the “Forgot password?” link and they will be prompted to enter their email. The seller will be sent an email containing a reset link. Once the password has been reset, the seller will be signed in.
+
+### Sign Out
+ * **Main Success Scenario**
+  * The seller can click on the “Sign out” button to sign out.
+ * **Alternate Flow**
+  * If a seller forgets to sign out: Within an hour, the session will be expired and the seller will be signed out.
+
+### Forgot Password
+ * **Main Success Scenario**
+  * The seller will be prompted for an email address. If the email exists in the database, the seller will receive an email which will allow the buyer to reset their account password.
+ * **Alternate Flow**
+  * If the seller is unable to login after 5 attempts: the seller will be suggested to reset the password using “Forgot my Password?” page.
+
+### Update Account Information
+ * **Main Success Scenario**
+  * The seller will be prompted to insert/update information such as shipping address (Province/State and Country).  Also to update stock level or continued/discontinued.
+ * **Alternate Flow**
+  * The buyer will be prompted to insert/update required shipping information during checkout.
+
+### Link Paypal Account
+ * **Main Success Scenario**
+  * The seller will be prompted to insert their PayPal username and password, to link a billing method in order to sell products.
+ * **Alternate Flow**
+  * The buyer will be prompted to link PayPal billing method before posting a product, if not already linked.
+
+### Add/Update Product
+ * **Main Success Scenario**
+  * Seller enters Product Name, Product Description, Product Specifications (Brand name, Weight, Model, etc.), Price, Product Pictures, Current Stock level of the product, Continued/Discontinued checkbox, Category, Q/A’s. Once submitted, the product will be sent for approval. Once approved the product will be available for purchase.
+ * **Alternate Flow**
+  * Admin can add/upload a product on behalf of the seller as Customer support.
+  
+### Edit Product
+ * **Main Success Scenario**
+  * Seller changes  specific entries in the Product Page: Product Name, Product Description, Product Specifications (Brand name, Weight, Model, etc.), Price, Product Pictures, Current Stock level of the product, Continued/Discontinued checkbox, Category, Q/A’s. Once submitted, if  the product is approved it will only  update the data, if product is not approved  yet  it just sends admin the  notification  product been modified.
+ * **Alternate Flow**
+  * Admin can Edit a product on behalf of the seller as Customer support.
  
 ## Description of Prototype to be delivered in BTS530
 Below are the prototypes we plan to deliver thorugh four iterations:
