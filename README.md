@@ -65,7 +65,7 @@ NOTE: The product page will have all the settings to finalize marketplace listin
 
 ## Marketplace System Use Case Diagram & Description
 
-![](images/seller_usecase.jpg)
+![](images/buyer_usecase.jpg)
 
 ### Registration
  * **Main Success Scenario**
@@ -114,6 +114,59 @@ NOTE: The product page will have all the settings to finalize marketplace listin
    * Seller changes  specific entries in the Product Page: Product Name, Product Description, Product Specifications (Brand name, Weight, Model, etc.), Price, Product Pictures, Current Stock level of the product, Continued/Discontinued checkbox, Category, Q/A’s. Once submitted, if  the product is approved it will only  update the data, if product is not approved  yet  it just sends admin the  notification  product been modified.
  * **Alternate Flow**
    * Admin can Edit a product on behalf of the seller as Customer support.
+   
+## Shopping System Use Case Diagram & Description
+
+![](images/seller_usecase.jpg)
+
+### Registration
+ * **Main Success Scenario**
+   * The buyer will be prompted for an email address, username, password, a confirm password field, optional Phone Number, Address, PayPal and must confirm using a checkbox that states that the buyer agrees to the Conditions of Use and Privacy Notice. Once the information mentioned above has been entered and meets the registration requirements, the buyer will be signed in and will be sent an activation/verification email in order for the buyer to begin buying products. In order to purchase a product the user must have to link his/her Paypal account.
+ * **Alternate Flow**
+   * The buyer will be prompted to for an email address, username, password, a confirm password. If the username has been taken, the buyer will need to enter a different username. If the password does not meet the requirements, the buyer needs to re-enter a password that meets the requirements. Once the information meets the registration requirements, the buyer will be signed in. If the user has not linked the Paypal account at the end of checkout process, then the user has to link his/her Paypal account in order to make the purchase.
+   
+### Sign In
+ * **Main Success Scenario**
+   * The buyer will be prompted, for a username/email and a password. Once the buyer has been successfully authenticated, the buyer will be redirected to the front page.
+ * **Alternate Flow**
+   * The buyer has forgotten the password: Click the “Forgot password?” link and they will be prompted to enter their email. The buyer will be sent an email containing a reset link. Once the password has been reset, the buyer will be signed in.
+   
+### Sign Out
+ * **Main Success Scenario**
+   * The buyer can click on the “Sign out” button to sign out.
+ * **Alternate Flow**
+   * If a buyer forgets to sign out: Within an hour, the session will be expired and the buyer will be signed out.
+   
+### Forgot Password
+ * **Main Success Scenario**
+   * The buyer will be prompted for an email address. If the email exists in the database, the buyer will receive an email which will allow the buyer to reset their account password.
+ * **Alternate Flow**
+   * If the buyer is unable to login after 5 attempts: the buyer will be suggested to reset the password using “Forgot my Password?” page.
+   
+### Add/Update Account Information
+ * **Main Success Scenario**
+   * The buyer will be prompted to insert/update information such as billing and shipping address (Street number, name of street, postal code, Province/State and Country).
+ * **Alternate Flow**
+   * The buyer will be prompted to insert/update required billing and shipping information during checkout.
+   
+### Link Paypal Account
+ * **Main Success Scenario**
+   * The buyer will be prompted to insert their PayPal username and password to link a billing method.
+ * **Alternate Flow**
+   * The buyer will be prompted to link PayPal billing method during checkout, if not already linked.
+   
+### Add Product Review
+ * **Main Success Scenario**
+   * The buyer will be prompted to confirm that the goods have been received. The buyer can then write a review and select a number between 1 and 5 depending on how much they are satisfied.
+ * **Alternate Flow**
+   * The buyer will be prompted to confirm that the goods have been received. The buyer can select a number between 1 and 5 depending on how much they are satisfied.
+   
+### Purchase Product
+ * **Main Success Scenario**
+   * The buyer will be prompted to select quantity and can select “Add to cart”. The buyer can then continue shopping or or checkout. During checkout, the buyer will be shown the transaction details and confirm to purchase products using PayPal.
+ * **Alternate Flow**
+   * The buyer will be prompted to select quantity and can select “Add to cart”. The buyer will be prompted to link their PayPal and update shipping address, if not already done so. Once linked, the buyer can now purchase the products using PayPal.   
+
  
 ## Description of Prototype to be delivered in BTS530
 Below are the prototypes we plan to deliver thorugh four iterations:
