@@ -11,7 +11,7 @@ We are developing an E-commerce platform, this platform consists of 3 parts:
 
 NOTE: The product page will have all the settings to finalize marketplace listing. Verified purchasers will be able to give a product review on the purchased item, so that it helps the other customers to understand it better.
 
-## Admin System Use Case Diagram
+## Admin System Use Case Diagram & Description
 
 ![](images/admin_usecase.jpg)
 
@@ -61,7 +61,10 @@ NOTE: The product page will have all the settings to finalize marketplace listin
   * Admin changes  specific entries in the Product Page such as: Product Name, Product Description, Product Specifications (Brand name, Weight, Model, etc.), Price, Product Pictures, Current Stock level of the product, Continued/Discontinued checkbox, Category, Q/A’s. Once submitted, this once  submited is allowed for purchase. The admin can also choose to flag the product, to remove it from the marketplace. 
 * **Alternate Flow**
   * Admin changes specific entries of a product page such as  Product Name, Product Description, Product Specifications (Brand name, Weight, Model, etc.), Price, Product Pictures, Current Stock level of the product, Continued/Discontinued checkbox, Category, Q/A’s . This once submitted is allowed for purchase.
- 
+
+
+## Marketplace System Use Case Diagram & Description
+
  
 ## Description of Prototype to be delivered in BTS530
 Below are the prototypes we plan to deliver thorugh four iterations:
