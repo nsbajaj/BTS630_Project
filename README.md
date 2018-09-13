@@ -65,7 +65,7 @@ NOTE: The product page will have all the settings to finalize marketplace listin
 
 ## Marketplace System Use Case Diagram & Description
 
-![](images/buyer_usecase.jpg)
+![](images/seller_usecase.jpg)
 
 ### Registration
  * **Main Success Scenario**
@@ -117,7 +117,7 @@ NOTE: The product page will have all the settings to finalize marketplace listin
    
 ## Shopping System Use Case Diagram & Description
 
-![](images/seller_usecase.jpg)
+![](images/buyer_usecase.jpg)
 
 ### Registration
  * **Main Success Scenario**
