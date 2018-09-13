@@ -11,6 +11,10 @@ We are developing an E-commerce platform, this platform consists of 3 parts:
 
 NOTE: The product page will have all the settings to finalize marketplace listing. Verified purchasers will be able to give a product review on the purchased item, so that it helps the other customers to understand it better.
 
+## Admin System Use Case Diagram
+
+![](images/admin_usecase.jpg)
+
 ### Manage Account
 * **Main Success Scenario**
   * Admin will have the ability to add/remove/update buyer and seller  account(s).
