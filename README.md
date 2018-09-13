@@ -13,8 +13,8 @@ NOTE: The product page will have all the settings to finalize marketplace listin
  
 ## Description of Prototype to be delivered in BTS530
 Below are the prototypes we plan to deliver thorugh four iterations:
- 1. We would like to develop an application that will allow different account types such as admin, seller and buyer, to authenticate, view only certain interface/layout depending on account permissions.
- 2. 
+ 1. We plan to deliver a prototype system that will allow different account types such as admin, seller and buyer, to authenticate, view only certain interface/layout depending on account permissions and be able to add a product on the market place system for selling.
+ 2. We plan to deliver a prototype system that will provide admin users to operate the system. This includes, managing accounts, products.
  
 ## Iteration 1 Tasks
 ### To do:
