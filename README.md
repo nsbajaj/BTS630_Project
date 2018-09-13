@@ -18,44 +18,44 @@ NOTE: The product page will have all the settings to finalize marketplace listin
 ### Sign In
 * **Main Success Scenario**
   * The admin will be prompted, for a username/email and a password. Once the admin has been successfully authenticated, the admin will be redirected to the dashboard.
-* **Alternate Scenario**
+* **Alternate Flow**
   * The admin has forgotten the password: Click the “Forgot password?” link and they will be prompted to enter their email. The admin will be sent an email containing a reset link. Once the password has been reset, the admin will be signed in.
 
 ### Sign Out
 * **Main Success Scenario**
   * The admin can click on the “Sign out” button to sign out. 
-* **Alternate Scenario**
+* **Alternate Flow**
   * If an admin forgets to sign out: Within an hour, the session will be expired and the admin will be signed out.
 
 ### Forgot Password
 * **Main Success Scenario**
   * The admin will be prompted for an email address. If the email exists in the database, the admin will receive an email which will allow the admin to reset their account password.
-* **Alternate Scenario**
+* **Alternate Flow**
   * If the admin is unable to login after 5 attempts: the admin will be suggested to reset the password using “Forgot my Password?” page.
 
 ### Revoke/Reinstate Admin or Seller Privileges
 * **Main Success Scenario**
   * The admin will be prompted to  Select a  User and  then the system will ask twice- for safety  to revoke admin privileges or in case of seller  status  seller  privileges.
-* **Alternate Scenario**
+* **Alternate Flow**
   * The admin will be prompted to select a  user and then will ask if user needs to have to be added  seller  status user will then be twice prompted  for security confirmation.
   * The admin will be prompted to select a suer and then ask if user needs to be  added to admin user will then be twice twice prompted  for security confirmation.
 
 ### Link Paypal Account
 * **Main Success Scenario**
   * The admin will be prompted to insert the shared company PayPal username and password, to link a billing method in order to sell products.
-* **Alternate Scenario**
+* **Alternate Flow**
   * The admin will be prompted to link shared company PayPal billing method before posting a product, if not already linked.
 
 ### Add Product
 * **Main Success Scenario**
   * Admin enters Product Name, Product Description, Product Specifications (Brand name, Weight, Model, etc.), Price, Product Pictures, Current Stock level of the product, Continued/Discontinued checkbox, Category, Q/A’s. Once submitted the product will be available for purchase. 
-* **Alternate Scenario**
+* **Alternate Flow**
   * Admin enters Product Name, Product Description, Product Specifications (Brand name, Weight, Model, etc.), Price, Product Pictures, Current Stock level of the product, Continued/Discontinued checkbox, Category, Q/A’s Then selects which users/store have  this product listed,  this once  submitted is allowed for purchase.
 
 ### Update Product
 * **Main Success Scenario**
   * Admin changes  specific entries in the Product Page such as: Product Name, Product Description, Product Specifications (Brand name, Weight, Model, etc.), Price, Product Pictures, Current Stock level of the product, Continued/Discontinued checkbox, Category, Q/A’s. Once submitted, this once  submited is allowed for purchase. The admin can also choose to flag the product, to remove it from the marketplace. 
-* **Alternate Scenario**
+* **Alternate Flow**
   * Admin changes specific entries of a product page such as  Product Name, Product Description, Product Specifications (Brand name, Weight, Model, etc.), Price, Product Pictures, Current Stock level of the product, Continued/Discontinued checkbox, Category, Q/A’s . This once submitted is allowed for purchase.
  
  
