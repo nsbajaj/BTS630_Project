@@ -37,7 +37,7 @@ NOTE: The product page will have all the settings to finalize marketplace listin
 * **Alternate Flow**
   * If the admin is unable to login after 5 attempts: the admin will be suggested to reset the password using “Forgot my Password?” page.
 
-### Revoke/Reinstate Admin or Seller Privileges
+### Revoke/Reinstate Seller Privileges
 * **Main Success Scenario**
   * The admin will be prompted to  Select a  User and  then the system will ask twice- for safety  to revoke admin privileges or in case of seller  status  seller  privileges.
 * **Alternate Flow**
