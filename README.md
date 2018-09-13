@@ -65,6 +65,9 @@ NOTE: The product page will have all the settings to finalize marketplace listin
 
 ## Marketplace System Use Case Diagram & Description
 
+![](images/seller_usecase.jpg)
+
+//
  
 ## Description of Prototype to be delivered in BTS530
 Below are the prototypes we plan to deliver thorugh four iterations:
