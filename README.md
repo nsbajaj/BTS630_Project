@@ -172,8 +172,8 @@ NOTE: The product page will have all the settings to finalize marketplace listin
 Below are the prototypes we plan to deliver thorugh four iterations:
  1. We plan to deliver a prototype system that will allow different account types such as admin, seller and buyer, to authenticate, view only certain interface/layout depending on account permissions and be able to add a product on the market place system for selling.
  2. We plan to deliver a prototype system that will provide admin users to operate the system. This includes, managing accounts, products.
- 3. We plan to deliver a prototype system that will provide sellers the ability to manage their business such as sell, buy products, view transaction history.
- 4. We plan to delier a prototype system that will provide buyers the ability to view, purchase, refund products. Communicate with the seller and view transaction history.
+ 3. We plan to deliver a prototype system that will provide sellers with the ability to manage their business such as getting their products to be verified by the admin and update the inventory.
+ 4. We plan to deliver a prototype system that will provide buyers with the ability to buy products and view transactions.
  
 ## Iteration 1 Tasks
 ### To do:
