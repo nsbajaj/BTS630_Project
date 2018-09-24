@@ -8,9 +8,11 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <!-- <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css"> -->
+        <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
 
         <!-- Styles -->
+        <!-- 
         <style>
             html, body {
                 background-color: #fff;
@@ -62,7 +64,7 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
-        </style>
+        </style> -->
     </head>
     <body>
         <div class="flex-center position-ref full-height">
