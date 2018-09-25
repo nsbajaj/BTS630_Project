@@ -13,6 +13,8 @@
 				border-top: #919aa1 solid 1px;
 				padding-top: 2em;
 }
+.hide1{display:none;}
+.option-groups{padding: 1em;}
 		</style>
 	</head>
 	<body>
@@ -45,14 +47,62 @@
 </nav>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-6 col-md-offset-3 ">
+        <div class="col-md-8 col-md-offset-2 ">
             <div class="panel panel-default ">
-                <div class="panel-heading text-center"><h1>Login</h1></div>
+                <div class="panel-heading text-center"><h1>Register</h1></div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="">
                      
                         <div class="form-group">
+                            <label for="fname" class="col-md-6 control-label">First Name</label>
+
+                            <div class="col-md-12 hide1">
+                                <input id="fname" type="text" class="form-control" name="fname" value="" required autofocus>
+
+                               
+                                    <span class="invalid-feedback" style="display:block;" ><!-- Remove  display block -->
+                                        <strong>Field has Errors</strong>
+                                    </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="lname" class="col-md-6 control-label">Last Name</label>
+
+                            <div class="col-md-12 hide1">
+                                <input id="lname" type="text" class="form-control" name="lname" value="" required autofocus>
+
+                               
+                                    <span class="invalid-feedback" style="display:block;" ><!-- Remove  display block -->
+                                        <strong>Field has Errors</strong>
+                                    </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="organization" class="col-md-6 control-label">Organization</label>
+
+                            <div class="col-md-12 hide1">
+                                <input id="organization" type="text" class="form-control" name="organization" value="" required autofocus>
+
+                               
+                                    <span class="invalid-feedback" style="display:block;" ><!-- Remove  display block -->
+                                        <strong>Field has Errors</strong>
+                                    </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="uname" class="col-md-6 control-label">User Name</label>
+
+                            <div class="col-md-12 hide1">
+                                <input id="uname" type="text" class="form-control" name="uname" value="" required autofocus>
+
+                               
+                                    <span class="invalid-feedback" style="display:block;" ><!-- Remove  display block -->
+                                        <strong>Field has Errors</strong>
+                                    </span>
+                            </div>
+                        </div>
+                        <div class="form-group hide1">
                             <label for="email" class="col-md-6 control-label">E-Mail Address</label>
 
                             <div class="col-md-12">
@@ -68,7 +118,7 @@
                         <div class="form-group">
                             <label for="password" class="col-md-6 control-label">Password</label>
 
-                            <div class="col-md-12">
+                            <div class="col-md-12 hide1">
                                 <input id="password" type="password" class="form-control" name="password" required>
 
                                 
@@ -78,28 +128,48 @@
                                 
                             </div>
                         </div>
- <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
+						<div class="form-group">
+                            <label for="password2" class="col-md-6 control-label">Confirm Password</label>
+
+                            <div class="col-md-12 hide1">
+                                <input id="password2" type="password" class="form-control" name="password2" required>
+
+                                
+                                    <span class="invalid-feedback " style="display:block;" ><!-- Remove  display block -->
+                                        <strong>Field has Errors </strong>
+                                    </span>
+                                
                             </div>
+							<a href="javascript:void()">
                         </div>
+ 
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Login
+                                    update
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
+                               
                             </div>
+							
 </div>
 				</form>
+				<div class="option-groups">
+                <button type="button" class="btn btn-info">Add Product</button>          
+                        </div>
+				<div class="option-groups">
+                <button type="button" class="btn btn-info">Show Products</button>          
+                        </div>
+				
+				<div class="option-groups">
+                <button type="button" class="btn btn-info">See orders Product</button>          
+                        </div>
+						
+				<div class="option-groups">
+                <button type="button" class="btn btn-warning">close account</button>          
+                        </div>		
+				
 			</div>
 			
 		  </div>
