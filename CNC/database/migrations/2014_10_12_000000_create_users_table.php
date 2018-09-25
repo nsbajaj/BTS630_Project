@@ -20,8 +20,13 @@ class CreateUsersTable extends Migration
             $table->string('username', '20')->unique();
             $table->string('password', '100');
             $table->string('email', '30')->unique();
-            $table->integer('role_id');
-            $table->integer('organization_id');
+            
+            $table->integer('role_id')->unsigned();
+            $table->foreign('role_id')->references('role_id')->on('role'); //Foreign Key
+
+            $table->integer('organization_id')->unsigned();
+            $table->foreign('organization_id')->references('organization_id')->on('organization');
+
             $table->datetime('account_join_date');
             $table->datetime('account_delete_date');
             $table->datetime('last_login');
