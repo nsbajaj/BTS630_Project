@@ -8,3 +8,21 @@
 
 * **Alternate Flow**
   * The user will be prompted to for an email address, username, password, a confirm password. If the username has been taken, the user will need to enter a different username. If the password does not meet the registration requirements, the user needs to re-enter a password that meets the requirements. Once the information meets the **registration requirements**, the user will be signed in and sent an activation email.
+
+### Sign In
+
+* **Main Success Scenario**
+  * The user will be prompted, for a username/email and a password. Once the user has been successfully authenticated and the account is not locked/suspended, the user will be redirected to the front page. If a user is unable to sign in after **five** tries, they will be suggested to try clicking on “Forgot your Password?”
+  * The user will be redirected to the dashboard, if it is an admin.
+  
+* **Alternate Flow**
+  * The user has forgotten the password: Click the “Forgot password?” link and they will be prompted to enter their email. The buyer will be sent an email containing a reset link. Once the password has been reset, the buyer will be signed in.
+  
+### Sign Out
+
+* **Main Success Scenario**
+  * The user can click on the “Sign out” button to sign out.
+  * The user will be redirected to Sign In page.
+  
+* **Alternate Flow**
+  * If a user forgets to sign out: Once a user tries to close the tab/window, they will be prompted with a message box and updated that they will be signed out once they press “OK” and that they’ve acknowledged that. If they press “Cancel”, it will simply close the message box.
