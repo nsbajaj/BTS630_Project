@@ -1,0 +1,85 @@
+@extends('layout')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Bootswatch: Lux</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="css/bootstrap.css" media="screen">
+  <style>
+  body{padding-top: 120px;}
+  .invalid-feedback{font-size:1.15em;padding: 0.75em;}
+  footer{margin-top: 70px;
+    border-top: #919aa1 solid 1px;
+    padding-top: 2em;
+  }
+</style>
+</head>
+<body>
+  @section('content') 
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-md-offset-3 ">
+        <div class="panel panel-default ">
+          <div class="panel-heading text-center"><h1>Login</h1></div>
+
+          <div class="panel-body">
+            <form class="form-horizontal" method="POST" action="/CNC/public/login">
+              {{ csrf_field() }}
+              <div class="form-group">
+                <label for="email" class="col-md-6 control-label">E-Mail Address</label>
+
+                <div class="col-md-12">
+                  <input id="email" type="email" class="form-control" name="email" value="" required autofocus>
+
+
+                  <span class="invalid-feedback" style="display:block;" ><!-- Remove  display block -->
+                    <strong>Field has Errors</strong>
+                  </span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="password" class="col-md-6 control-label">Password</label>
+
+                <div class="col-md-12">
+                  <input id="password" type="password" class="form-control" name="password" required>
+
+
+                  <span class="invalid-feedback " style="display:block;" ><!-- Remove  display block -->
+                    <strong>Field has Errors </strong>
+                  </span>
+
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-6 col-md-offset-4">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-md-8 col-md-offset-4">
+                  <button type="submit" class="btn btn-primary">
+                    Login
+                  </button>
+
+                  <a class="btn btn-link" href="">
+                    Forgot Your Password?
+                  </a>
+                </div>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  @endsection
+</body>
+</html>
