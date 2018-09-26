@@ -13,7 +13,7 @@ class CreateOrganizationTable extends Migration
      */
     public function up()
     {
-        Schema::create('organization', function (Blueprint $table) {
+        Schema::create('organizations', function (Blueprint $table) {
             $table->increments('organization_id');
             $table->string('name', '45');
 
@@ -28,6 +28,6 @@ class CreateOrganizationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('organization');
+        Schema::dropIfExists('organizations');
     }
 }
