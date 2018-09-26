@@ -28,24 +28,34 @@
                     <div class="panel-body">
                         <form class="form-horizontal" method="POST" action="/CNC/public/register">
                             {{ csrf_field() }}
+                            @if(Auth::check() && Auth::user()->role_id == 1) <!-- If user is signed in and has admin privileges.-->
                             <div class="form-group">
-                              <label for="fname" class="col-md-6 control-label">First Name</label>
+                                <label for="role" class="col-md-6 control-label">Role</label>
+                                <div class="col-md-12">
+                                    <select name="role" class="form-control">
+                                        <option value="">Select a role</option>
+                                        <option value="administration">Administration</option>
+                                        <option value="buyer">Buyer</option>
+                                        <option value="seller">Seller</option>
+                                    </select> 
+                                </div>
+                            </div>
+                            @endif
+                            <div class="form-group">
+                                <label for="fname" class="col-md-6 control-label">First Name</label>
+                                <div class="col-md-12">
+                                    <input id="fname" type="text" class="form-control" name="fname" value="" required autofocus>
+                                    <span class="invalid-feedback" style="display:block;" >
+                                        @if ($errors->has('fname')) 
+                                            <strong>{{ $errors->first('fname') }}</strong>
+                                        @endif
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="lname" class="col-md-6 control-label">Last Name</label>
 
-                              <div class="col-md-12">
-                                <input id="fname" type="text" class="form-control" name="fname" value="" required autofocus>
-
-
-                                <span class="invalid-feedback" style="display:block;" ><!-- Remove  display block -->
-                                  @if ($errors->has('fname')) 
-                                  <strong>{{ $errors->first('fname') }}</strong>
-                                  @endif
-                              </span>
-                          </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="lname" class="col-md-6 control-label">Last Name</label>
-
-                        <div class="col-md-12">
+                            <div class="col-md-12">
                             <input id="lname" type="text" class="form-control" name="lname" value="" required autofocus>
 
 
@@ -129,9 +139,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-
                 </div>
-
                 <div class="form-group">
                     <div class="col-md-8 col-md-offset-4">
                         <button type="submit" class="btn btn-primary">

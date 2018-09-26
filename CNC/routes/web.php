@@ -26,6 +26,10 @@ Route::post('/login', 'Authentication\SigninController@createSignIn');
 //Sign out
 Route::get('/logout', 'Authentication\SignOutController@signOut')->middleware('auth');
 
+//Users
+Route::get('/users', 'User\UserController@showAccounts')->middleware('auth');
+Route::get('/users/{user}', 'User\UserController@showAccount')->middleware('auth');
+
 //Main Page after logging in
 Route::get('/index', 'Service\ServiceController@show')->middleware('auth');
 

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use DateTime;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use Auth;
 
 class RegistrationController extends Controller
 {
@@ -18,7 +19,7 @@ class RegistrationController extends Controller
     	//Validate the form
     	//Organization is optional
     	//Check if username/email is already taken, A-Z0-9
-    	
+        
     	$messages = [
     		'fname.required' => 'Please enter your first name.',
     		'fname.max' => 'Please enter a shorter first name.',
@@ -46,8 +47,24 @@ class RegistrationController extends Controller
     	$user->username = request('uname');
     	$user ->password = Hash::make(request('password'));
     	$user->email = request('email');
-    	$user->role_id = '2';
-    	$user->organization_id = '1';
+
+    	//Logged in and Admin
+        if(Auth::check() && Auth::user()->role_id == 1){
+            if(request('role') == 'administration'){
+                $user->role_id = '1';
+            }   
+            else if(request('role') == 'buyer'){
+                $user->role_id = '2';
+            }
+            else if(request('role') == 'seller'){
+                $user->role_id = '3';
+            }
+        }
+        else{
+            $user->role_id = '2';
+        }
+    	
+        $user->organization_id = '1';
     	$now = new DateTime();
     	$user->account_join_date = $now;
     	//$user->account_delete_date = "";
@@ -55,9 +72,13 @@ class RegistrationController extends Controller
     	$user->save();
 
     	//Sign them in
-    	auth()->login($user);
-
-    	//Redirect to the home page.
-    	return view('service.index');
+        //If  not logged in (Account creating is a buyer/seller) and sign in the user.
+        if(!Auth::check()){
+            auth()->login($user);
+            return view('service.index');
+        }
+        else if(Auth::check() && Auth::user()->role_id == 1){
+            return view('user.index');
+        }
     }
 }
