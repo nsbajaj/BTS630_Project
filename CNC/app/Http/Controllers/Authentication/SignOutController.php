@@ -9,7 +9,9 @@ use Auth;
 class SignOutController extends Controller
 {
 	public function signOut(){
-    	Auth::logout();
-	  	return redirect('/login');
+		if(Auth::check()){
+    		Auth::logout();
+	  	}
+	  	return view('service.index');	  	
     }
 }

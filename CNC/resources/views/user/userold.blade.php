@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Users</title>
+	<title>User</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<style>
@@ -19,12 +19,12 @@
 <body>
 	@section('content')	
 	<div class="container">
-		@if(Auth::check() && Auth::user()->role_id == 1)
+		
 		<div class="bs-docs-section">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="page-header">
-						<h1 id="tables">Users</h1>
+						<h1 id="tables">User</h1>
 					</div>
 					<div class="bs-component">
 						<table class="table table-hover">
@@ -37,13 +37,9 @@
 								</tr>
 							</thead>
 							<tbody>
-								@if(!empty($users))
-									@foreach ($users as $user)
-								    <tr class="table-active">
-										<th scope="row" >
-											<a href="/CNC/public/users/{{ $user->user_id}}">{{ $user->first_name . ' ' . $user->last_name }}
-											</a>
-										</th>
+								@if(!empty($user))
+									<tr class="table-active">
+										<th scope="row">{{ $user->first_name . ' ' . $user->last_name }}</th>
 										<td>{{ $user->username }}</td>
 										<td>{{ $user->email }}</td>
 										@if($user->role_id === 1)
@@ -54,7 +50,7 @@
 											<td>Seller</td>
 									    @endif
 								</tr>
-									@endforeach
+									
 								@endif
 								<!--
 								<tr>
@@ -70,7 +66,7 @@
 				</div>
 			</div>
 		</div>
-		@endif
+
 		@endsection
 
 	</body>

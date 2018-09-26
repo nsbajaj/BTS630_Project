@@ -30,9 +30,13 @@
           <a class="nav-link" href="#">About</a>
         </li>
         @if(Auth::check() && !empty(Auth::user()->first_name))
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url('/logout') }}">Logout, {{ Auth::user()->first_name }}</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('/signout') }}">Sign out, {{ Auth::user()->first_name }}</a>
+          </li>
+        @elseif(!Auth::check())
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('/signin') }}">Sign in</a>
+          </li>
         @endif
       </ul>
       <form class="form-inline my-2 my-lg-0">

@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Bootswatch: Lux</title>
+  <title>Sign in</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <link rel="stylesheet" href="css/bootstrap.css" media="screen">
@@ -22,10 +22,10 @@
     <div class="row justify-content-center">
       <div class="col-md-6 col-md-offset-3 ">
         <div class="panel panel-default ">
-          <div class="panel-heading text-center"><h1>Login</h1></div>
+          <div class="panel-heading text-center"><h1>Sign in</h1></div>
 
           <div class="panel-body">
-            <form class="form-horizontal" method="POST" action="/CNC/public/login">
+            <form class="form-horizontal" method="POST" action="/CNC/public/signin">
               {{ csrf_field() }}
               <div class="form-group">
                 <label for="email" class="col-md-6 control-label">E-Mail Address</label>
