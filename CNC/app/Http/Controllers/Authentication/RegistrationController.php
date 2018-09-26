@@ -31,9 +31,9 @@ class RegistrationController extends Controller
 		];
 
     	$this->validate(request(), [
-    		'fname' => 'required|max:2',
-    		'lname' => 'required|max:2',
-    		'uname' => 'required|max:2',
+    		'fname' => 'required|max:15',
+    		'lname' => 'required|max:15',
+    		'uname' => 'required|max:20',
     		'email' => 'required|email',
     		'password' => 'required|confirmed'
     	], $messages);
@@ -58,6 +58,6 @@ class RegistrationController extends Controller
     	auth()->login($user);
 
     	//Redirect to the home page.
-    	return("Success");
+    	return view('service.index');
     }
 }

@@ -16,10 +16,18 @@ Route::get('/', function () {
 });
 
 //Registration
-Route::post('/register', 'Authentication\RegistrationController@createAccount');
 Route::get('/register', 'Authentication\RegistrationController@showAccount');
+Route::post('/register', 'Authentication\RegistrationController@createAccount');
 
+//Sign in
+Route::get('/login', 'Authentication\SigninController@showSignIn');
+Route::post('/login', 'Authentication\SigninController@createSignIn');
 
-//Login
-//Route::get('/login', 'SigninController@SignIn');
-//Route::get('/login', 'SigninController@SignOut');
+//Sign out
+Route::get('/logout', 'Authentication\SignOutController@signOut')->middleware('auth');
+
+//Main Page after logging in
+Route::get('/index', 'Service\ServiceController@show')->middleware('auth');
+
+//Implement 403/404 pages
+//Refill form values if error

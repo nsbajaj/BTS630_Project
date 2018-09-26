@@ -9,6 +9,9 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    //Primary key is changed in our db, laravel assumes 'id' as default.
+    protected $primaryKey = 'user_id';
+
     /**
      * The attributes that are mass assignable.
      *
