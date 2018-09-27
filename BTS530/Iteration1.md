@@ -10,7 +10,7 @@
   * The admin level account must be created through another admin. A username will be their “firstname.lastname”.  A temporary password will also be generated for them, which they can change later. Admin account does not require activation. An email will be created for admin and email will use john.doe@companyname.com naming convention.
 
 * **Alternate Flow**
-  * If the email address is already in database as a registered user, the user will be asked to enter a different email address.
+  * If the email address is already in database as a registered user, the user will be asked to enter a different email address. Also, a message will be shawn stating that there an existing account associated with the email address entered.
   * If the username has been taken, the user will need to enter a different username.
   * If the password does not meet the registration requirements, the user needs to re-enter a password that meets the requirements. Once the information meets the registration requirements, the user will be signed in and sent an activation email.
   * For admin account, if there happens to be another person with same name, a number will be added after last name.
