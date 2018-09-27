@@ -1,4 +1,4 @@
-## Casual Use Case Description
+## Iteration 1 Test Plan Description
 
 ### Registration
 
