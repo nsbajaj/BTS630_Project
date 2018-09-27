@@ -29,6 +29,9 @@ class RegistrationController extends Controller
     	//Validate the form
     	//Organization is optional
     	//Check if A-Z0-9, _ ,
+        //Admin username needs to be firstname.lastname
+        //5 tries for login
+        
         
     	$messages = [
     		'fname.required' => 'Please enter your first name.',
@@ -41,7 +44,9 @@ class RegistrationController extends Controller
     		'username.max' => 'Please enter a shorter username.',
             'username.unique' => 'The username entered is already being used. Please try again.',
 
-            'email.unique' => 'The email entered is already being used. Please try again.'
+            'email.unique' => 'The email entered is already being used. Please try again.',
+
+            'customCheck1.accepted' => 'You must agree to the Conditions of Use and Privacy Notice agreement in order to continue registration.'
 		];
 
     	$this->validate(request(), [
@@ -49,7 +54,8 @@ class RegistrationController extends Controller
     		'lname' => 'required|max:15',
     		'username' => 'required|unique:users|max:20',
     		'email' => 'required|email|unique:users',
-    		'password' => 'required|confirmed'
+    		'password' => 'required|confirmed',
+            'customCheck1' => 'accepted'
     	], $messages);
         
     	//Create and save the user

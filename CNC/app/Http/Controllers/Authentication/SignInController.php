@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use DateTime;
 use App\User;
+use Illuminate\Support\Facades\Input;
 
 class SignInController extends Controller
 {
@@ -33,9 +34,11 @@ class SignInController extends Controller
     	//Attemp to authenticate the user
         if(!Auth::check()){
         	if(!auth()->attempt(request(['email', 'password']))){
-        		$error = "Invalid username or password. Please try again.";
+        		$error = "Invalid email or password. Please try again.";
                 return view('authentication.signin')->with('error', $error);
+                //return redirect()->back()->withInput()->withErrors('Invalid email or password. Please try again.');
                 //return back();
+                //return \Redirect::back()->withInput(Input::all())->withErrors;
         	}
             $user = User::where('email', request('email'))->first();
             $now = new DateTime();

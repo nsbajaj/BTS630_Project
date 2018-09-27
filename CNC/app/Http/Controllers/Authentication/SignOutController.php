@@ -12,6 +12,6 @@ class SignOutController extends Controller
 		if(Auth::check()){
     		Auth::logout();
 	  	}
-	  	return view('service.index');	  	
+	  	return view('authentication.signin');
     }
 }

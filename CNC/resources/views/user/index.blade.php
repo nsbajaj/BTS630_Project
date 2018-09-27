@@ -22,6 +22,21 @@
 		@if(Auth::check() && Auth::user()->role_id == 1)
 		<div class="bs-docs-section">
 			<div class="row">
+				<div class="col-md-6 col-md-offset-3 ">
+					<ul class="nav nav-tabs">
+						<li class="nav-item">
+							<a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="tab" href="#profile">Profile</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link disabled" href="#">Disabled</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
 				<div class="col-lg-12">
 					<div class="page-header">
 						<h1 id="tables">Users</h1>

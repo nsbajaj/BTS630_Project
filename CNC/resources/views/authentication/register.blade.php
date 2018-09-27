@@ -113,14 +113,11 @@
 
                     <div class="col-md-12">
                         <input id="password" type="password" class="form-control" name="password" required>
-
-
                         <span class="invalid-feedback " style="display:block;" ><!-- Remove  display block -->
                             @if ($errors->has('password')) 
                             <strong>{{ $errors->first('password') }}</strong>
                             @endif
                         </span>
-
                     </div>
                 </div>
                 <div class="form-group">
@@ -128,9 +125,23 @@
 
                     <div class="col-md-12">
                         <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" required>
+                        <span class="invalid-feedback " style="display:block;" >
+                            @if ($errors->has('password_confirmation')) 
+                            <strong>{{ $errors->first('password_confirmation') }}</strong>
+                            @endif
+                        </span>
                     </div>
                 </div>
                 <div class="form-group">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                        <label class="custom-control-label" for="customCheck1">I agree to the Conditions of Use and Privacy Notice agreement.</label>
+                        <span class="invalid-feedback " style="display:block;" >
+                            @if ($errors->has('customCheck1')) 
+                            <strong>{{ $errors->first('customCheck1') }}</strong>
+                            @endif
+                        </span>
+                    </div>
                 </div>
                 <div class="form-group">
                     <div class="col-md-8 col-md-offset-4">

@@ -36,11 +36,15 @@ Route::get('/users/{user}', 'User\UserController@showAccount');
 //Update Accounts
 Route::get('/users/edit/{user}', 'User\UserController@updateAccount');
 
-//Update Accounts
+//Delete Accounts
 Route::get('/users/delete/{user}', 'User\UserController@deleteAccount');
 
 //Main Page after logging in
 Route::get('/', 'Service\ServiceController@show');
+
+//Forgot Password
+Route::get('/forgotpassword', 'Authentication\ForgotPassword@show');
+Route::post('/forgotpassword', 'Authentication\ForgotPassword@sendEmail');
 
 //Implement 403/404 pages
 //Refill form values if error
