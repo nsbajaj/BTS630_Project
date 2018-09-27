@@ -31,3 +31,8 @@
   
 * **Alternate Flow**
   * If the user clicks "Cancel" on prompted message box, the user needs to sign out manually and the tab/window woould not be closed.
+
+
+## Iteration 1 Class Diagram
+
+![](images/iteration.jpg)
