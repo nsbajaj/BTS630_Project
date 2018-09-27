@@ -35,4 +35,4 @@
 
 ## Iteration 1 Class Diagram
 
-![](../images/iteration.jpg)
+![](images/iteration1.jpg)
