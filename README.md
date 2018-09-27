@@ -184,4 +184,6 @@ Below are the prototypes we plan to deliver thorugh four iterations:
  * Sign out functionality will be created and tested
  
 ### Completed:
- * (...)
+ * Framework, Templates and CSS 
+ * Sign Page and authentication works
+ * Registration page and Registration works
