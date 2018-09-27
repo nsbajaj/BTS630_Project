@@ -12,7 +12,7 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
-    <a class="navbar-brand" href="#">CNC</a>
+    <a class="navbar-brand" href="{{ url('/') }}">CNC</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -20,18 +20,20 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="{{ url('/') }}">Home<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
+          <a class="nav-link" href="#">Products</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
+        @if(Auth::check() && Auth::user()->role_id == 1)
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('/users') }}">Users</a>
+          </li>
+        @endif
         <li class="nav-item">
           <a class="nav-link" href="#">About</a>
         </li>
-        @if(Auth::check() && !empty(Auth::user()->first_name))
+        @if(Auth::check() && !empty(Auth::user()->first_name) && !empty(Auth::user()->last_name))
           <li class="nav-item">
             <a class="nav-link" id="flagsign" href="{{ url('/signout') }}">Sign out, {{ Auth::user()->first_name }}</a>
           </li>
@@ -39,6 +41,11 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ url('/signin') }}">Sign in</a>
           </li>
+        @endif
+        @if(!Auth::check())
+          <li class="nav-item">
+          <a class="nav-link" href="{{ url('/register') }}">Register</a>
+        </li>
         @endif
       </ul>
       <form class="form-inline my-2 my-lg-0">

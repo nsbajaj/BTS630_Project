@@ -13,7 +13,7 @@ use Redirect;
 
 class RegistrationController extends Controller
 {
-    public function  showAccount(){
+    public function showAccount(){
         if(!Auth::check()){
     	   return view('authentication.register');
         }
@@ -49,15 +49,16 @@ class RegistrationController extends Controller
             'customCheck1.accepted' => 'You must agree to the Conditions of Use and Privacy Notice agreement in order to continue registration.'
 		];
 
-    	$this->validate(request(), [
+        $this->validate(request(), [
     		'fname' => 'required|max:15',
     		'lname' => 'required|max:15',
     		'username' => 'required|unique:users|max:20',
     		'email' => 'required|email|unique:users',
     		'password' => 'required|confirmed',
-            'customCheck1' => 'accepted'
+            
     	], $messages);
-        
+        //'customCheck1' => 'accepted'
+
     	//Create and save the user
     	$user = new User;
 

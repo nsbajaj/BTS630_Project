@@ -32,7 +32,7 @@ class CreateUsersTable extends Migration
             $table->datetime('last_signin');
             
             $table->datetime('activation_datetime')->nullable()->default(null);
-            $table->integer('unsuccessful_attempt')->nullable();
+            $table->integer('unsuccessful_signin_attempt')->nullable();
 
             $table->rememberToken();
             $table->timestamps();

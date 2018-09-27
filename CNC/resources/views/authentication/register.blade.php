@@ -134,7 +134,11 @@
                 </div>
                 <div class="form-group">
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                        <input type="checkbox" class="custom-control-input" id="customCheck1" 
+                            @if(old('customCheck1')) == "checked"
+                                checked 
+                            @endif
+                        >
                         <label class="custom-control-label" for="customCheck1">I agree to the Conditions of Use and Privacy Notice agreement.</label>
                         <span class="invalid-feedback " style="display:block;" >
                             @if ($errors->has('customCheck1')) 
