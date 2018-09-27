@@ -26,7 +26,7 @@
 ### Sign Out
 
 * **Main Success Scenario**
-  * If the user clicks on the “Sign out” button to sign out, the user will be sign out and the user will be redirected to Sign In page.
+  * If the user clicks on the “Sign out” button, the user will be sign out and the user will be redirected to Sign In page.
   * If the user forgets to sign out, or if the user tries to close the tab/window, they will be prompted with a message box stating that they will be signed out once they press “OK” and that they’ve acknowledged that. If they press “Cancel”, it will simply close the message box.
   
 * **Alternate Flow**
