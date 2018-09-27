@@ -189,3 +189,4 @@ Below are the prototypes we plan to deliver thorugh four iterations:
  * Sign Page and authentication works
  * Sign out functionality works
  * Database created and stores the user information
+ * Successfully sends out a welcome email to new registered users -- using Mailhog
