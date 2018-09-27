@@ -1,5 +1,5 @@
 
-	
+	/*
 $(document).ready(function(){
 		  $(window).on('beforeunload', function(){
 			 	if($("#flagsign").length > 0)
@@ -7,4 +7,4 @@ $(document).ready(function(){
 			  	else
 					return "";
            });
-		});
+		});*/
