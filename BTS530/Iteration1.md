@@ -4,10 +4,10 @@
 
 * **Main Success Scenario**
   * The user will be prompted for an email address and username, which will be used for identification such as logging in, password resets and support. (Email address and Username has to be unique)
-  * Password, confirm password, and Address field must meet the requirements. Phone Number (optional), and PayPal connection, which can be updated later in settings.
+  * Password and confirm password must meet the requirements.
   * The user must accept the Conditions of Use and Privacy Notice agreement in order to create an account. 
   * Once the information entered meets the registration requirements, the user will be signed in, and an activation/verification email will be sent in order to confirm their identity/account, which will then allow them to purchase/sell products.
-  * The admin level account must be created through another admin. A username will be their “firstname.lastname”.  A temporary password will also be generated for them, which they can change later. Admin account does not require activation. An email will be created for admin and email will use john.doe@companyname.com naming convention.
+  * The admin level account must be created through another admin. A username will be their “firstname.lastname”.  A temporary password will also be generated for them, which they can change later. Admin account does not require activation.
 
 * **Alternate Flow**
   * If the email address is already in database as a registered user, the user will be asked to enter a different email address. Also, a message will be shawn stating that there an existing account associated with the email address entered.
