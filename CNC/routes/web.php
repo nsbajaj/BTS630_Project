@@ -11,9 +11,11 @@
 |
 */
 
+/*
 Route::get('/', function () {
     return view('welcome');
 });
+*/
 
 //Registration
 Route::get('/register', 'Authentication\RegistrationController@showAccount');
@@ -34,8 +36,11 @@ Route::get('/users/{user}', 'User\UserController@showAccount');
 //Update Accounts
 Route::get('/users/edit/{user}', 'User\UserController@updateAccount');
 
+//Update Accounts
+Route::get('/users/delete/{user}', 'User\UserController@deleteAccount');
+
 //Main Page after logging in
-Route::get('/index', 'Service\ServiceController@show');
+Route::get('/', 'Service\ServiceController@show');
 
 //Implement 403/404 pages
 //Refill form values if error

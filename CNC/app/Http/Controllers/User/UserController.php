@@ -31,4 +31,8 @@ class UserController extends Controller
     public function updateAccount(User $user){
     	dd($user);
     }
+
+    public function deleteAccount(User $user){
+
+    }
 }

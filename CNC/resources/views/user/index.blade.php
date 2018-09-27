@@ -25,6 +25,7 @@
 				<div class="col-lg-12">
 					<div class="page-header">
 						<h1 id="tables">Users</h1>
+						<a href="{{ url('/register') }}"><button type="button" class="btn btn-primary">Create New User</button></a>
 					</div>
 					<div class="bs-component">
 						<table class="table table-hover">

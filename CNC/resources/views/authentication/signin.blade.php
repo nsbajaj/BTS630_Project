@@ -31,25 +31,22 @@
                 <label for="email" class="col-md-6 control-label">E-Mail Address</label>
 
                 <div class="col-md-12">
-                  <input id="email" type="email" class="form-control" name="email" value="" required autofocus>
-
-
-                  <span class="invalid-feedback" style="display:block;" ><!-- Remove  display block -->
-                    <strong>Field has Errors</strong>
+                  <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                  <span class="invalid-feedback" style="display:block;" >
                   </span>
                 </div>
               </div>
               <div class="form-group">
                 <label for="password" class="col-md-6 control-label">Password</label>
-
                 <div class="col-md-12">
                   <input id="password" type="password" class="form-control" name="password" required>
-
-
-                  <span class="invalid-feedback " style="display:block;" ><!-- Remove  display block -->
-                    <strong>Field has Errors </strong>
+                  <span class="invalid-feedback " style="display:block;" >
+                  
+                  @if(!empty($error))
+                    <strong>{{ $error }}</strong>  
+                  @endif
+                  
                   </span>
-
                 </div>
               </div>
               <div class="form-group">

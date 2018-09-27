@@ -27,64 +27,84 @@
 </head>
 
 <body>
-	@section('content')
-	<div class="container">
-		@if(Auth::check() && Auth::user()->role_id == 1)
-		<div class="bs-docs-section">
-			<div class="row">
-				<div class="col-md-6 col-md-offset-3 ">
-					<ul class="nav nav-tabs">
-						<li class="nav-item">
-							<a class="nav-link active" data-toggle="tab" href="#home">Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" data-toggle="tab" href="#profile">Profile</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link disabled" href="#">Disabled</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-md-6 col-md-offset-3 ">
-					<div class="panel panel-default ">
-						<div class="panel-heading text-center">
-							<h1>user</h1>
-						</div>
-						<div class="panel-body">
+@section('content')
+<div class="container">
+	@if(Auth::check() && Auth::user()->role_id == 1)
+	<div class="bs-docs-section">
+		<div class="row justify-content-center">
+			<div class="col-md-5 col-md-offset-3">
+				<div class="panel panel-default ">
+					<div class="panel-heading text-center">
+						<h1>user</h1>
+					</div>
+					<div class="panel-body">
 
-							@if(!empty($user))
-							<!--<form class="form-horizontal" method="POST" action="">-->
-							<div class="form-group">
-								<label for="name" class="col-md-6 control-label">User Name</label>{{ $user->first_name . ' ' . $user->last_name }}</div>
-
-							<div class="form-group">
-								<label for="username" class="col-md-6 control-label">Username</label>{{ $user->username }}</div>
-
-							<div class="form-group">
-								<label for="email" class="col-md-6 control-label">Email</label>{{ $user->email }}
-							</div>
-
-							<div class="form-group">
-								<label for="role" class="col-md-6 control-label">Role</label>
-								@if($user->role_id === 1)
-								Administrator
-								@elseif($user->role_id == 2)
-								Buyer
-								@elseif($user->role_id == 3)
-								Seller
-								@endif
-							</div>
-							<!-- form-->
+						@if(!empty($user))
+						<!--<form class="form-horizontal" method="POST" action="">-->
+						<div class="form-group">
+							<label for="name" class="col-md-6 control-label">Name:</label>
+							@if(!empty($user->first_name) && !empty($user->last_name))
+								{{ $user->first_name . ' ' . $user->last_name }}
 							@endif
-
 						</div>
+						
+						<div class="form-group">
+							<label for="username" class="col-md-6 control-label">Username:</label>
+							@if(!empty($user->username))
+								{{ $user->username }}</div>
+							@endif
+						<div class="form-group">
+							<label for="email" class="col-md-6 control-label">Email:</label>
+							@if(!empty($user->username))
+								{{ $user->email }}
+							@endif
+						</div>
+						<div class="form-group">
+							<label for="role" class="col-md-6 control-label">Role:</label>
+							@if(!empty($user->role_id))
+								@if($user->role_id === 1)
+									Administrator
+								@elseif($user->role_id == 2)
+									Buyer
+								@elseif($user->role_id == 3)
+									Seller
+								@endif
+							@endif
+						</div>
+						<div class="form-group">
+							<label for="account_join_date" class="col-md-6 control-label">Join Date:</label>
+							@if(!empty($user->account_join_date))
+								{{ $user->account_join_date }}
+							@endif
+						</div>
+						<div class="form-group">
+							<label for="account_delete_date" class="col-md-6 control-label">Delete Date:</label>
+							@if(!empty($user->account_delete_date))
+								{{ $user->account_delete_date }}
+							@endif
+						</div>
+						<div class="form-group">
+							<label for="last_signin" class="col-md-6 control-label">Last Sign in:</label>
+							@if(!empty($user->last_signin))
+								{{ $user->last_signin }}
+							@endif
+						</div>
+						<div class="form-group">
+							<label for="activation_datetime" class="col-md-6 control-label">Activation Date and time:</label>
+							@if(!empty($user->activation_datetime))
+								{{ $user->activation_datetime }}
+							@endif
+						</div>
+						<a href="/CNC/public/users/edit/{{ $user->user_id}}"><button type="button" class="btn btn-primary">Edit Account</button></a>
+						<button type="button" class="btn btn-primary">Delete Account</button>
+						<!-- form-->
+						@endif
 					</div>
 				</div>
 			</div>
 		</div>
-		@endif
 	</div>
+	@endif
+</div>
 
-	@endsection
+@endsection

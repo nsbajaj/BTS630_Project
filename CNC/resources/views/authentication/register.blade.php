@@ -44,7 +44,7 @@
                             <div class="form-group">
                                 <label for="fname" class="col-md-6 control-label">First Name</label>
                                 <div class="col-md-12">
-                                    <input id="fname" type="text" class="form-control" name="fname" value="" required autofocus>
+                                    <input id="fname" type="text" class="form-control" name="fname" value="{{ old('fname') }}" required autofocus>
                                     <span class="invalid-feedback" style="display:block;" >
                                         @if ($errors->has('fname')) 
                                             <strong>{{ $errors->first('fname') }}</strong>
@@ -56,8 +56,7 @@
                                 <label for="lname" class="col-md-6 control-label">Last Name</label>
 
                             <div class="col-md-12">
-                            <input id="lname" type="text" class="form-control" name="lname" value="" required autofocus>
-
+                            <input id="lname" type="text" class="form-control" name="lname" value="{{ old('lname') }}" required autofocus>
 
                             <span class="invalid-feedback" style="display:block;" ><!-- Remove  display block -->
                                 @if ($errors->has('lname')) 
@@ -68,15 +67,15 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="uname" class="col-md-6 control-label">Username</label>
+                        <label for="username" class="col-md-6 control-label">Username</label>
 
                         <div class="col-md-12">
-                            <input id="uname" type="text" class="form-control" name="uname" value="" required autofocus>
+                            <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus>
 
 
                             <span class="invalid-feedback" style="display:block;" ><!-- Remove  display block -->
-                              @if ($errors->has('uname')) 
-                              <strong>{{ $errors->first('uname') }}</strong>
+                              @if ($errors->has('username')) 
+                              <strong>{{ $errors->first('username') }}</strong>
                               @endif
                           </span>
                       </div>
@@ -85,7 +84,7 @@
                     <label for="organization" class="col-md-6 control-label">Organization</label>
 
                     <div class="col-md-12">
-                        <input id="organization" type="text" class="form-control" name="organization" value="" autofocus>
+                        <input id="organization" type="text" class="form-control" name="organization" value="{{ old('organization') }}" placeholder="Optional" autofocus>
 
 
                         <span class="invalid-feedback" style="display:block;" ><!-- Remove  display block -->
@@ -99,10 +98,9 @@
                     <label for="email" class="col-md-6 control-label">E-Mail Address</label>
 
                     <div class="col-md-12">
-                        <input id="email" type="email" class="form-control" name="email" value="" required autofocus>
+                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
 
-
-                        <span class="invalid-feedback" style="display:block;" ><!-- Remove  display block -->
+                        <span class="invalid-feedback" style="display:block;" >
                             @if ($errors->has('email')) 
                             <strong>{{ $errors->first('email') }}</strong>
                             @endif
@@ -130,12 +128,6 @@
 
                     <div class="col-md-12">
                         <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" required>
-
-
-                        <span class="invalid-feedback " style="display:block;" ><!-- Remove  display block -->
-                            <strong>Field has Errors </strong>
-                        </span>
-
                     </div>
                 </div>
                 <div class="form-group">

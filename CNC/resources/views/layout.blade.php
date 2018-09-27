@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
   <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
-
+  <link href="{{ asset('css/updatecss.css') }}" rel="stylesheet">
 </head>
 <body>
   <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
@@ -18,25 +18,33 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="{{ url('/') }}">Home<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
+          <a class="nav-link" href="#">Products</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
+        @if(Auth::check() && Auth::user()->role_id == 1)
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('/users') }}">Users</a>
+          </li>
+        @endif
         <li class="nav-item">
           <a class="nav-link" href="#">About</a>
         </li>
-        @if(Auth::check() && !empty(Auth::user()->first_name))
+        @if(Auth::check() && !empty(Auth::user()->first_name) && !empty(Auth::user()->last_name))
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url('/signout') }}">Sign out, {{ Auth::user()->first_name . ' ' . Auth::user()->last_name }}</a>
+        </li>
+        @endif
+        @if(!Auth::check())
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url('/signin') }}">Sign in</a>
+        </li>
+        @endif
+        @if(!Auth::check())
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('/signout') }}">Sign out, {{ Auth::user()->first_name }}</a>
-          </li>
-        @elseif(!Auth::check())
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url('/signin') }}">Sign in</a>
-          </li>
+          <a class="nav-link" href="{{ url('/register') }}">Register</a>
+        </li>
         @endif
       </ul>
       <form class="form-inline my-2 my-lg-0">
@@ -46,7 +54,6 @@
     </div>
   </nav>
   @yield('content')
-
 
   <footer class="section footer-classic context-dark bg-image" >
     <div class="container">

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Authentication;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
+use DateTime;
+use App\User;
 
 class SignInController extends Controller
 {
@@ -18,10 +20,10 @@ class SignInController extends Controller
         }
         else{
             //Change page to Admin Dashboard
-            if(Auth::user()->role_id == 1){
+            if(Auth::check() && Auth::user()->role_id == 1){
                 return view('service.index');
             }
-            else{
+            else if(Auth::check() && Auth::user()->role_id >= 2){
                 return view('service.index');
             }
         }
@@ -31,9 +33,15 @@ class SignInController extends Controller
     	//Attemp to authenticate the user
         if(!Auth::check()){
         	if(!auth()->attempt(request(['email', 'password']))){
-        		return back();
+        		$error = "Invalid username or password. Please try again.";
+                return view('authentication.signin')->with('error', $error);
+                //return back();
         	}
-    	   return view('service.index');
+            $user = User::where('email', request('email'))->first();
+            $now = new DateTime();
+            $user->last_signin = $now;
+            $user->save();
+            return view('service.index');
         }
         else{
             //Change page to Admin Dashboard

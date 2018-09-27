@@ -25,12 +25,13 @@
 	                    <div class="panel-heading text-center">
 	                    	@if(Auth::check() && !empty(Auth::user()->first_name) && !empty(Auth::user()->last_name))
 	                    		<h1>Welcome, {{ Auth::user()->first_name . ' ' . Auth::user()->last_name }}</h1></div>
+	                    	@elseif(!Auth::check())
+	                    		<h1>Welcome</h1>
 	                    	@endif
 	    			</div>
 				</div>
 			</div>
 		</div>
 	@endsection
-
 </body>
 </html>

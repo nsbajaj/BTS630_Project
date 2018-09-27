@@ -29,8 +29,10 @@ class CreateUsersTable extends Migration
 
             $table->datetime('account_join_date');
             $table->datetime('account_delete_date')->nullable()->default(null);
-            $table->datetime('last_login');
+            $table->datetime('last_signin');
             
+            $table->datetime('activation_datetime')->nullable()->default(null);
+
             $table->rememberToken();
             $table->timestamps();
         });
