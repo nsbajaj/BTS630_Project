@@ -18,14 +18,10 @@
 ### Sign In
 
 * **Main Success Scenario**
-  * The user will be prompted, for a username/email and a password. Once the user has been successfully authenticated and the account is not locked/suspended, the user will be redirected to the front page.
-  * The user will be redirected to the dashboard, if it is an admin.
-  * If the user is unable to sign in after five tries, they will be suggested to try clicking on “Forgot your Password?”
-  * If the user has forgotten the password: Click the “Forgot password?” link and they will be prompted to enter their email. An email will be sent containing a reset link. Once the password has been reset, the buyer will be signed in.
+  * The user will be prompted, for a email and a password. Once the user has been successfully authenticated and the account is not locked/suspended, the user will be redirected to the front page.
   
 * **Alternate Flow**
-  * If the user fails to authenticate with the username/email and a password, it will prompt to re-enter the username/email and password.
-  * On forgot password page, If the user enters an invalid email or if its not in the database, then the user will be asked to re-enter the email.
+  * If the user fails to authenticate with the email and a password, it will prompt to re-enter the email and password.
   
 ### Sign Out
 
