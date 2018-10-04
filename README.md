@@ -190,3 +190,11 @@ Below are the prototypes we plan to deliver thorugh four iterations:
  * Sign out functionality works
  * Database created and stores the user information
  * Successfully sends out a welcome email to new registered users -- using Mailhog
+ 
+## Iteration 2 Tasks
+### To do:
+ * Assigning permission from database, rather doing it proagrammatically
+ * Forgot Password feature will be available
+ * Javascript Velidation for forms
+ * All the user will be able to manage their accounts
+ * Adding Product (for seller & admin), Approving Product (for admin) and Viewing Product (for buyers) features will be available
