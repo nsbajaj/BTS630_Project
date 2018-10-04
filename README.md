@@ -195,6 +195,6 @@ Below are the prototypes we plan to deliver thorugh four iterations:
 ### To do:
  * Assigning permission from database, rather doing it proagrammatically
  * Forgot Password feature will be available
- * Javascript Velidation for forms
+ * Javascript Validation for forms
  * All the user will be able to manage their accounts
  * Adding Product (for seller & admin), Approving Product (for admin) and Viewing Product (for buyers) features will be available
