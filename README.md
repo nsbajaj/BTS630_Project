@@ -193,7 +193,7 @@ Below are the prototypes we plan to deliver thorugh four iterations:
  
 ## Iteration 2 Tasks
 ### To do:
- * Assigning permission from database, rather doing it proagrammatically
+ * Moving user permissions to database, rather doing it programmatically
  * Forgot Password feature will be available
  * Javascript Validation for forms
  * All the user will be able to manage their accounts
