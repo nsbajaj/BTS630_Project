@@ -196,6 +196,7 @@ Below are the prototypes we plan to deliver thorugh four iterations:
  * Forgot Password feature will be available
  * Javascript Validation for forms
  * All the user will be able to manage their accounts
+ * Debug Agreement checkbox at registration.
 
 ### Completed:
  * Javascripts validates the form.
