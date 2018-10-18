@@ -77,7 +77,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="price" class="col-md-6 control-label">price</label>
+                            <label for="price" class="col-md-6 control-label">Price</label>
 
                             <div class="col-md-12">
                                 <input id="price" type="text" class="form-control" name="price" value="" required autofocus>
@@ -105,7 +105,21 @@
 
                             <div class="col-md-12">
                                
-                                <input id="picture" type="text" class="form-control" name="picture" value="" required autofocus>
+								    <label class="btn btn-primary btn-file">
+        Browse <input id="picture" type="file" class="form-control" name="picture" style="display: none;">
+    </label>
+                               
+                                    <span class="invalid-feedback"  ><!-- Remove  display block -->
+                                        <strong>Field has Errors</strong>
+                                    </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="stock" class="col-md-6 control-label">Stock</label>
+
+                            <div class="col-md-12">
+                               
+                                <input  id="stock" type="text" class="form-control" name="stock" value="" required autofocus>
 
                                
                                     <span class="invalid-feedback"  ><!-- Remove  display block -->
@@ -117,7 +131,7 @@
                           <label for="model" class="col-md-6 control-label">Model Or Colors</label>
                           <ul id="modelsAvailable"></ul>
                            <div class="row">
-                               		<div class="col-md-8">
+                               		<div class="col-md-6">
                                			<input id="text" type="model" class="form-control" name="model" value=""  autofocus>
 
                                
@@ -125,7 +139,10 @@
                                         <strong>Field has Errors</strong>
                                     </span>
                                		</div>
-                               		<div class="col-md-4"><button id="addOption" class="btn btn-primary">
+                               		<div class="col-md-3">
+                               			 <input id="modelPrice" placeholder="Price increase" type="text" class="form-control" name="modelPrice" >
+							   		</div>
+                               		<div class="col-md-3"><button id="addOption" class="btn btn-primary">
                                     Add Model
                                 </button></div>
                                	
@@ -136,7 +153,7 @@
                            <label for="Eoption" class="col-md-6 control-label">Other Options</label>
                           <ul id="optionsAvailable"></ul>
                            <div class="row">
-                               		<div class="col-md-8">
+                               		<div class="col-md-6">
                                			 <input id="Eoption" type="text" class="form-control" name="Eoption" >
 
                                
@@ -144,7 +161,10 @@
                                         <strong>Field has Errors</strong>
                                     </span>
                                		</div>
-                               		<div class="col-md-4"><button id="addEOption" class="btn btn-primary">
+                               		<div class="col-md-3">
+                               			 <input id="EoptionPrice" placeholder="Price Increase" type="text" class="form-control" name="EoptionPrice" >
+							   		</div>
+                               		<div class="col-md-3"><button id="addEOption" class="btn btn-primary">
                                     Add Optionals
                                 </button></div>
                                	
