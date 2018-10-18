@@ -201,6 +201,6 @@ Below are the prototypes we plan to deliver thorugh four iterations:
 
 ### Completed:
  * Javascripts validates the form.
- * User can manage their account (change firstname, lastname) -- ADMINS ONLY
+ * Users can manage their account (change firstname, lastname) -- ADMINS ONLY
  * Debug Agreement checkbox verification works partially at registration
- * View Product(s) page is up and working (Users can't access for now)
+ * View Product(s) page/template is up and working (Users can't access for now)
