@@ -10,3 +10,8 @@
   * **Alternate Flow**
      * If the user is not loged in as an admin, then the user cannot access all the users' information page. User needs to sign in with the admin credintials.
      * If the change does not meet the requirements, then the user will need to re enter the information.
+
+
+## Iteration 2 Class Diagram
+
+![](../images/iteration2.png)
