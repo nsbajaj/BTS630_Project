@@ -202,3 +202,4 @@ Below are the prototypes we plan to deliver thorugh four iterations:
  * Javascripts validates the form.
  * All the user can manage their account (update/change firstname, lastname, email)
  * Debug Agreement checkbox verification works partially at registration
+ * View Product(s) page is up and working (Users can't access for now)
