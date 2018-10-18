@@ -193,10 +193,14 @@ Below are the prototypes we plan to deliver thorugh four iterations:
  
 ## Iteration 2 Tasks
 ### To do:
- * Moving user permissions to database, rather doing it programmatically
  * Forgot Password feature will be available
  * Javascript Validation for forms
  * All the user will be able to manage their accounts
- * Adding Product (for seller & admin), Approving Product (for admin) and Viewing Product (for buyers) features will be available
  * Debug Agreement checkbox at registration.
- * Debug Sign in Error Messages and repopulate form.
+ * Adding Product (for seller & admin), Approving Product (for admin) and Viewing Product (for buyers) features will be available
+
+### Completed:
+ * Javascripts validates the form.
+ * User can manage their account (change firstname, lastname) -- ADMINS ONLY
+ * Debug Agreement checkbox verification works partially at registration
+ * View Product(s) page is up and working (Users can't access for now)
