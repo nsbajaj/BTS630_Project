@@ -79,28 +79,39 @@
 							</select>
 
 						</div>
-						<div>
-							<p>price : <span> $10.00</span></p>
-						</div>
+						
 						<div>
 							<p>shipping</p>
-							<select class="form-control" id="exampleSelect1">
-								<option>Normal 10</option>
-								<option>Fast 15.50</option>
-								<option>Superfast 20</option>
-								
-								
+							<select class="form-control" id="Shipping">
+								<option value="10">Normal 10</option>
+								<option value="15.50">Fast 15.50</option>
+								<option value="20">Super Fast 20</option>
 							</select>
 						</div>
 						<div>
-							<p> extra options </p>
-							<select class="form-control" id="exampleSelect2" multiple="">
-								<option>Sugar +1</option>
-								<option>Extra syrup +3</option>							
+							<p> Optional extras</p>
+							<select class="form-control" id="Options" >
+								<option value=0>No extra</option>
+								<option value="3">Sugar +3</option>
+								<option value="1">Extra syrup +1</option>							
 							</select>
 						</div>
 						<div>
-							<p> Options</p>
+							<p> Quantity</p>
+							<select class="form-control" id="Quantity" >
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>							
+							</select>
+						</div>
+						<div>
+							<ul>
+								<li>shipping : $<span id="shiplabel">10.00</span></li>
+								<li>price :<span id="quantalabel">1</span> $<span id="pricelabel">10.00</span></li>
+								<li>subtotal : $<span id="sublabel">20.00</span></li>
+							</ul>
+							
+						
 							 <button type="submit" class="btn btn-primary">
                                     Add To Cart
                                 </button>

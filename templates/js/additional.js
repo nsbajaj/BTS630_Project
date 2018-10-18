@@ -16,7 +16,28 @@ $(document).ready(function () {
 			return retval;
 	});
 	$(".Product #Model").on('change', function(){
-		$("#prodImg").attr("src", "img/"+$(".Product #Model").val()+".jpg")
+		$("#prodImg").attr("src", "img/"+$(".Product #Model").val()+".jpg");
+		var newprice = (10.00+(.25*(parseFloat($(".Product #Model").val())-1)))+parseFloat($(".Product #Options").val());//test  variable prices
+		$("#pricelabel").text(+newprice);
+		var newsubtotal = (parseFloat($(".Product #Quantity").val())*( 10.00+((.25*(parseFloat($(".Product #Model").val())-1))) ))+parseFloat( $(".Product #Shipping").val())  + parseFloat($(".Product #Options").val());
+		$("#sublabel").text(newsubtotal);
+	});
+	$(".Product #Shipping").on('change', function(){
+		var newprice = $(".Product #Shipping").val();//test  variable prices
+		$("#shiplabel").text(newprice);
+		var newsubtotal = (parseFloat($(".Product #Quantity").val())*( 10.00+((.25*(parseFloat($(".Product #Model").val())-1))) ))+parseFloat( $(".Product #Shipping").val())  + parseFloat($(".Product #Options").val());
+		$("#sublabel").text(newsubtotal);
+	});
+	$(".Product #Options").on('change', function(){
+	var newprice = ( 10.00+((.25*($(".Product #Model").val()-1))))+parseFloat($(".Product #Options").val());//test  variable prices
+		$("#pricelabel").text(newprice);
+		var newsubtotal = (parseFloat($(".Product #Quantity").val())*( 10.00+((.25*(parseFloat($(".Product #Model").val())-1))) ))+parseFloat( $(".Product #Shipping").val())  + parseFloat($(".Product #Options").val());
+		$("#sublabel").text(newsubtotal);
+	});
+	$(".Product #Quantity").on('change', function(){
+		$("#quantalabel").text($(".Product #Quantity").val());
+		var newsubtotal = (parseFloat($(".Product #Quantity").val())*( 10.00+((.25*(parseFloat($(".Product #Model").val())-1))) ))+parseFloat( $(".Product #Shipping").val())  + parseFloat($(".Product #Options").val());
+		$("#sublabel").text(newsubtotal);
 	});
 	$(".register form-group form").on('submit', function(){
 	});
