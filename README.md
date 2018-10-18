@@ -198,5 +198,8 @@ Below are the prototypes we plan to deliver thorugh four iterations:
  * Javascript Validation for forms
  * All the user will be able to manage their accounts
  * Adding Product (for seller & admin), Approving Product (for admin) and Viewing Product (for buyers) features will be available
- * Debug Agreement checkbox at registration.
- * Debug Sign in Error Messages and repopulate form.
+
+### Completed:
+ * Moved user permissions to database.
+ * Javascripts validates the form.
+ * All the user can manage their account (update/change firstname, lastname, email)
