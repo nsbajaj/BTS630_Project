@@ -193,13 +193,11 @@ Below are the prototypes we plan to deliver thorugh four iterations:
  
 ## Iteration 2 Tasks
 ### To do:
- * Moving user permissions to database, rather doing it programmatically
  * Forgot Password feature will be available
  * Javascript Validation for forms
  * All the user will be able to manage their accounts
  * Adding Product (for seller & admin), Approving Product (for admin) and Viewing Product (for buyers) features will be available
 
 ### Completed:
- * Moved user permissions to database.
  * Javascripts validates the form.
  * All the user can manage their account (update/change firstname, lastname, email)
