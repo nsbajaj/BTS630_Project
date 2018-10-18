@@ -201,3 +201,4 @@ Below are the prototypes we plan to deliver thorugh four iterations:
 ### Completed:
  * Javascripts validates the form.
  * All the user can manage their account (update/change firstname, lastname, email)
+ * Debug Agreement checkbox verification works partially at registration
