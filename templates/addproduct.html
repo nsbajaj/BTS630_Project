@@ -104,6 +104,7 @@
                             <label for="picture" class="col-md-6 control-label">Picture</label>
 
                             <div class="col-md-12">
+                               
                                 <input id="picture" type="text" class="form-control" name="picture" value="" required autofocus>
 
                                
@@ -113,35 +114,43 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="model" class="col-md-6 control-label">Model Or Colors</label>
+                          <label for="model" class="col-md-6 control-label">Model Or Colors</label>
+                          <ul id="modelsAvailable"></ul>
+                           <div class="row">
+                               		<div class="col-md-8">
+                               			<input id="text" type="model" class="form-control" name="model" value=""  autofocus>
 
-                            <div class="col-md-12">
-                                <input id="text" type="model" class="form-control" name="model" value=""  autofocus>
-<button id="add option" class="btn btn-primary">
-                                    Add Model
-                                </button>
                                
                                     <span class="invalid-feedback"  ><!-- Remove  display block -->
                                         <strong>Field has Errors</strong>
                                     </span>
-                            </div>
+                               		</div>
+                               		<div class="col-md-4"><button id="addOption" class="btn btn-primary">
+                                    Add Model
+                                </button></div>
+                               	
+                               </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="Eoption" class="col-md-6 control-label">Extra</label>
+                       <div class="form-group">
+                           <label for="Eoption" class="col-md-6 control-label">Other Options</label>
+                          <ul id="optionsAvailable"></ul>
+                           <div class="row">
+                               		<div class="col-md-8">
+                               			 <input id="Eoption" type="text" class="form-control" name="Eoption" >
 
-                            <div class="col-md-12">
-                                <input id="Eoption" type="text" class="form-control" name="Eoption" >
-<button id="add option" class="btn btn-primary">
-                                    Add Option
-                                </button>
-                                
-                                    <span class="invalid-feedback "  ><!-- Remove  display block -->
-                                        <strong>Field has Errors </strong>
+                               
+                                    <span class="invalid-feedback"  ><!-- Remove  display block -->
+                                        <strong>Field has Errors</strong>
                                     </span>
-                                
-                            </div>
+                               		</div>
+                               		<div class="col-md-4"><button id="addEOption" class="btn btn-primary">
+                                    Add Optionals
+                                </button></div>
+                               	
+                               </div>
                         </div>
+                        
 						
  <div class="form-group">
                           
