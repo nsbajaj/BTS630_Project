@@ -11,11 +11,12 @@
      * If the user is not loged in as an admin, then the user cannot access all the users' information page. User needs to sign in with the admin credintials.
      * If the change does not meet the requirements, then the user will need to re enter the information.
 
-### Viewing Product Page
+### Viewing Product Page (Template)
   * **Main Success Scenario**
-     * The
+     * User can view a product and select different variations for example, different colors, different types, etc.
+     * user can choose the quantity that they want to purchase. As well as multiple options for shipping the product.
   * **Alternate Flow**
-     * The other way
+     * If the product does not exist, it will prompt message that the product does not exist.
 
 ## Iteration 2 Class Diagram
 
