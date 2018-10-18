@@ -14,4 +14,4 @@
 
 ## Iteration 2 Class Diagram
 
-![](../images/iteration2.png)
+![](../images/Iteration2.png)
