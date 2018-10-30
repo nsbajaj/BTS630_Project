@@ -45,18 +45,17 @@ class RegistrationController extends Controller
 
             'email.unique' => 'The email entered is already being used. Please try again.',
 
-            'customCheck1.accepted' => 'You must agree to the Conditions of Use and Privacy Notice agreement in order to continue registration.'
+            'customCheck1.required' => 'You must agree to the Conditions of Use and Privacy Notice agreement in order to continue registration.'
 		];
-
+        
         $this->validate(request(), [
     		'fname' => 'required|max:15',
     		'lname' => 'required|max:15',
     		'username' => 'required|unique:users|max:20',
     		'email' => 'required|email|unique:users',
     		'password' => 'required|confirmed',
-            
+            'customCheck1' => 'required'
     	], $messages);
-        //'customCheck1' => 'accepted'
 
     	//Create and save the user
     	$user = new User;

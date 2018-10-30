@@ -41,10 +41,11 @@
                                 </div>
                             </div>
                             @endif
+                            
                             <div class="form-group">
                                 <label for="fname" class="col-md-6 control-label">First Name</label>
                                 <div class="col-md-12">
-                                    <input id="fname" type="text" class="form-control" name="fname" value="{{ old('fname') }}" required autofocus>
+                                    <input id="fname" type="text" class="form-control" name="fname" value="{{ old('fname') }}" autofocus>
                                     <span class="invalid-feedback" style="display:block;" >
                                         @if ($errors->has('fname')) 
                                             <strong>{{ $errors->first('fname') }}</strong>
@@ -52,13 +53,14 @@
                                     </span>
                                 </div>
                             </div>
+                            
                             <div class="form-group">
                                 <label for="lname" class="col-md-6 control-label">Last Name</label>
 
                             <div class="col-md-12">
                             <input id="lname" type="text" class="form-control" name="lname" value="{{ old('lname') }}" required autofocus>
 
-                            <span class="invalid-feedback" style="display:block;" ><!-- Remove  display block -->
+                            <span class="invalid-feedback" style="display:block;" >
                                 @if ($errors->has('lname')) 
                                 <strong>{{ $errors->first('lname') }}</strong>
                                 @endif
@@ -73,27 +75,28 @@
                             <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus>
 
 
-                            <span class="invalid-feedback" style="display:block;" ><!-- Remove  display block -->
+                            <span class="invalid-feedback" style="display:block;" >
                               @if ($errors->has('username')) 
                               <strong>{{ $errors->first('username') }}</strong>
                               @endif
                           </span>
                       </div>
                   </div>
+
                   <div class="form-group">
                     <label for="organization" class="col-md-6 control-label">Organization</label>
-
                     <div class="col-md-12">
                         <input id="organization" type="text" class="form-control" name="organization" value="{{ old('organization') }}" placeholder="Optional" autofocus>
 
 
-                        <span class="invalid-feedback" style="display:block;" ><!-- Remove  display block -->
+                        <span class="invalid-feedback" style="display:block;" >
                             @if ($errors->has('organization')) 
                             <strong>{{ $errors->first('organization') }}</strong>
                             @endif
                         </span>
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label for="email" class="col-md-6 control-label">E-Mail Address</label>
 
@@ -113,7 +116,7 @@
 
                     <div class="col-md-12">
                         <input id="password" type="password" class="form-control" name="password" required>
-                        <span class="invalid-feedback " style="display:block;" ><!-- Remove  display block -->
+                        <span class="invalid-feedback " style="display:block;" >
                             @if ($errors->has('password')) 
                             <strong>{{ $errors->first('password') }}</strong>
                             @endif
@@ -132,21 +135,26 @@
                         </span>
                     </div>
                 </div>
+            
+            <!-- Checkbox -->
                 <div class="form-group">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="customCheck1" 
-                            @if(old('customCheck1')) == "checked"
-                                checked 
-                            @endif
-                        >
-                        <label class="custom-control-label" for="customCheck1">I agree to the Conditions of Use and Privacy Notice agreement.</label>
-                        <span class="invalid-feedback " style="display:block;" >
-                            @if ($errors->has('customCheck1')) 
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customCheck1" name="customCheck1" value="accepted"
+                    @if(old('customCheck1') == 'accepted')
+                            checked='checked'
+                        @else
+                            ''
+                        @endif
+                    >
+                    <label class="custom-control-label" for="customCheck1">I agree to the Conditions of Use and Privacy Notice agreement.</label>
+                    <span class="invalid-feedback " style="display:block;" >
+                            @if ($errors->has('customCheck1') && old('customCheck1') != 'accepted') 
                             <strong>{{ $errors->first('customCheck1') }}</strong>
                             @endif
                         </span>
-                    </div>
+                  </div>
                 </div>
+
                 <div class="form-group">
                     <div class="col-md-8 col-md-offset-4">
                         <button type="submit" class="btn btn-primary">
