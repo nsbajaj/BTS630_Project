@@ -32,7 +32,6 @@ class RegistrationController extends Controller
         //Admin username needs to be firstname.lastname
         //5 tries for login
         
-        
     	$messages = [
     		'fname.required' => 'Please enter your first name.',
     		'fname.max' => 'Please enter a shorter first name.',

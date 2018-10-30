@@ -31,20 +31,40 @@ class SignInController extends Controller
     }
 
     public function createSignIn(){
-    	//Attemp to authenticate the user
+        //Attemp to authenticate the user
+        $emailUsername = request('emailUsername'); //the input field has name='username' in form
+
         if(!Auth::check()){
-        	if(!auth()->attempt(request(['email', 'password']))){
-        		$error = "Invalid email or password. Please try again.";
-                return view('authentication.signin')->with('error', $error);
-                //return redirect()->back()->withInput()->withErrors('Invalid email or password. Please try again.');
-                //return back();
-                //return \Redirect::back()->withInput(Input::all())->withErrors;
+            //Logging in using email
+        	if(filter_var($emailUsername, FILTER_VALIDATE_EMAIL)) {
+                //Email login successful
+                if (Auth::attempt(['email' => $emailUsername, 'password' => request('password')])){
+            		/*
+                    $user = User::where('email', request('email'))->first();
+                    $now = new DateTime();
+                    $user->last_signin = $now;
+                    $user->save();
+                    */
+                    return view('service.index');
+                }
+                //Email login failed
+                else{
+                    $error = "Invalid email/username or password. Please try again.";
+                    return view('authentication.signin')->with('error', $error);
+                }
         	}
-            $user = User::where('email', request('email'))->first();
-            $now = new DateTime();
-            $user->last_signin = $now;
-            $user->save();
-            return view('service.index');
+            //Else, username
+            else{
+                //Username login successful
+                if (Auth::attempt(['username' => $emailUsername, 'password' => request('password')])){
+                    return view('service.index');
+                }
+                //Username login failed
+                else{
+                    $error = "Invalid email/username or password. Please try again.";
+                    return view('authentication.signin')->with('error', $error);
+                }
+            }
         }
         else{
             //Change page to Admin Dashboard
