@@ -20,17 +20,23 @@ class UserController extends Controller
     }
 
     public function showAccount(User $user){
+        //Admin
         if(Auth::check() && Auth::user()->role_id == 1){
     	   return view('user.user')->with('user', $user);
         }
+        //Current user can view his/her account
+        else if(Auth::check() && Auth::user()->email == $user->email){
+            return view('user.user')->with('user', $user);
+        }
+        //Error 404
         else{
             abort(404);
         }
     }
 
     public function editAccount(User $user){
-    	//dd($user);
-        return view('user.edit')->with('users', $user);
+        //Update so that only current user can view this page.
+        return view('user.edit')->with('user', $user);
     }
 
     public function updateAccount($id){
@@ -52,7 +58,8 @@ class UserController extends Controller
         $user->last_name = request('lname');
         $user->save();
 
-        return redirect('/users');
+        //Admin
+        return redirect('/users/' . $id);
     }
 
     public function deleteAccount(User $user){

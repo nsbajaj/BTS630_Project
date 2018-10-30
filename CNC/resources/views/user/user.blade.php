@@ -29,7 +29,7 @@
 <body>
 @section('content')
 <div class="container">
-	@if(Auth::check() && Auth::user()->role_id == 1)
+	@if((Auth::check() && Auth::user()->role_id == 1) || Auth::check() && Auth::user()->email == $user->email) 
 	<div class="bs-docs-section">
 		<div class="row justify-content-center">
 			<div class="col-md-5 col-md-offset-3">

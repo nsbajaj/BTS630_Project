@@ -39,12 +39,13 @@
                                 </div>
                             </div>
                             @endif
+
                             <div class="form-group">
                                 <label for="fname" class="col-md-6 control-label">First Name</label>
                                 <div class="col-md-12">
                                     <input id="fname" type="text" class="form-control" name="fname" 
-                                    @if(!empty(Auth::user()->first_name))
-                                        value={{ Auth::user()->first_name }}
+                                    @if(!empty($user->first_name))
+                                        value={{ $user->first_name }}
                                     @endif
                                      required autofocus>
                                     <span class="invalid-feedback" style="display:block;" >
@@ -59,8 +60,8 @@
 
                             <div class="col-md-12">
                             <input id="lname" type="text" class="form-control" name="lname"
-                            @if(!empty(Auth::user()->last_name))
-                                        value={{ Auth::user()->last_name }}
+                            @if(!empty($user->last_name))
+                                        value={{ $user->last_name }}
                             @endif
                              required autofocus>
 
@@ -76,8 +77,8 @@
                         <label for="username" class="col-md-6 control-label">Username</label>
 
                         <div class="col-md-12">
-                            <input id="username" type="text" class="form-control" name="username" @if(!empty(Auth::user()->username))
-                                        value={{ Auth::user()->username }}
+                            <input id="username" type="text" class="form-control" name="username" @if(!empty($user->username))
+                                        value={{ $user->username }}
                             @endif disabled required autofocus>
 
 
@@ -93,8 +94,8 @@
 
                     <div class="col-md-12">
                         <input id="organization" type="text" class="form-control" name="organization"  
-                        @if(!empty(Auth::user()->organization))
-                                        value={{ Auth::user()->organization }}
+                        @if(!empty($user->organization))
+                                        value={{ $user->organization }}
                         @endif
                         disabled="" placeholder="Optional" autofocus>
 
@@ -110,8 +111,8 @@
                     <label for="email" class="col-md-6 control-label">E-Mail Address</label>
 
                     <div class="col-md-12">
-                        <input id="email" type="email" class="form-control" name="email" @if(!empty(Auth::user()->email))
-                                        value={{ Auth::user()->email }}
+                        <input id="email" type="email" class="form-control" name="email" @if(!empty($user->email))
+                                        value={{ $user->email }}
                         @endif disabled autofocus>
 
                         <span class="invalid-feedback" style="display:block;" >
