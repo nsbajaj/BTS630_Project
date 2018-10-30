@@ -31,7 +31,7 @@
                 <label for="email" class="col-md-6 control-label">E-Mail Address or Username</label>
 
                 <div class="col-md-12">
-                  <input id="emailUsername" type="text" class="form-control" name="emailUsername" value="{{ old('email') }}" required autofocus>
+                  <input id="emailUsername" type="text" class="form-control" name="emailUsername" value="{{ old('emailUsername') }}" required autofocus>
                   <span class="invalid-feedback" style="display:block;" >
                   </span>
                 </div>
