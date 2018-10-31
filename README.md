@@ -204,3 +204,10 @@ Below are the prototypes we plan to deliver thorugh four iterations:
  * Users can manage their account (change firstname, lastname) -- ADMINS ONLY
  * Agreement checkbox verification works partially at registration
  * View Product(s) page/template is up and working (Users can't access for now)
+
+## Iteration 3 Tasks
+### To do:
+  * Adding Product (for seller & admin), Approving Product (for admin) and Viewing Product features will be available
+  * Have a logging system
+  * Table filtering for users
+  * Character limit for products reviews (it should show how many characters left)
