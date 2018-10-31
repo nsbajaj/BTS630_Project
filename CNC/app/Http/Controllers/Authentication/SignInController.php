@@ -33,23 +33,30 @@ class SignInController extends Controller
     public function createSignIn(){
         //Attemp to authenticate the user
         $emailUsername = request('emailUsername'); //the input field has name='username' in form
+        $error = "Invalid email/username or password. Please try again.";
 
         if(!Auth::check()){
             //Logging in using email
         	if(filter_var($emailUsername, FILTER_VALIDATE_EMAIL)) {
                 //Email login successful
                 if (Auth::attempt(['email' => $emailUsername, 'password' => request('password')])){
-            		/*
-                    $user = User::where('email', request('email'))->first();
-                    $now = new DateTime();
-                    $user->last_signin = $now;
-                    $user->save();
-                    */
-                    return view('service.index');
+            		if(Auth::user()->account_delete_date == null){
+                        /*
+                        $user = User::where('email', request('email'))->first();
+                        $now = new DateTime();
+                        $user->last_signin = $now;
+                        $user->save();
+                        */
+                        return view('service.index');
+                    }
+                    //Account Deleted
+                    else{
+                        Auth::logout();
+                        return view('authentication.signin')->with('error', $error);
+                    }
                 }
                 //Email login failed
                 else{
-                    $error = "Invalid email/username or password. Please try again.";
                     return view('authentication.signin')->with('error', $error);
                 }
         	}
@@ -57,11 +64,17 @@ class SignInController extends Controller
             else{
                 //Username login successful
                 if (Auth::attempt(['username' => $emailUsername, 'password' => request('password')])){
-                    return view('service.index');
+                    if(Auth::user()->account_delete_date == null){
+                        return view('service.index');
+                    }
+                    //Account deleted
+                    else{
+                        Auth::logout();
+                        return view('authentication.signin')->with('error', $error);
+                    }
                 }
                 //Username login failed
                 else{
-                    $error = "Invalid email/username or password. Please try again.";
                     return view('authentication.signin')->with('error', $error);
                 }
             }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use DateTime;
 use Auth;
 
 class UserController extends Controller
@@ -25,7 +26,7 @@ class UserController extends Controller
     	   return view('user.user')->with('user', $user);
         }
         //Current user can view his/her account
-        else if(Auth::check() && Auth::user()->email == $user->email){
+        else if(Auth::check() && Auth::user()->user_id == $user->user_id){
             return view('user.user')->with('user', $user);
         }
         //Error 404
@@ -35,8 +36,12 @@ class UserController extends Controller
     }
 
     public function editAccount(User $user){
-        //Update so that only current user can view this page.
-        return view('user.edit')->with('user', $user);
+        if((Auth::check() && Auth::user()->role_id == 1) || (Auth::check() && Auth::user()->user_id == $user->user_id)){
+            return view('user.edit')->with('user', $user);
+        }
+        else{
+            abort(404);
+        }
     }
 
     public function updateAccount($id){
@@ -58,11 +63,34 @@ class UserController extends Controller
         $user->last_name = request('lname');
         $user->save();
 
-        //Admin
         return redirect('/users/' . $id);
     }
 
+    //Check for delete_date in login.
+    //Add filter/show deleted users in users list.
     public function deleteAccount(User $user){
-
+        //Admin or Current user can view his/her account
+        if((Auth::check() && Auth::user()->role_id == 1) || (Auth::check() && Auth::user()->user_id == $user->user_id)){
+            $user = User::find($user->user_id);
+            $now = new DateTime();
+            $user->account_delete_date = $now;
+            $user->save();
+            
+            //Admin - redirect to all users
+            if(Auth::check() && Auth::user()->role_id == 1){
+                return redirect('/users/');
+            }
+            else if(Auth::check() && Auth::user()->user_id == $user->user_id){
+                Auth::logout();
+                return redirect('/');
+            }
+            else{
+                abort(404);
+            }
+        }
+        else{
+            abort(404);
+        }
+        
     }
 }

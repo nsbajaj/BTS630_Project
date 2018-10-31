@@ -29,7 +29,7 @@
 <body>
 @section('content')
 <div class="container">
-	@if((Auth::check() && Auth::user()->role_id == 1) || Auth::check() && Auth::user()->email == $user->email) 
+	@if((Auth::check() && Auth::user()->role_id == 1) || Auth::check() && Auth::user()->user_id == $user->user_id) 
 	<div class="bs-docs-section">
 		<div class="row justify-content-center">
 			<div class="col-md-5 col-md-offset-3">
@@ -96,7 +96,7 @@
 							@endif
 						</div>
 						<a href="/CNC/public/users/edit/{{ $user->user_id}}"><button type="button" class="btn btn-primary">Edit Account</button></a>
-						<button type="button" class="btn btn-primary">Delete Account</button>
+						<a href="/CNC/public/users/delete/{{ $user->user_id}}"><button type="button" class="btn btn-primary">Delete Account</button></a>
 						<!-- form-->
 						@endif
 					</div>
