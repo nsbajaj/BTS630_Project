@@ -207,7 +207,7 @@ Below are the prototypes we plan to deliver thorugh four iterations:
 
 ## Iteration 3 Tasks
 ### To do:
-  * Adding Product (for seller & admin), Approving Product (for admin) and Viewing Product features will be available
-  * Have a logging system
-  * Table filtering for users
-  * Character limit for products reviews (it should show how many characters left)
+  * Adding Product (for seller & admin), Approving Product (for admin) and Viewing Product features will be available.
+  * Have a error logging system.
+  * Table filtering for users.
+  * Character limit for products reviews (it should show how many characters left).
