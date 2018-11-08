@@ -27,9 +27,9 @@
           <div class="panel-body">
             <form class="form-horizontal" method="POST" action="/CNC/public/signin">
               {{ csrf_field() }}
+              
               <div class="form-group">
                 <label for="email" class="col-md-6 control-label">E-Mail Address or Username</label>
-
                 <div class="col-md-12">
                   <input id="emailUsername" type="text" class="form-control" name="emailUsername" value="{{ old('emailUsername') }}" required autofocus>
                   <span class="invalid-feedback" style="display:block;" >
@@ -49,25 +49,31 @@
                   </span>
                 </div>
               </div>
+
               <div class="form-group">
-                <div class="col-md-6 col-md-offset-4">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                    </label>
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customCheck1" name="customCheck1" value="remember"
+                    @if(old('customCheck1') == 'remember')
+                            checked='checked'
+                        @else
+                            ''
+                        @endif
+                    >
+                    <label class="custom-control-label" for="customCheck1">Remember me?</label>
+                    <span class="invalid-feedback " style="display:block;" >
+                            @if ($errors->has('customCheck1') && old('customCheck1') != 'accepted') 
+                            <strong>{{ $errors->first('customCheck1') }}</strong>
+                            @endif
+                        </span>
                   </div>
                 </div>
-              </div>
 
               <div class="form-group">
                 <div class="col-md-8 col-md-offset-4">
                   <button type="submit" class="btn btn-primary">
                     Login
                   </button>
-
-                  <a class="btn btn-link" href="">
-                    Forgot Your Password?
-                  </a>
+                  <a class="btn btn-link" href="">Forgot Your Password?</a>
                 </div>
               </div>
             </form>

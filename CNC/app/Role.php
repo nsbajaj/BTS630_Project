@@ -6,11 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
-    public function users(){
-        return $this->hasMany('App\User');
-    }
 
-    public function getRole($id){
-    	
+	//protected $table = 'my_flights'; //Custom Table Name
+	//protected $primaryKey = 'role_id';
+    public function users(){
+        return $this->hasMany('App\Role');
     }
 }

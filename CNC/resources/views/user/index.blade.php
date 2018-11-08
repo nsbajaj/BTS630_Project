@@ -55,7 +55,12 @@
 							<tbody>
 								@if(!empty($users))
 									@foreach ($users as $user)
-								    <tr class="table-active">
+									<!-- Account deleted will be highlighted as danger -->
+									@if($user->account_delete_date == null)
+								    	<tr>
+								    @else
+								    	<tr class="table-danger">
+								    @endif
 										<th scope="row" >
 											<a href="/CNC/public/users/{{ $user->user_id}}">{{ $user->first_name . ' ' . $user->last_name }}
 											</a>

@@ -39,7 +39,7 @@ class SignInController extends Controller
             //Logging in using email
         	if(filter_var($emailUsername, FILTER_VALIDATE_EMAIL)) {
                 //Email login successful
-                if (Auth::attempt(['email' => $emailUsername, 'password' => request('password')])){
+                if (Auth::attempt(['email' => $emailUsername, 'password' => request('password')], request('customCheck1'))){
             		if(Auth::user()->account_delete_date == null){
                         /*
                         $user = User::where('email', request('email'))->first();
@@ -63,7 +63,7 @@ class SignInController extends Controller
             //Else, username
             else{
                 //Username login successful
-                if (Auth::attempt(['username' => $emailUsername, 'password' => request('password')])){
+                if (Auth::attempt(['username' => $emailUsername, 'password' => request('password')], request('customCheck1'))){
                     if(Auth::user()->account_delete_date == null){
                         return view('service.index');
                     }

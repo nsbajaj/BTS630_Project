@@ -38,7 +38,6 @@
 						<h1>user</h1>
 					</div>
 					<div class="panel-body">
-
 						@if(!empty($user))
 						<!--<form class="form-horizontal" method="POST" action="">-->
 						<div class="form-group">

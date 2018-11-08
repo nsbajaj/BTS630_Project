@@ -17,6 +17,8 @@ Route::get('/', function () {
 });
 */
 
+use Faker\Factory as Faker;
+
 //Registration
 Route::get('/register', 'Authentication\RegistrationController@showAccount');
 Route::post('/register', 'Authentication\RegistrationController@createAccount');
@@ -46,4 +48,14 @@ Route::get('/', 'Service\ServiceController@show');
 //Forgot Password
 Route::get('/forgotpassword', 'Authentication\ForgotPassword@show');
 Route::post('/forgotpassword', 'Authentication\ForgotPassword@sendEmail');
-//Refill form values if error
+
+Route::get('/customers',function(){
+	
+/*
+Route::get('/customers',function(){
+    $faker = Faker::create('App\Role');
+	for($i = 0; $i < 100; $i++) {
+        print($faker->name);
+    }
+    */
+});
