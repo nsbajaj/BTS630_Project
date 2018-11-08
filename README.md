@@ -212,4 +212,5 @@ Below are the prototypes we plan to deliver thorugh four iterations:
   * Have a error logging system.
   * Table filtering for users.
   * Character limit for products reviews (it should show how many characters left).
+  * Implement Database Seeding
   
