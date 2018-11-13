@@ -14,5 +14,11 @@ class DatabaseSeeder extends Seeder
         factory(App\Role::class, 1)->create();
         factory(App\Organization::class, 25)->create();
         factory(App\User::class, 10)->create();
+        //factory(App\Password_Reset::class, 0)->create();
+        factory(App\General_Category::class, 1)->create();
+        factory(App\Subcategory::class, 1)->create();
+        factory(App\General_Category_Subcategory::class, 1)->create(); //Bridge Table
+        factory(App\Subcategory_Types::class, 1)->create();
+        factory(App\Subcategory_Subcategory_Types::class, 1)->create(); //Bridge Table
     }
 }

@@ -49,6 +49,11 @@ Route::get('/', 'Service\ServiceController@show');
 Route::get('/forgotpassword', 'Authentication\ForgotPassword@show');
 Route::post('/forgotpassword', 'Authentication\ForgotPassword@sendEmail');
 
+Route::get('/categories', 'Category\Category@showCategory');
+Route::get('/subcategories/{category}', 'Category\Category@showsubcategory');
+Route::get('/subsubcategories/{subcategory}', 'Category\Category@showSubSubcategory');
+
+
 Route::get('/customers',function(){
 	
 /*

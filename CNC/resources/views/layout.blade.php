@@ -23,6 +23,9 @@
           <a class="nav-link" href="{{ url('/') }}">Home<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="{{ url('/categories') }}">Categories</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="#">Products</a>
         </li>
         @if(Auth::check() && Auth::user()->role_id == 1)

@@ -15,6 +15,7 @@ class CreateGeneralCategoryTable extends Migration
     {
         Schema::create('general_category', function (Blueprint $table) {
             $table->increments('general_category_id');
+            $table->string('name', 50);
             $table->timestamps();
         });
     }
