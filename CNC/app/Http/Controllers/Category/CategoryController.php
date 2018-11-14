@@ -8,7 +8,7 @@ use App\General_Category;
 use App\Subcategory;
 use App\Subcategory_Types;
 
-class Category extends Controller
+class CategoryController extends Controller
 {
     public function showCategory(){
     	$categories = General_Category::all();

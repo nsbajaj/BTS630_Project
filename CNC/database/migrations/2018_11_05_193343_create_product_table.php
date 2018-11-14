@@ -24,8 +24,8 @@ class CreateProductTable extends Migration
             $table->integer('product_qa_id')->unsigned()->nullable();
             $table->foreign('product_qa_id')->references('product_qa_id')->on('product_qa'); //Foreign Key            
 
-            $table->integer('user_id_id')->unsigned();
-            $table->foreign('user_id_id')->references('user_id')->on('users'); //Foreign Key                        
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('user_id')->on('users'); //Foreign Key                        
 
             $table->string('SKU', '8')->nullable(); //nullable for now
             $table->string('UPC', '12')->nullable(); //nullable for now

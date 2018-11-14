@@ -20,5 +20,12 @@ class DatabaseSeeder extends Seeder
         factory(App\General_Category_Subcategory::class, 1)->create(); //Bridge Table
         factory(App\Subcategory_Types::class, 1)->create();
         factory(App\Subcategory_Subcategory_Types::class, 1)->create(); //Bridge Table
+        factory(App\Product_Rating::class, 20)->create();
+        factory(App\Product_QA::class, 20)->create();
+        factory(App\Discount::class, 10)->create();
+        factory(App\Approved_Product::class, 20)->create();
+        factory(App\Price::class, 20)->create();
+        //factory(App\Product::class, 20)->create();
+        //factory(App\Product_Subcategory_Types::class, 20)->create();
     }
 }

@@ -46,12 +46,19 @@ Route::get('/users/delete/{user}', 'User\UserController@deleteAccount');
 Route::get('/', 'Service\ServiceController@show');
 
 //Forgot Password
-Route::get('/forgotpassword', 'Authentication\ForgotPassword@show');
-Route::post('/forgotpassword', 'Authentication\ForgotPassword@sendEmail');
+Route::get('/forgotpassword', 'Authentication\ForgotPasswordController@show');
+Route::post('/forgotpassword', 'Authentication\ForgotPasswordController@sendEmail');
 
-Route::get('/categories', 'Category\Category@showCategory');
-Route::get('/subcategories/{category}', 'Category\Category@showsubcategory');
-Route::get('/subsubcategories/{subcategory}', 'Category\Category@showSubSubcategory');
+//Categories
+Route::get('/categories', 'Category\CategoryController@showCategory');
+Route::get('/subcategories/{category}', 'Category\CategoryController@showsubcategory');
+Route::get('/subsubcategories/{subcategory}', 'Category\CategoryController@showSubSubcategory');
+
+//Products
+Route::get('/products/{subsubcategory}', 'Product\ProductController@showProducts');
+Route::get('/product/{id}', 'Product\ProductController@showProduct');
+Route::get('/products', 'Product\ProductController@showAllProducts');
+
 
 
 Route::get('/customers',function(){

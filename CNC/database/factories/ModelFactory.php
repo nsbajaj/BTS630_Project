@@ -285,3 +285,72 @@ $factory->define(App\Subcategory_Subcategory_Types::class, function (Faker\Gener
     return $sub = ['subcategory_id' => 9, 'subcategory_types_id' => 16];
 
 });
+
+$factory->define(App\Product_Rating::class, function (Faker\Generator $faker) {
+    $users = App\User::all()->pluck('user_id');
+    return $rating = ['rating' => $faker->biasedNumberBetween($min = 0, $max = 5, $function = 'sqrt'),
+        'review' => $faker->sentence($nbWords = 15, $variableNbWords = true),
+        'review_posted' => $faker->dateTime($max = 'now', $timezone = null),
+        'user_id' => $faker->randomElement($users)
+    ];
+});
+
+$factory->define(App\Product_QA::class, function (Faker\Generator $faker) {
+    return $qa = [
+        'question' => $faker->sentence($nbWords = 10, $variableNbWords = true),
+        'answer' => $faker->randomElement([$faker->sentence($nbWords = 10, $variableNbWords = true),null]),
+        'asked_by' => $faker->randomElement(App\User::all()->pluck('user_id')),
+        'answered_by' => $faker->randomElement([$faker->randomElement(App\User::all()->pluck('user_id')), null]),
+        'asked_datetime' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
+        'answered_datetime' => $faker->randomElement([$faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null), null])
+    ];
+});
+
+$factory->define(App\Discount::class, function (Faker\Generator $faker) {
+    return $discount = [
+        'discount_code' => $faker->colorName,
+        'begin_date' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
+        'end_date' => $faker->randomElement([$faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null), null]),
+        'discount_value' => null,
+        'discount_percentage' => $faker->biasedNumberBetween($min = 20, $max = 50, $function = 'sqrt'),
+        'last_updated' => $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null)
+    ];
+});
+
+$factory->define(App\Approved_Product::class, function (Faker\Generator $faker) {
+    return $approved = [
+        'approved_by' => $faker->randomElement(App\User::where('role_id', 1)->pluck('user_id')),
+        'approved_datetime' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null)
+    ];
+});
+
+$factory->define(App\Price::class, function (Faker\Generator $faker) {
+    return $price = [
+        'price' => $faker->biasedNumberBetween($min = 9, $max = 99, $function = 'sqrt'),
+        'price_set_datetime' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
+        'last_updated' => $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null)
+    ];
+});
+/*
+$factory->define(App\Product::class, function (Faker\Generator $faker) {
+    return $product = [
+        'name' => $faker->sentence($nbWords = 1, $variableNbWords = true),
+        'description' => $faker->sentence($nbWords = 5, $variableNbWords = true),
+        'product_rating_id' => $faker->randomElement(App\Product_Rating::all()->pluck('product_rating_id')),
+        'product_qa_id' => $faker->randomElement(App\Product_QA::all()->pluck('product_qa_id')),
+        'user_id' => $faker->randomElement(App\User::all()->pluck('user_id')),
+        'SKU' => null,
+        'UPC' => null,
+        'discount_id' => $faker->randomElement(App\Discount::all()->pluck('discount_id')),
+        'approved_product_id' => $faker->randomElement(App\Approved_Product::all()->pluck('approved_product_id')),
+        'price_id' => $faker->randomElement(App\Price::all()->pluck('price_id'))
+    ];    
+});
+
+$factory->define(App\Product_Subcategory_Types::class, function (Faker\Generator $faker) {
+    return $productSub = [
+        'product_id' => $faker->randomElement(App\Product::all()->pluck('product_id')),
+        'subcategory_types' => $faker->randomElement(App\Subcategory_Types::all()->pluck('subcategory_types_id'))
+    ];
+});*/
+
