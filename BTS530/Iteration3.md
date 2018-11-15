@@ -12,6 +12,6 @@
   * **Alternate Flow**
      * //
      
-## Iteration 2 Class Diagram
+## Iteration 3 Class Diagram
 
-![](../images/Iteration2.png)
+![](../images/Iteration3.png)
