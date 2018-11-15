@@ -209,7 +209,6 @@ Below are the prototypes we plan to deliver thorugh four iterations:
 ### To do:
   * Implement categories and subcategories. Assign products to subcategories.
   * Adding Product (for seller and admin), Approving Product (for admin) and Viewing Product features will be available.
-  * Have a error logging system.
   * Character limit for products reviews (it should show how many characters left).
   * Implement Database Seeding
 
