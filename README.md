@@ -216,3 +216,10 @@ Below are the prototypes we plan to deliver thorugh four iterations:
   * Implemented categories and subcategories.
   * Users are able to add a product and view a product. Also, admin can approve or reject the product.
   * Implemented Database seeding
+
+## Iteration 4 Tasks
+### To do:
+  * coming soon..
+
+### Completed:
+  * (^_^)
