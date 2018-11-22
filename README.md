@@ -220,7 +220,7 @@ Below are the prototypes we plan to deliver thorugh four iterations:
 ## Iteration 4 Tasks
 ### To do:
   * Character limit for products reviews (it should show how many characters left).
-  * 
+  * Create link(s) between products and categories.
 
 ### Completed:
   * (^_^)
