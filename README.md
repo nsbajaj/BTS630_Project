@@ -221,6 +221,8 @@ Below are the prototypes we plan to deliver thorugh four iterations:
 ### To do:
   * Character limit for products reviews (it should show how many characters left).
   * Create link(s) between products and categories.
+  * Won't need to swap users to see different pages.
+  * Improve adding products and show filter options for approving prducts.
 
 ### Completed:
   * (^_^)
