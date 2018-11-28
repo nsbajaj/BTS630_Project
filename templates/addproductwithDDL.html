@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootswatch: Lux</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="css/bootstrap.css" media="screen">
+	<style>
+		body{padding-top: 120px;}
+		.invalid-feedback{font-size:1.15em;padding: 0.75em;}
+		footer{margin-top: 70px;
+				border-top: #919aa1 solid 1px;
+				padding-top: 2em;
+}.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+     background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+		.dropdown li{color:white;background-color: black}
+		.dropdown li:hover{color:darkgray;}
+		</style>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <div class="dropdown">
+  			<a class="nav-link" href="#">Category</a>
+  			<div class="dropdown-content">
+    			<ul>
+       				<li><a class="nav-link" href="#">SubCategory1</a></li>
+       				<li><a class="nav-link" href="#">SubCategory</a></li>
+       				<li><a class="nav-link" href="#">SubCategory1</a></li>
+       				<li><a class="nav-link" href="#">SubCategory1</a></li>
+       				<li><a class="nav-link" href="#">SubCategory1</a></li>
+        			
+               </ul>
+			</div>
+       </div> 
+        
+        
+        
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" placeholder="Search" type="text">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-md-offset-2 ">
+            <div class="panel panel-default ">
+                <div class="panel-heading text-center"><h1>Add Product</h1></div>
+
+                <div class="panel-body">
+                    <form class="form-horizontal" method="POST"  action="">
+                     
+                        <div class="form-group">
+                            <label for="pname" class="col-md-6 control-label">Product Name</label>
+
+                            <div class="col-md-12">
+                                <input id="pname" type="text" class="form-control" name="pname" value="" required autofocus>
+
+                               
+                                    <span class="invalid-feedback"  ><!-- Remove  display block -->
+                                        <strong>Field has Errors</strong>
+                                    </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Detail" class="col-md-6 control-label">Details</label>
+
+                            <div class="col-md-12">
+                                <input id="Detail" type="text" class="form-control" name="Detail" value="" required autofocus>
+
+                               
+                                    <span class="invalid-feedback"  ><!-- Remove  display block -->
+                                        <strong>Field has Errors</strong>
+                                    </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="price" class="col-md-6 control-label">Price</label>
+
+                            <div class="col-md-12">
+                                <input id="price" type="text" class="form-control" name="price" value="" required autofocus>
+
+                               
+                                    <span class="invalid-feedback"  ><!-- Remove  display block -->
+                                        <strong>Field has Errors</strong>
+                                    </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Detail" class="col-md-6 control-label">Category</label>
+
+                            <div class="col-md-12">
+                                <input id="Detail" type="text" class="form-control" name="Detail" value="" required autofocus>
+
+                               
+                                    <span class="invalid-feedback"  ><!-- Remove  display block -->
+                                        <strong>Field has Errors</strong>
+                                    </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="picture" class="col-md-6 control-label">Picture</label>
+
+                            <div class="col-md-12">
+                               
+								    <label class="btn btn-primary btn-file">
+        Browse <input id="picture" type="file" class="form-control" name="picture" style="display: none;">
+    </label>
+                               
+                                    <span class="invalid-feedback"  ><!-- Remove  display block -->
+                                        <strong>Field has Errors</strong>
+                                    </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="stock" class="col-md-6 control-label">Stock</label>
+
+                            <div class="col-md-12">
+                               
+                                <input  id="stock" type="text" class="form-control" name="stock" value="" required autofocus>
+
+                               
+                                    <span class="invalid-feedback"  ><!-- Remove  display block -->
+                                        <strong>Field has Errors</strong>
+                                    </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="model" class="col-md-6 control-label">Model Or Colors</label>
+                          <ul id="modelsAvailable"></ul>
+                           <div class="row">
+                               		<div class="col-md-6">
+                               			<input id="text" type="model" class="form-control" name="model" value=""  autofocus>
+
+                               
+                                    <span class="invalid-feedback"  ><!-- Remove  display block -->
+                                        <strong>Field has Errors</strong>
+                                    </span>
+                               		</div>
+                               		<div class="col-md-3">
+                               			 <input id="modelPrice" placeholder="Price increase" type="text" class="form-control" name="modelPrice" >
+							   		</div>
+                               		<div class="col-md-3"><button id="addOption" class="btn btn-primary">
+                                    Add Model
+                                </button></div>
+                               	
+                               </div>
+                        </div>
+
+                       <div class="form-group">
+                           <label for="Eoption" class="col-md-6 control-label">Other Options</label>
+                          <ul id="optionsAvailable"></ul>
+                           <div class="row">
+                               		<div class="col-md-6">
+                               			 <input id="Eoption" type="text" class="form-control" name="Eoption" >
+
+                               
+                                    <span class="invalid-feedback"  ><!-- Remove  display block -->
+                                        <strong>Field has Errors</strong>
+                                    </span>
+                               		</div>
+                               		<div class="col-md-3">
+                               			 <input id="EoptionPrice" placeholder="Price Increase" type="text" class="form-control" name="EoptionPrice" >
+							   		</div>
+                               		<div class="col-md-3"><button id="addEOption" class="btn btn-primary">
+                                    Add Optionals
+                                </button></div>
+                               	
+                               </div>
+                        </div>
+                        
+						
+ <div class="form-group">
+                          
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Add Product
+                                </button>
+
+                               
+                            </div>
+</div>
+				</form>
+			</div>
+			
+		  </div>
+		  </div>
+		  </div>
+		  </div>
+		  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<footer class="section footer-classic context-dark bg-image" >
+        <div class="container">
+          <div class="row row-30">
+            <div class="col-md-4 col-xl-5">
+              <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light" src="images/agency/logo-inverse-140x37.png" alt="" width="140" height="37" srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
+                <p>We are an award-winning creative agency, dedicated to the best result in web design, promotion, business consulting, and marketing.</p>
+                <!-- Rights-->
+                <p class="rights"><span>©  </span><span class="copyright-year">2018</span><span> </span><span>Waves</span><span>. </span><span>All Rights Reserved.</span></p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <h5>Contacts</h5>
+              <dl class="contact-list">
+                <dt>Address:</dt>
+                <dd>798 South Park Avenue, Jaipur, Raj</dd>
+              </dl>
+              <dl class="contact-list">
+                <dt>email:</dt>
+                <dd><a href="mailto:#">dkstudioin@gmail.com</a></dd>
+              </dl>
+              <dl class="contact-list">
+                <dt>phones:</dt>
+                <dd><a href="tel:#">+91 7568543012</a> <span>or</span> <a href="tel:#">+91 9571195353</a>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-md-4 col-xl-3">
+              <h5>Links</h5>
+              <ul class="nav-list">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contacts</a></li>
+                <li><a href="#">Pricing</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+	</body>
+</html>

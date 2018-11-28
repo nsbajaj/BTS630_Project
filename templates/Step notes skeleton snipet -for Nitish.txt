@@ -1,0 +1,16 @@
+<form>
+	<div class="step1">
+		<!-- form fields of step 1 go here-->
+		<a class="valstep1" href="javascript:void()"> Next</a> 
+	</div>
+	<div class="step2">
+		<!-- form fields of step 2 go here-->
+		<a class="valstep2" href="javascript:void()"> Next</a> 
+	</div>
+	<div class="step3">
+		<!-- form fields of step 3 go here-->
+		<a class="valstep3" href="javascript:void()"> Next</a> 
+		<!--if you want me to  submit to site by javascript, I would much rather you did  the next option-->
+		<input type=submit  value-"submit"/>
+	</div>
+</form>
