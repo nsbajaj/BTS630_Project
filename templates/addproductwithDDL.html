@@ -6,33 +6,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" href="css/bootstrap.css" media="screen">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	
 	<style>
 		body{padding-top: 120px;}
 		.invalid-feedback{font-size:1.15em;padding: 0.75em;}
 		footer{margin-top: 70px;
 				border-top: #919aa1 solid 1px;
 				padding-top: 2em;
-}.dropdown {
-    position: relative;
-    display: inline-block;
+}
+		.navbar .dropdown-toggle, .navbar .dropdown-menu a {
+    cursor: pointer;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-     background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
-    z-index: 1;
+.navbar .dropdown-item.active, .navbar .dropdown-item:active {
+    color: inherit;
+    text-decoration: none;
+    background-color: inherit;
 }
 
-.dropdown:hover .dropdown-content {
-    display: block;
+.navbar .dropdown-item:focus, .navbar .dropdown-item:hover {
+    color: #16181b;
+    text-decoration: none;
+    background-color: #f8f9fa;
 }
-		.dropdown li{color:white;background-color: black}
-		.dropdown li:hover{color:darkgray;}
+
+@media (min-width: 767px) {
+    .navbar .dropdown-toggle:not(.nav-link)::after {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        margin-left: .5em;
+        vertical-align: 0;
+        border-bottom: .3em solid transparent;
+        border-top: .3em solid transparent;
+        border-left: .3em solid;
+    }
+}
 		</style>
+		<script>
+	  $(document).ready(function () {
+
+    $('.navbar .dropdown-item').on('click', function (e) {
+        var $el = $(this).children('.dropdown-toggle');
+        var $parent = $el.offsetParent(".dropdown-menu");
+        $(this).parent("li").toggleClass('open');
+
+        if (!$parent.parent().hasClass('navbar-nav')) {
+            if ($parent.hasClass('show')) {
+                $parent.removeClass('show');
+                $el.next().removeClass('show');
+                $el.next().css({"top": -999, "left": -999});
+            } else {
+                $parent.parent().find('.show').removeClass('show');
+                $parent.addClass('show');
+                $el.next().addClass('show');
+                $el.next().css({"top": $el[0].offsetTop, "left": $parent.outerWidth() - 4});
+            }
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    });
+
+    $('.navbar .dropdown').on('hidden.bs.dropdown', function () {
+        $(this).find('li.dropdown').removeClass('show open');
+        $(this).find('ul.dropdown-menu').removeClass('show open');
+    });
+
+});
+	  </script>
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
@@ -46,24 +89,24 @@
       <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <div class="dropdown">
-  			<a class="nav-link" href="#">Category</a>
-  			<div class="dropdown-content">
-    			<ul>
-       				<li><a class="nav-link" href="#">SubCategory1</a></li>
-       				<li><a class="nav-link" href="#">SubCategory</a></li>
-       				<li><a class="nav-link" href="#">SubCategory1</a></li>
-       				<li><a class="nav-link" href="#">SubCategory1</a></li>
-       				<li><a class="nav-link" href="#">SubCategory1</a></li>
-        			
-               </ul>
-			</div>
-       </div> 
-        
-        
-        
-      </li>
+       <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown1</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown1">
+                    <li class="dropdown-item" href="#"><a>Action 1</a></li>
+                    <li class="dropdown-item dropdown">
+                        <a class="dropdown-toggle" id="dropdown1-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown1.1</a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdown1-1">
+                            <li class="dropdown-item" href="#"><a>Action 1.1</a></li>
+                            <li class="dropdown-item dropdown">
+                                <a class="dropdown-toggle" id="dropdown1-1-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown1.1.1</a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdown1-1-1">
+                                    <li class="dropdown-item" href="#"><a>Action 1.1.1</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Pricing</a>
       </li>
@@ -226,9 +269,7 @@
 		  </div>
 		  </div>
 		  </div>
-		  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <!------ Include the above in your HEAD tag ---------->
 
 <footer class="section footer-classic context-dark bg-image" >
