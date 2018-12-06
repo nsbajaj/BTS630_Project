@@ -16,7 +16,7 @@
      * If the entered details is valid (fields not empty), the user can successfully pass the product to Admins to approve it.
   * **Alternate Flow**
      * If user does not have a Seller account, user must sign up as Seller in order to sell their product.
-     * If the user leaves the mendatory fields (name, description, price) empty, the user needs to enter appropriate values/characters in it.
+     * If the user leaves the mendatory fields empty, the user needs to enter appropriate values/characters in it.
      
 ## Iteration 4 Class Diagram
 
