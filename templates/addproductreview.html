@@ -78,16 +78,23 @@
     });
            $('#reviewsubmit').on("click",function(e){
                e.preventDefault();
-               if($('#review').val().length>200){ alert("review is too long");}
-               else if($('input[name='customRadio']:checked').val() == undefined){
-                   alert("Please select  a rating");
+               var  errorlist ="";
+               if($('#reviewTitle').val().length<5){ errorlist += "Review needs  a title"+"\n";}
+               
+               if(($('#review').val().length>200)){ errorlist += "Review is too long" +"\n";}
+               if($('#review').val().length <= 0){ errorlist += "Enter Review" +"\n";}
+               if($('input[name="customRadio"]:checked').val() == undefined){
+                   errorlist += "Please select  a rating"+"\n";;
+               }
+               if(errorlist!=""){
+                   alert(errorlist);
                }
                else{
                    $('.reviewlist').append(
                     $('<li>').append(
                        $('<h4>').attr('class', 'tab').append($('#reviewTitle').val())).append(
                        $('<span>').attr('class', 'tab').append($('#review').val())).append($('<br>')).append(
-                       $('<span>').attr('class', 'tab').append( " Stars")));
+                       $('<span>').attr('class', 'tab').append($('input[name="customRadio"]:checked').val() + " Stars")));
                }
            });
 });
@@ -164,23 +171,23 @@
                         <div class="form-group " style="margin-left: 1em;">
                             <label for="customRadio" class="col-md-6 control-label">Review number</label>
                             <div class="custom-control custom-radio">
-                                  <input type="radio" id="customRadio0" value="0" name="customRadio" class="custom-control-input" checked="">
+                                  <input type="radio" id="customRadio0" value="0" name="customRadio" class="custom-control-input" >
                                         <label class="custom-control-label" for="customRadio0">0</label>
                             </div>
                             <div class="custom-control custom-radio">
-                                  <input type="radio" id="customRadio1" value="1" name="customRadio" class="custom-control-input" checked="">
+                                  <input type="radio" id="customRadio1" value="1" name="customRadio" class="custom-control-input" >
                                         <label class="custom-control-label" for="customRadio1">1</label>
                             </div>
                             <div class="custom-control custom-radio">
-                                  <input type="radio" id="customRadio2" value="2" name="customRadio" class="custom-control-input" checked="">
+                                  <input type="radio" id="customRadio2" value="2" name="customRadio" class="custom-control-input" >
                                         <label class="custom-control-label" for="customRadio2">2</label>
                             </div>
                             <div class="custom-control custom-radio">
-                                  <input type="radio" id="customRadio3" value="3" name="customRadio" class="custom-control-input" checked="">
+                                  <input type="radio" id="customRadio3" value="3" name="customRadio" class="custom-control-input" >
                                         <label class="custom-control-label" for="customRadio3">3</label>
                             </div>
                             <div class="custom-control custom-radio">
-                                  <input type="radio" id="customRadio4"  value="4" name="customRadio" class="custom-control-input" checked="">
+                                  <input type="radio" id="customRadio4"  value="4" name="customRadio" class="custom-control-input">
                                         <label class="custom-control-label" for="customRadio4">4</label>
                             </div>
                             <div class="custom-control custom-radio">
