@@ -2,9 +2,9 @@
 
 ### Adding Product
   * **Main Success Scenario**
-     * 
+     * (coming soon)
   * **Alternate Flow**
-     * 
+     * (coming soon)
 
 ### Approving Product
   * **Main Success Scenario**
