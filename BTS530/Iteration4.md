@@ -8,12 +8,9 @@
 
 ### Approving Product
   * **Main Success Scenario**
-     * The user must be logged in as Admin in order to approve products.
-     * Go to product page, where the user can find all the products - approved and non-approved.
-     * User can approve the product by clicking on not-approved.
+     * (coming soon)
   * **Alternate Flow**
-     * If the user does not have admin account, individual does not have authority to approve the product.
-     * User must sign up for admin account.
+     * (coming soon)
      
 ## Iteration 4 Class Diagram
 
