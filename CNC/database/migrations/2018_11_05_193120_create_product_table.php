@@ -18,12 +18,6 @@ class CreateProductTable extends Migration
             $table->string('name', '25');
             $table->string('description', '100');   
 
-            $table->integer('product_rating_id')->unsigned()->nullable();
-            $table->foreign('product_rating_id')->references('product_rating_id')->on('product_rating'); //Foreign Key
-
-            $table->integer('product_qa_id')->unsigned()->nullable();
-            $table->foreign('product_qa_id')->references('product_qa_id')->on('product_qa'); //Foreign Key            
-
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('user_id')->on('users'); //Foreign Key                        
 
@@ -35,9 +29,6 @@ class CreateProductTable extends Migration
 
             $table->integer('approved_product_id')->unsigned()->nullable();
             $table->foreign('approved_product_id')->references('approved_product_id')->on('approved_product'); //Foreign Key  
-
-            $table->integer('price_id')->unsigned();
-            $table->foreign('price_id')->references('price_id')->on('price'); //Foreign Key                            
 
             $table->timestamps();
         });

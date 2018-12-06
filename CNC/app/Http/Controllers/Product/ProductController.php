@@ -11,26 +11,40 @@ use Auth;
 use App\User;
 use DateTime;
 use App\Approved_Product;
+use App\Product_Subcategory_Types;
 
 class ProductController extends Controller
 {
     public function showProducts(Subcategory_Types $subsubcategory){
     	//Optimize price further
         //$products = Product::find($subsubcategory->subcategory_types_id);
+        
+        //$products = Subcategory_Types::find($subsubcategory->subcategory_types_id);
         $products = Subcategory_Types::find($subsubcategory->subcategory_types_id);
-        $p = array();
-        foreach ($products->products as $q) {
-            if($q->approved_product_id != null){
-                $p[] = $q;
+        $final = array();
+        $i = 0;
+        foreach ($products->products as $p) {
+            if($p->approved_product_id != null){
+                $final[$i] = $p;
+                $i++;
             }
         }
+
+            
+
+        /*
+        
+        */
+        /*
         $prices = array();
 		$i = 0;
 		foreach ($p as $q) {
             $prices[$i] = Price::find($q->price_id);
     		$i++;
 		}
-		return view('product.products')->with(compact('subsubcategory', 'p', 'prices'));
+        */
+		//return view('product.products')->with(compact('subsubcategory', 'p', 'prices'));
+        return view('product.products')->with(compact('subsubcategory', 'final'));
     }
 
     public function showProduct($id){
@@ -39,30 +53,36 @@ class ProductController extends Controller
     }
 
     public function showAllProducts(){
+        $p = Product::all()->where('approved_product_id', '<>', null);
         if(Auth::check() && Auth::user()->role_id == 1){
-            $product = Product::all();
+            //$p = Product::all();
             /*
-            $p = array();
-            foreach ($product as $q) {
-                //dump(User::find($q->user_id)->pluck('first_name'));
-            }
-            */
             $prices = array();
             $i = 0;
             foreach ($product as $q) {
                 $prices[$i] = Price::find($q->price_id);
                 $i++;
             }
-            return view('product.index')->with(compact('product', 'prices'));
+            */
+            //return view('product.index')->with(compact('product', 'prices'));
+            //return view('product.index')->with(compact('product'));
+            return view('product.products')->with(compact('p'));
         }
         else if(Auth::check() && Auth::user()->role_id >= 2){
-            $product = Product::all()->where('approved_product_id', '<>', null);
-            return view('product.products')->with(compact('product'));
+            return view('product.products')->with(compact('p'));
+        }
+    }
+
+    public function showAdminProductsView(){
+        if(Auth::check() && Auth::user()->role_id == 1){
+            $product = Product::all();
+            return view('product.index')->with(compact('product'));
         }
     }
 
     public function showCreateProduct(){
-        return view('product.addProduct');
+        $subcategory = Subcategory_Types::all();
+        return view('product.addProduct')->with(compact('subcategory'));
     }
 
     public function createProduct(){
@@ -84,10 +104,10 @@ class ProductController extends Controller
 
         //Create and save the user
         $product = new Product;
-
         $product->name = request('pname');
         $product->description = request('description');
         $product->user_id = Auth::user()->role_id;
+
 /*
         $price = new Price;
         $price = request('price');
@@ -96,19 +116,28 @@ class ProductController extends Controller
         $price->last_updated = $now;
 */
         //$product->price_id = request('price');
-        $product->price_id = '1';
+        //$product->price_id = '1';
 
         $product->save();
+        
+        //Create a temp table for approvals and disapproval
+        $psub = new Product_Subcategory_Types;
+        $psub->product_id = $product->product_id;
+        $psub->subcategory_types = request('subcategories');
+        $psub->save();
 
         if(Auth::check() && Auth::user()->role_id == 1){
             $products = Product::all();
+            /*
             $prices = array();
             $i = 0;
             foreach ($products as $q) {
                 $prices[$i] = Price::find($q->price_id);
                 $i++;
             }
-            return redirect('/products')->with(compact('products', 'prices'));
+            */
+            //return redirect('/products')->with(compact('products', 'prices'));
+            return redirect('/products')->with(compact('products'));
         }
         else{
             print("Product Submitted for Approval!");

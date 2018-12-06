@@ -27,6 +27,9 @@ class CreateProductQaTable extends Migration
             $table->datetime('asked_datetime');
             $table->datetime('answered_datetime')->nullable();
 
+            $table->integer('product_id')->unsigned();
+            $table->foreign('product_id')->references('product_id')->on('product'); //Foreign Key            
+
             $table->timestamps();
         });
     }

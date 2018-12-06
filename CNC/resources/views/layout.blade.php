@@ -5,10 +5,35 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
-  <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="css/bootstrap.css" media="screen">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
    <!--<link href="{{ asset('css/updatecss.css') }}" rel="stylesheet">-->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <script src="{{ asset('js/additonal.js') }}"></script>
+   <style>
+    body{padding-top: 120px;}
+    .invalid-feedback{font-size:1.15em;padding: 0.75em;}
+    footer{margin-top: 70px;
+        border-top: #919aa1 solid 1px;
+        padding-top: 2em;
+}
+        .Listings .products>div {
+    border-top: 1px solid;
+    padding: 1em .5em;
+}
+        .block30{
+            float: left;
+            width: 30%;
+        }
+        .block60{
+            float:left;
+            width: 60%;
+        }
+        .clear{clear:both;}
+    </style>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
@@ -99,5 +124,6 @@
       </div>
     </div>
   </footer>
+  
 </body>
 </html>

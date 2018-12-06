@@ -18,6 +18,10 @@ class CreatePriceTable extends Migration
             $table->decimal('price', '19', '4');
             $table->datetime('price_set_datetime');
             $table->datetime('last_updated');
+
+            $table->integer('product_id')->unsigned()->unique();
+            $table->foreign('product_id')->references('product_id')->on('product'); //Foreign Key
+
             $table->timestamps();
         });
     }

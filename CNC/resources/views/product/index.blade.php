@@ -75,8 +75,8 @@
 										@else
 											<th>Approved</th>
 									    @endif
-									    <th>${{ $prices[$i++]->price }}</th>
-									    <a href="/CNC/public/product/{{ $p->product_id}}">
+									    <th>${{-- $prices[$i++]->price --}}</th>
+									    <a href="/CNC/public/product/{{-- $p->product_id --}}">
 									    	<th>EDIT</th>
 										</a>
 										

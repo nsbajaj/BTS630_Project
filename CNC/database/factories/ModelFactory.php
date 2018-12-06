@@ -331,19 +331,16 @@ $factory->define(App\Price::class, function (Faker\Generator $faker) {
         'last_updated' => $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null)
     ];
 });
-/*
+
 $factory->define(App\Product::class, function (Faker\Generator $faker) {
     return $product = [
         'name' => $faker->sentence($nbWords = 1, $variableNbWords = true),
         'description' => $faker->sentence($nbWords = 5, $variableNbWords = true),
-        'product_rating_id' => $faker->randomElement(App\Product_Rating::all()->pluck('product_rating_id')),
-        'product_qa_id' => $faker->randomElement(App\Product_QA::all()->pluck('product_qa_id')),
         'user_id' => $faker->randomElement(App\User::all()->pluck('user_id')),
         'SKU' => null,
         'UPC' => null,
         'discount_id' => $faker->randomElement(App\Discount::all()->pluck('discount_id')),
-        'approved_product_id' => $faker->randomElement(App\Approved_Product::all()->pluck('approved_product_id')),
-        'price_id' => $faker->randomElement(App\Price::all()->pluck('price_id'))
+        'approved_product_id' => $faker->randomElement(App\Approved_Product::all()->pluck('approved_product_id'))
     ];    
 });
 
@@ -352,5 +349,5 @@ $factory->define(App\Product_Subcategory_Types::class, function (Faker\Generator
         'product_id' => $faker->randomElement(App\Product::all()->pluck('product_id')),
         'subcategory_types' => $faker->randomElement(App\Subcategory_Types::all()->pluck('subcategory_types_id'))
     ];
-});*/
+});
 
