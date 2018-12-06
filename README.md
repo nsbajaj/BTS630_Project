@@ -228,4 +228,4 @@ Below are the prototypes we plan to deliver thorugh four iterations:
   * Character limit for products reviews.
   * Link(s) created between products and categories.
   * No need to swap users to see different pages.
-  * (^_^)
+  * Added link(s) between attributes and products (at basic level - not working 100%)
