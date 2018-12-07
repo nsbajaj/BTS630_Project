@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="css/bootstrap.css" media="screen">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  
     <style>
         body{padding-top: 120px;}
     .invalid-feedback{font-size:1.15em;padding: 0.75em;}
@@ -84,7 +83,6 @@
                             <div class="col-md-12">
                                 <input id="price" type="text" class="form-control" name="price" value="" required autofocus>
 
-                               
                                     <span class="invalid-feedback"  ><!-- Remove  display block -->
                                         @if ($errors->has('price')) 
                                             <strong>{{ $errors->first('price') }}</strong>
@@ -104,29 +102,42 @@
                                 </div>
                             </div>
 
-
                             <!-- Step 2 -->
                             <div class="step2">
-                              
-
                               <div class="form-group">
                                 <label for="exampleSelect1">Category</label>
                                 <select class="form-control" id="subcategories" name="subcategories" required>
                                     <option></option>
                                   @if(!empty($subcategory))
                                     @foreach ($subcategory as $s)
-                                        
                                         <option value="{{$s->subcategory_types_id}}">{{ $s->name }}</option>
                                     @endforeach
                                   @endif
                                 </select>
                                 <span class="invalid-feedback" style="display:block;">
-                                            <!-- Remove  display block -->
-                                            @if ($errors->has('subcategories')) 
-                                              <strong>{{ $errors->first('subcategories') }}</strong>
-                                            @endif
-                                        </span>
-                              </div>
+                                    @if ($errors->has('subcategories')) 
+                                        <strong>{{ $errors->first('subcategories') }}</strong>
+                                    @endif
+                                </span>
+                                </div>
+
+                                <div class="form-group">
+                                <label for="exampleSelect1">Attributes</label>
+                                <select class="form-control" id="attributes" name="attributes" required>
+                                    <option></option>
+                                  @if(!empty($attributes))
+                                    @foreach ($attributes as $a)
+                                        <option value="{{$a->attribute_id}}">{{ $a->attribute_name . " " . $a->value }}</option>
+                                    @endforeach
+                                  @endif
+                                </select>
+                                <span class="invalid-feedback" style="display:block;">
+                                    @if ($errors->has('attributes')) 
+                                        <strong>{{ $errors->first('attributes') }}</strong>
+                                    @endif
+                                </span>
+                                </div>
+
                                 <div class="form-group">
 
                                 </div>
@@ -147,9 +158,6 @@
                                       </a>
                                     </div>
                                 </div>
-
-
-
                             </div>
                         </form>
                     </div>

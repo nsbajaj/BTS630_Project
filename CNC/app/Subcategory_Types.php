@@ -16,6 +16,6 @@ class Subcategory_Types extends Model
 
     public function products()
     {
-        return $this->belongsToMany('App\Product', 'product_subcategory_types', 'subcategory_types', 'product_id');
+        return $this->belongsToMany('App\Product', 'product_subcategory_types', 'subcategory_types_id', 'product_id');
     }
 }

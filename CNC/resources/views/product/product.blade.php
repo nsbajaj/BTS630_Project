@@ -7,7 +7,7 @@
 	<title>Bootswatch: Lux</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<link rel="stylesheet" href="css/bootstrap.css" media="screen">
+	<link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" media="screen">
 	<style>
 		body{padding-top: 120px;}
 		.invalid-feedback{font-size:1.15em;padding: 0.75em;}
@@ -30,7 +30,7 @@
 					<div class="col-md-8">
 						<div>
 							<img src="img/1.jpg" alt="productname" id="prodImg"/>
-							<label>Product naome</label>
+							<label>Product name</label>
 						</div>
 						<div>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi incidunt quibusdam tempora pariatur aut ex fugit est? Nisi, quibusdam rem officia quam voluptate, assumenda doloremque neque vitae alias ipsa odio.</p>
@@ -43,6 +43,7 @@
 						{{ $product->description }}
 						</p>
 						<div>
+							<!--
 							<p>Flavor</p>
 							<select class="form-control" id="Model">
 								<option value="1">Cola</option>
@@ -51,7 +52,31 @@
 								<option value="4">Diet</option>
 								<option value="5">Mello</option>
 							</select>
-
+							-->
+							<div class="form-group">
+                                <label for="exampleSelect1">Category</label>
+                                <!--<select class="form-control" id="subcategories" name="subcategories" required>
+                                    <option></option> -->
+                                  @if(!empty($finalSub))
+                                    @foreach ($finalSub as $s)
+                                        <!-- <option value="{{$s->subcategory_types_id}}">{{ $s->name }}</option> -->
+                                        <ul>
+                                        	<li>{{ $s->name }}</li>
+                                        </ul>
+                                    @endforeach
+                                  @endif
+                                <!-- </select> -->
+                                </div>
+                                <div class="form-group">
+                                <label for="exampleSelect1">Attributes</label>
+	                                @if(!empty($finalAtt))
+	                                    @foreach ($finalAtt as $a)
+	                                        <ul>
+                                        		<li>{{ $a->attribute_name . " " . $a->value }}</li>
+                                        	</ul>
+	                                    @endforeach
+	                                @endif
+	                            </div>
 						</div>
 						
 						<div>
