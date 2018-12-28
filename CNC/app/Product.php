@@ -18,7 +18,6 @@ class Product extends Model
 
     public function attributes(){
         return $this->belongsToMany('App\Attributes', 'product_attributes', 'product_id', 'attribute_id');
-        //return $this->belongsToMany('App\Attributes', 'attribute_id', 'product_id', 'attribute_id');
     }
 
     public function subcategory(){

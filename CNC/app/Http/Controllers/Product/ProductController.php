@@ -14,6 +14,7 @@ use App\Approved_Product;
 use App\Product_Subcategory_Types;
 use App\Attributes;
 use App\Product_Attributes;
+use App\Product_Photo;
 
 class ProductController extends Controller
 {
@@ -55,7 +56,19 @@ class ProductController extends Controller
             $finalAtt[$i] = $a;
             $i++;
         }
-        return view('product.product')->with(compact('product', 'finalSub', 'finalAtt'));
+
+
+        //$photos = Product_Photo::where('product_id', $id)->flatten()->get();
+        $photos = Product_Photo::where('product_id', $id)->get()->pluck('filename');
+        
+        /*
+        $photos = array();
+        $i = 0;
+        foreach ($tempPhotos as $t) {
+            dump($t->filename);
+        }
+        */
+        return view('product.product')->with(compact('product', 'finalSub', 'finalAtt', 'photos'));
     }
 
     public function showAllProducts(){
@@ -96,7 +109,7 @@ class ProductController extends Controller
         return view('product.addProduct')->with(compact('subcategory', 'attributes'));
     }
 
-    public function createProduct(){
+    public function createProduct(Request $request){
         $messages = [
             'pname.required' => 'Please enter a product name.',
             'pname.max' => 'Please enter a shorter product name.',
@@ -117,7 +130,7 @@ class ProductController extends Controller
         $product = new Product;
         $product->name = request('pname');
         $product->description = request('description');
-        $product->user_id = Auth::user()->role_id;
+        $product->user_id = Auth::user()->user_id;
 
 /*
         $price = new Price;
@@ -141,6 +154,26 @@ class ProductController extends Controller
         $pa->product_id = $product->product_id;
         $pa->attribute_id = request('attributes');
         $pa->save();
+
+        //Product Photo
+        $this->validate($request, [
+            'filename' => 'required',
+            'filename.*' => 'mimes:doc,pdf,docx,zip,png,jpg,jpeg'
+        ]);
+
+        if($request->hasfile('filename')){
+        foreach($request->file('filename') as $file){
+                $name=$file->getClientOriginalName();
+                $file->move(public_path().'/files/', $name);  
+                $data[] = $name;  
+
+                $photo = new Product_Photo();
+                $photo->filename = $name;
+                $photo->product_id = $product->product_id;
+                $photo->user_id = Auth::user()->user_id;
+                $photo->save();
+            }
+        }
 
         if(Auth::check() && Auth::user()->role_id == 1){
             $products = Product::all();

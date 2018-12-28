@@ -4,7 +4,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Bootswatch: Lux</title>
+	<title>{{ $product->name }}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" media="screen">
@@ -33,6 +33,11 @@
 							<label>Product name</label>
 						</div>
 						<div>
+						@if(!empty($photos))
+							@foreach ($photos as $key => $value)
+							    <img src="{{ URL::to('/') }}/files/{{$value}}" height="100px" width="100px" />
+							@endforeach
+						@endif
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi incidunt quibusdam tempora pariatur aut ex fugit est? Nisi, quibusdam rem officia quam voluptate, assumenda doloremque neque vitae alias ipsa odio.</p>
 						</div>
 					</div>

@@ -33,6 +33,22 @@
             });
          });
     </script>
+    <script type="text/javascript">
+
+    $(document).ready(function() {
+
+      $(".btn-success").click(function(){ 
+          var html = $(".clone").html();
+          $(".increment").after(html);
+      });
+
+      $("body").on("click",".btn-danger",function(){ 
+          $(this).parents(".control-group").remove();
+      });
+
+    });
+
+</script>
 </head>
 
 <body>
@@ -46,7 +62,7 @@
                     </div>
 
                     <div class="panel-body">
-                        <form class="form-horizontal" method="POST" action="/CNC/public/addProduct">
+                        <form class="form-horizontal" method="POST" action="/CNC/public/addProduct" enctype="multipart/form-data">
                         {{ csrf_field() }}
                             <div class="step1">
                                 <div class="form-group">
@@ -139,9 +155,23 @@
                                 </div>
 
                                 <div class="form-group">
-
+                                    <div class="input-group control-group increment" >
+                                  <input type="file" name="filename[]" class="form-control">
+                                  <div class="input-group-btn"> 
+                                    <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
+                                  </div>
                                 </div>
-
+                                <!--
+                                <div class="clone hide">
+                                  <div class="control-group input-group" style="margin-top:10px">
+                                    <input type="file" name="filename[]" class="form-control">
+                                    <div class="input-group-btn"> 
+                                      <button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
+                                    </div>
+                                  </div>
+                                </div>
+                                </div>
+                                -->
                                 <div class="form-group">
                                     <div class="col-md-8 col-md-offset-4">
                                         <button type="submit" class="btn btn-primary">
@@ -166,6 +196,8 @@
             </div>
         </div>
     </div>
+
+
 </body>
 
 </html>
