@@ -75,7 +75,7 @@
 										@else
 											<th>Approved</th>
 									    @endif
-									    <th>${{-- $prices[$i++]->price --}}</th>
+									    <th>{{ $p->price()->latest()->first() }}</th>
 									    <a href="/CNC/public/product/{{-- $p->product_id --}}">
 									    	<th>EDIT</th>
 										</a>

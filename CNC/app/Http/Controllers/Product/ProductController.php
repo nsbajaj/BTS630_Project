@@ -30,7 +30,6 @@ class ProductController extends Controller
             }
             
         }
-		//return view('product.products')->with(compact('subsubcategory', 'p', 'prices'));
         return view('product.products')->with(compact('subsubcategory', 'final'));
     }
 
@@ -98,6 +97,11 @@ class ProductController extends Controller
     public function showAdminProductsView(){
         if(Auth::check() && Auth::user()->role_id == 1){
             $product = Product::all();
+            /*
+            foreach($product as $p){
+                $price = $p->price()->latest()->first();
+            }
+            */
             return view('product.index')->with(compact('product'));
         }
     }

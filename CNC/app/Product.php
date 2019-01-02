@@ -24,10 +24,7 @@ class Product extends Model
         return $this->belongsToMany('App\Subcategory_Types', 'product_subcategory_types', 'product_id', 'subcategory_types_id');
     }
 
-/*
-    public function price()
-    {
-        return $this->hasOne('App\Price');
+    public function price(){
+        return $this->hasMany('App\Price', 'product_id');
     }
-    */
 }

@@ -18,6 +18,23 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     $organizations = App\Organization::all()->pluck('organization_id');
 
     return $user = [
+        'first_name' => 'Nitish',
+        'last_name' => 'Bajaj',
+        'username' => 'nsbajaj',
+        'password' => bcrypt('n'),
+        'email' => 'nsbajaj@myseneca.ca',
+        'role_id' => 1,
+        'organization_id' => $faker->randomElement($organizations),
+        'account_join_date' => $faker->dateTimeBetween($startDate = '-10 years', $endDate = 'now', $timezone = null),
+        'account_delete_date' => null,
+        'last_signin' => $faker->dateTimeBetween($startDate = '-3 years', $endDate = 'now', $timezone = null),
+        'activation_datetime' => $faker->dateTimeBetween($startDate = '-5 years', $endDate = 'now', $timezone = null),
+        'unsuccessful_signin_attempt' => $faker->numberBetween($min = 0, $max = 10)
+    ];
+
+
+    /*
+    return $user = [
         'first_name' => $faker->firstName,
         'last_name' => $faker->lastName,
         'username' => $faker->userName,
@@ -31,6 +48,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'activation_datetime' => $faker->dateTimeBetween($startDate = '-5 years', $endDate = 'now', $timezone = null),
         'unsuccessful_signin_attempt' => $faker->numberBetween($min = 0, $max = 10)
     ];
+    */
 });
 
 $factory->define(App\Role::class, function (Faker\Generator $faker) {
@@ -324,14 +342,6 @@ $factory->define(App\Approved_Product::class, function (Faker\Generator $faker) 
     ];
 });
 
-$factory->define(App\Price::class, function (Faker\Generator $faker) {
-    return $price = [
-        'price' => $faker->biasedNumberBetween($min = 9, $max = 99, $function = 'sqrt'),
-        'price_set_datetime' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
-        'last_updated' => $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null)
-    ];
-});
-
 $factory->define(App\Product::class, function (Faker\Generator $faker) {
     return $product = [
         'name' => $faker->sentence($nbWords = 1, $variableNbWords = true),
@@ -344,10 +354,42 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
     ];    
 });
 
-$factory->define(App\Product_Subcategory_Types::class, function (Faker\Generator $faker) {
-    return $productSub = [
-        'product_id' => $faker->randomElement(App\Product::all()->pluck('product_id')),
-        'subcategory_types' => $faker->randomElement(App\Subcategory_Types::all()->pluck('subcategory_types_id'))
+$factory->define(App\Price::class, function (Faker\Generator $faker) {
+    $products = App\Product::limit(15)->pluck('product_id');
+    $last = App\Product::orderBy('product_id', 'desc')->first();
+
+    foreach($products as $p){
+        $price = new App\Price;
+        $price->amount = $faker->biasedNumberBetween($min = 9, $max = 99, $function = 'sqrt');
+        $price->price_start_date = $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null);
+        $price->price_end_date = $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null);
+        $price->product_id = $p;
+        $price->save();
+    }
+
+    return $priceArray = [
+        'amount' => $faker->biasedNumberBetween($min = 9, $max = 99, $function = 'sqrt'),
+        'price_start_date' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
+        'price_end_date' => $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null),
+        'product_id' => $last
     ];
+
+    return array();
 });
 
+$factory->define(App\Product_Subcategory_Types::class, function (Faker\Generator $faker) {
+    $products = App\Product::limit(15)->pluck('product_id');
+    $subcategory = App\Subcategory_Types::all()->pluck('subcategory_types_id');
+
+     foreach($products as $p){
+        $sub = new App\Product_Subcategory_Types;
+        $sub->product_id = $faker->randomElement($products);
+        $sub->subcategory_types_id = $faker->randomElement($subcategory);
+        $sub->save();
+    }
+
+    return $s = [
+        'product_id' => App\Product::orderBy('product_id', 'desc')->first(),
+        'subcategory_types_id' => $faker->randomElement($subcategory)
+    ];
+});

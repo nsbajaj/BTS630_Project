@@ -15,11 +15,11 @@ class CreatePriceTable extends Migration
     {
         Schema::create('price', function (Blueprint $table) {
             $table->increments('price_id');
-            $table->decimal('price', '19', '4');
-            $table->datetime('price_set_datetime');
-            $table->datetime('last_updated');
+            $table->decimal('amount', '19', '4');
+            $table->datetime('price_start_date');
+            $table->datetime('price_end_date');
 
-            $table->integer('product_id')->unsigned()->unique();
+            $table->integer('product_id')->unsigned(); //Removed unique
             $table->foreign('product_id')->references('product_id')->on('product'); //Foreign Key
 
             $table->timestamps();
