@@ -230,7 +230,7 @@ Below are the prototypes we plan to deliver thorugh four iterations:
   * No need to swap users to see different pages.
   * Added link(s) between attributes and products (at basic level).
 
-## Description of Prototype to be delivered in BTS530
+## Description of Prototype to be delivered in BTS630
 Below are the prototypes we plan to deliver thorugh four iterations:
  1. //
  2. //
