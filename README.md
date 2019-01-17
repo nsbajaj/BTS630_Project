@@ -21,3 +21,6 @@ Below are the prototypes we plan to deliver through four iterations:
  4. //
  
 ## Iteration 1 Tasks
+
+| Number | Task Description | Status |
+| --- | --- | --- |
