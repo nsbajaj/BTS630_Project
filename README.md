@@ -24,7 +24,7 @@ Below are the prototypes we plan to deliver through four iterations:
 
 | Number | Task Description | Status |
 | --- | --- | --- |
-| 1 | Admin side will be able to suspend  user accounds<br /> - // |   |
+| 1 | Admin side will be able to suspend  user accounts<br /> - // |   |
 | 2 | Admin side will be able to remove products<br /> - // |   |
 | 3 | Admin side will be able to create products for other users<br /> - // |   |
 | 4 | Admin Side will be able to alter system roles for other users<br /> - // |   |
