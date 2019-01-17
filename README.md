@@ -15,7 +15,7 @@ NOTE: The product page will have all the settings to finalize marketplace listin
  
 ## Description of Prototype to be delivered in BTS630
 Below are the prototypes we plan to deliver through four iterations:
- 1. We plan to deliever an admin system that will have more control/authority on the users.   
+ 1. We plan to deliever an admin system that will have more control/authority on the users and products.   
  2. We plan to deliever an enhanced product(s) and categories page by adding grid system and UI improvements.
  3. We plan to deliever a purchase system which allows the users to make and receive payments and a page which will allow them to keep track of their orders. 
  4. We plan to deliever a shipping system which will allow the users to keep track of their order's arrival status and an invoice system which records all the transection that has been made through the website.
