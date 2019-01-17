@@ -26,10 +26,10 @@ Below are the prototypes we plan to deliver through four iterations:
 | --- | --- | --- |
 | 1 | Admin will be able to suspend  user accounts. |   |
 | 2 | Admin will be able to remove product(s). |   |
-| 3 | Admin will be able to add products. |   |
-| 4 | Admin will be able to alter system roles for other users. <br /> - Admin will be able to change the status of an user account, such as making a seller to as an admin. |   |
-| 5 | Seller/Admin will be able to alter products. <br /> - Change description, price, quantity, etc. |   |
-| 6 | Users must be able to remove produtcs that they added. <br /> - Products can be removed if the admin or the seller (who added the product) wants to. |   |
+| 3 | Admin will be able to add product(s). |   |
+| 4 | Admin will be able to alter system roles for the other users. <br /> - Admin will be able to change the status of an user account, such as making a seller to as an admin. |   |
+| 5 | Admin/Seller will be able to alter products. <br /> - Change description, price, quantity, etc. |   |
+| 6 | Admin/Seller will be able to remove produtcs that they added. <br /> - Products can be removed if the admin or the seller (who added the product) wants to. |   |
 | 7 | All the users will be able to see the product inventory.<br /> - Such as in stock, out of stock, number of items left in stock, discontinued, etc. |   |
-| 8 | Buyers will be able to see orders page.<br /> - It will show the orders that they have placed. |   |
-| 9 | Admin and/or seller will be able to see the orders to be filled.<br /> - It will show which orders have been filled and which have not. |   |
+| 8 | Admin and/or seller will be able to see the orders to be filled.<br /> - It will show which orders have been filled and which have not. |   |
+| 9 | Buyers will be able to see orders page.<br /> - It will show the orders that they have placed. |   |
