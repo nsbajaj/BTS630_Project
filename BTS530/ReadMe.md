@@ -229,10 +229,3 @@ Below are the prototypes we plan to deliver thorugh four iterations:
   * Link(s) created between products and categories.
   * No need to swap users to see different pages.
   * Added link(s) between attributes and products (at basic level).
-
-## Description of Prototype to be delivered in BTS630
-Below are the prototypes we plan to deliver thorugh four iterations:
- 1. We plan to deliver a prototype system that will provide the functionality of invoices and shipping/billing address. 
- 2. We plan to deliver a prototype system that will provide buyers with the ability to buy products using Paypal account and view order details.
- 3. Return?
- 4. Bug fixing/stuff left.
