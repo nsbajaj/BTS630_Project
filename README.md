@@ -24,4 +24,15 @@ Below are the prototypes we plan to deliver through four iterations:
 
 | Number | Task Description | Status |
 | --- | --- | --- |
-| 1 | //  <br /> - // |   |
+| 1 | // Admin side will be able to suspend  user accounds<br /> - // |   |
+| 2 | //  Admin side will be able to remove products<br /> - // |   |
+| 3 | //  Admin side will be able to create products for other users<br /> - // |   |
+| 4 | //  Admin Side will be able to alter system roles for other users<br /> - // |   |
+| 5 | //  User Side needs to have a more structured use of information editing<br /> - // |   |
+| 6 | //  Users Need to be able to alter products <br /> - // |   |
+| 7 | //  Users need to be able to create products <br /> - // |   |
+| 8 | //   The users Should be able to see the products  sold by them<br /> - // |   |
+| 9 | // Users must be able to remove produtcs they created  <br /> - // |   |
+| 10 | //  USers must be able to see  rough inventory<br /> - // |   |
+| 11 | //  Users need to see orders<br /> - // |   |
+| 12 | //  If user status is seller they need to see orders to be filled<br /> - // |   |
