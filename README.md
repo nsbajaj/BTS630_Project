@@ -13,9 +13,9 @@ NOTE: The product page will have all the settings to finalize marketplace listin
  
 ## Description of Prototype to be delivered in BTS630
 Below are the prototypes we plan to deliver thorugh four iterations:
- 1. 
- 2. 
- 3. 
- 4. 
+ 1. //
+ 2. //
+ 3. //
+ 4. //
  
 ## Iteration 1 Tasks
