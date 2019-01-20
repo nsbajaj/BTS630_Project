@@ -13,7 +13,7 @@ We are developing an E-commerce platform, this platform consists of 3 parts:
 
 NOTE: The product page will have all the settings to finalize marketplace listing. Verified purchasers will be able to give a product review on the purchased item, so that it helps the other customers to understand it better.
  
-## Description of Prototype to be delivered in BTS630
+## List of tasks to be delivered in BTS630
 Below are the prototypes we plan to deliver through four iterations:
 1. Admin will be able to suspend user accounts. 	
 2. Admin will be able to add product(s). 
