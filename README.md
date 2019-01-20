@@ -15,10 +15,25 @@ NOTE: The product page will have all the settings to finalize marketplace listin
  
 ## Description of Prototype to be delivered in BTS630
 Below are the prototypes we plan to deliver through four iterations:
- 1. We plan to deliever an admin system that will have more control/authority on the users and products.   
- 2. We plan to deliever an enhanced product(s) and categories page by adding grid system and UI improvements.
- 3. We plan to deliever a purchase system which allows the users to make and receive payments and a page which will allow them to keep track of their orders. 
- 4. We plan to deliever a shipping system which will allow the users to keep track of their order's arrival status and an invoice system which records all the transection that has been made through the website.
+1. Admin will be able to suspend user accounts. 	
+2. Admin will be able to add product(s). 
+3.Admin will be able to change the status of an user account, such as making a seller to as an admin. 	
+4. Admin/Seller will be able to alter products. - Change description, price, quantity, etc. 	
+5. Admin/Seller will be able to remove products that they added. - Products can be removed if the admin or the seller (who added the product) wants to. 	
+6. All the users will be able to see the product inventory. Such as in stock, out of stock, number of items left in stock, discontinued, etc. 	
+7. Admin and/or seller orders to be filled template will be finalized
+8. Orders template will be worked on and finalized 
+9. Category/subcategory Listing, and Product Listing Pages will be transitioned to a Grid system with pictures and better UI from text only.
+10. Product pages will be enhanced with colour and model specifications.
+11. Shipping and handling options will be added to seller as well as the ability to set prices by shipping
+12. Linkage of inventory system and product to the product page 
+13. Product shopping cart will be created with proper UI and listing all products and model selected by user provide totals and lead to PayPal for paying
+14. PayPal integration for completed payment of the order
+15. User once completing purchase will be able to see and cancel his order and the content of order in his dashboard
+16. Once an order been place the admin and seller user will be able to see the order time, where to ship and what items to ship and with what kind of shipping.
+17. Activate review system after seller purchases an item
+18. User Add review
+19. Disproved review ( fraudulent or any other issue)
  
 ## Iteration 1 Tasks
 
