@@ -39,11 +39,11 @@ Below are the prototypes we plan to deliver through four iterations:
 
 | Number | Task Description | Status |
 | --- | --- | --- |
-| 1 | Admin will be able to suspend  user accounts. |   |
-| 2 | Admin will be able to add product(s). |   |
-| 3 | Admin will be able to alter system roles for the other users. <br /> - Admin will be able to change the status of an user account, such as making a seller to as an admin. |   |
-| 4 | Admin/Seller will be able to alter products. <br /> - Change description, price, quantity, etc. |   |
-| 5 | Admin/Seller will be able to remove produtcs that they added. <br /> - Products can be removed if the admin or the seller (who added the product) wants to. |   |
-| 6 | All the users will be able to see the product inventory.<br /> - Such as in stock, out of stock, number of items left in stock, discontinued, etc. |   |
-| 7 | Admin and/or seller will be able to see the orders to be filled.<br /> - It will show which orders have been filled and which have not. |   |
-| 8 | Buyers will be able to see orders page.<br /> - It will show the orders that they have placed. |   |
+| 1 | Admin will be able to suspend  user accounts.<br /> - This functionality is a soft "ban"  if the user   did a minor infraction of  terms of  services to us the admin should be able tu susped  all privileges of the account other than seeing their  account that is unable to sell or  buy this is for an  specific acmount of time from a  week to a month and is  selected as  such |   |
+| 2 | Admin will be able to add product(s) for another specifit seller.<br /> - Admin should be able to  create products  for other sellers that arent his own as a means of  technical support or any other issue with   client end  this is done by selecting an id in the create menu |   |
+| 3 | Admin will be able to alter system roles for the other users. <br /> - Admin will be able to change the status of an user account, such as making a seller, making an admin, or  removing seller status, or  admin status any user with admin privilges|   |
+| 4 | Admin/Seller will be able to alter products. <br /> - As it stands item is unable to be change all fields  provided for product  will be  changable from name to price, to  description and even adding any subproduct functionality  that is  added on it |   |
+| 5 | Admin/Seller will be able to remove produtcs that they added. <br /> - Products can be removed if the admin or the seller (who added the product) requires to, this will be done from the inventory page  to remove a product from inventory in terms of selller, in terms of admin, Admin must find the  specific  product, and  remove it from the dashboard in a remove product screen. |   |
+| 6 | Product inventory, Page will be made<br /> - this is the main product page, we can see the  details of the product as well as quantity  stock, price, etc. user will be able to remove products from  this page, or discontinue if  necesary. |   |
+| 7 | Orders To be filled Template UI.<br /> - This template is  for the future  filling of data of  orders to fill from the admin/seller, will show which orders have been filled and which have not. as well as all details relevant to the  order and weather it  has been shipped or not  can be done by the user here |   |
+| 8 | Orders Placed Template UI.<br /> - It will show the orders that they have placed by user,  content, description of  items, how many items,  price of items, overall cost of the order, relevant  taxes if appplied,  shipped or not  shipped status etc  |   |
