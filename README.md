@@ -17,7 +17,7 @@ NOTE: The product page will have all the settings to finalize marketplace listin
 Below are the prototypes we plan to deliver through four iterations:
 1. Admin will be able to suspend user accounts. 	
 2. Admin will be able to add product(s). 
-3.Admin will be able to change the status of an user account, such as making a seller to as an admin. 	
+3. Admin will be able to change the status of an user account, such as making a seller to as an admin. 	
 4. Admin/Seller will be able to alter products. - Change description, price, quantity, etc. 	
 5. Admin/Seller will be able to remove products that they added. - Products can be removed if the admin or the seller (who added the product) wants to. 	
 6. All the users will be able to see the product inventory. Such as in stock, out of stock, number of items left in stock, discontinued, etc. 	
