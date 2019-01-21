@@ -39,7 +39,7 @@ Below are the prototypes we plan to deliver through four iterations:
 
 | Number | Task Description | Status |
 | --- | --- | --- |
-| 1 | Admin will be able to suspend  user accounts.<br /> - This functionality is a soft "ban"  if the user   did a minor infraction of  terms of  services to us the admin should be able tu susped  all privileges of the account other than seeing their  account that is unable to sell or  buy this is for an  specific acmount of time from a  week to a month and is  selected as  such |   |
+| 1 | Admin will be able to suspend  user accounts.<br /> - This functionality is a soft "ban". If the user did a minor infraction of  terms of  services to us the admin should be able to suspend all privileges of the account other than seeing their account that is unable to sell or buy this is for an specific acmount of time from a  week to a month and is  selected as  such |   |
 | 2 | Admin will be able to add product(s) for another specifit seller.<br /> - Admin should be able to  create products  for other sellers that arent his own as a means of  technical support or any other issue with   client end  this is done by selecting an id in the create menu |   |
 | 3 | Admin will be able to alter system roles for the other users. <br /> - Admin will be able to change the status of an user account, such as making a seller, making an admin, or  removing seller status, or  admin status any user with admin privilges|   |
 | 4 | Admin/Seller will be able to alter products. <br /> - As it stands item is unable to be change all fields  provided for product  will be  changable from name to price, to  description and even adding any subproduct functionality  that is  added on it |   |
