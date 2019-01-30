@@ -75,7 +75,12 @@
 										@else
 											<th>Approved</th>
 									    @endif
-									    <th>{{ $p->price()->latest()->first() }}</th>
+									    @if(!empty($price))
+									    <th>{{ $price[$i] }}</th>
+									     @else
+									     <th></th>
+									     @endif
+									    @php $i++; @endphp
 									    <a href="/CNC/public/product/{{-- $p->product_id --}}">
 									    	<th>EDIT</th>
 										</a>

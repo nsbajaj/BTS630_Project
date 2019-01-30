@@ -20,6 +20,7 @@ class ProductController extends Controller
 {
     public function showProducts(Subcategory_Types $subsubcategory){
     	//Optimize price further
+        //dump($subsubcategory);
         $products = Subcategory_Types::find($subsubcategory->subcategory_types_id);
         $final = array();
         $i = 0;
@@ -108,9 +109,9 @@ class ProductController extends Controller
 
     public function showCreateProduct(){
         $subcategory = Subcategory_Types::all();
-        //$attributes = Attributes::all()->unique('attribute_name');
         $attributes = Attributes::all();
-        return view('product.addProduct')->with(compact('subcategory', 'attributes'));
+        $sellers = User::where('role_id', 3)->get();
+        return view('product.addProduct')->with(compact('subcategory', 'attributes', 'sellers'));
     }
 
     public function createProduct(Request $request){
@@ -130,11 +131,17 @@ class ProductController extends Controller
             'price' => 'required'
         ], $messages);
 
-        //Create and save the user
         $product = new Product;
         $product->name = request('pname');
         $product->description = request('description');
-        $product->user_id = Auth::user()->user_id;
+        //If seller wants admin to add the product, seller ID is used.
+        if(empty(request('sellers'))){
+            $product->user_id = Auth::user()->user_id;
+        }
+        else{
+            $product->user_id = request('sellers');
+        }
+        
 
 /*
         $price = new Price;
@@ -149,6 +156,7 @@ class ProductController extends Controller
         $product->save();
         
         //Create a temp table for approvals and disapproval
+        
         $psub = new Product_Subcategory_Types;
         $psub->product_id = $product->product_id;
         $psub->subcategory_types_id = request('subcategories');
@@ -160,11 +168,12 @@ class ProductController extends Controller
         $pa->save();
 
         //Product Photo
+/*
         $this->validate($request, [
             'filename' => 'required',
             'filename.*' => 'mimes:doc,pdf,docx,zip,png,jpg,jpeg'
         ]);
-
+*/
         if($request->hasfile('filename')){
         foreach($request->file('filename') as $file){
                 $name=$file->getClientOriginalName();
@@ -189,7 +198,6 @@ class ProductController extends Controller
                 $i++;
             }
             */
-            //return redirect('/products')->with(compact('products', 'prices'));
             
             return redirect('/products')->with(compact('products'));
         }
@@ -201,7 +209,6 @@ class ProductController extends Controller
     public function approveProduct($id){
         if(Auth::check() && Auth::user()->role_id == 1){
             $approved = new Approved_Product;
-            //$approved->approved_by = Auth::user()->role_id;
             $approved->approved_by = Auth::user()->role_id;
 
             $product = Product::find($id);

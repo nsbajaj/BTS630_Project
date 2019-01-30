@@ -138,20 +138,37 @@
                                 </div>
 
                                 <div class="form-group">
-                                <label for="exampleSelect1">Attributes</label>
-                                <select class="form-control" id="attributes" name="attributes" required>
-                                    <option></option>
-                                  @if(!empty($attributes))
-                                    @foreach ($attributes as $a)
-                                        <option value="{{$a->attribute_id}}">{{ $a->attribute_name . " " . $a->value }}</option>
-                                    @endforeach
-                                  @endif
-                                </select>
-                                <span class="invalid-feedback" style="display:block;">
-                                    @if ($errors->has('attributes')) 
-                                        <strong>{{ $errors->first('attributes') }}</strong>
-                                    @endif
-                                </span>
+                                    <label for="exampleSelect1">Attributes</label>
+                                    <select class="form-control" id="attributes" name="attributes" required>
+                                        <option></option>
+                                      @if(!empty($attributes))
+                                        @foreach ($attributes as $a)
+                                            <option value="{{$a->attribute_id}}">{{ $a->attribute_name . " " . $a->value }}</option>
+                                        @endforeach
+                                      @endif
+                                    </select>
+                                    <span class="invalid-feedback" style="display:block;">
+                                        @if ($errors->has('attributes')) 
+                                            <strong>{{ $errors->first('attributes') }}</strong>
+                                        @endif
+                                    </span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleSelect1">Sellers</label>
+                                    <select class="form-control" id="sellers" name="sellers">
+                                        <option></option>
+                                      @if(!empty($sellers))
+                                        @foreach ($sellers as $s)
+                                            <option value="{{$s->user_id}}">{{ $s->first_name . " " . $s->last_name }}</option>
+                                        @endforeach
+                                      @endif
+                                    </select>
+                                    <span class="invalid-feedback" style="display:block;">
+                                        @if ($errors->has('sellers')) 
+                                            <strong>{{ $errors->first('sellers') }}</strong>
+                                        @endif
+                                    </span>
                                 </div>
 
                                 <div class="form-group">

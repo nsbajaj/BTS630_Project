@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use DateTime;
 use Auth;
+use App\Role;
 
 class UserController extends Controller
 {
@@ -37,7 +38,8 @@ class UserController extends Controller
 
     public function editAccount(User $user){
         if((Auth::check() && Auth::user()->role_id == 1) || (Auth::check() && Auth::user()->user_id == $user->user_id)){
-            return view('user.edit')->with('user', $user);
+            $roles = Role::all();
+            return view('user.edit')->with(compact('user', 'roles'));
         }
         else{
             abort(404);
@@ -61,6 +63,9 @@ class UserController extends Controller
         $user = User::find($id);
         $user->first_name = request('fname');
         $user->last_name = request('lname');
+        if(!empty(request('role'))){
+            $user->role_id = request('role');    
+        }
         $user->save();
 
         return redirect('/users/' . $id);

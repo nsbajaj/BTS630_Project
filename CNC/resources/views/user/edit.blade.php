@@ -24,17 +24,28 @@
                 <div class="panel panel-default ">
                     <div class="panel-heading text-center"><h1>Edit User</h1></div>
                     <div class="panel-body">
-                        <form class="form-horizontal" method="POST" action="/CNC/public/updateAccount/{{Auth::user()->user_id}}">
+                        <form class="form-horizontal" method="POST" action="/CNC/public/updateAccount/{{ $user->user_id}}">
                             {{ csrf_field() }}
                             @if(Auth::check() && Auth::user()->role_id == 1) <!-- If user is signed in and has admin privileges.-->
                             <div class="form-group">
                                 <label for="role" class="col-md-6 control-label">Role</label>
                                 <div class="col-md-12">
                                     <select name="role" class="form-control">
-                                        <option value="">Select a role</option>
+                                        @if(!empty($roles))
+                                            @foreach ($roles as $role)
+                                                @if(!empty($user))
+                                                    @if($user->role_id == $role->role_id)
+                                                        <option value="{{ $role->role_id }}" selected>{{ $role->name }}</option>    
+                                                    @else
+                                                        <option value="{{ $role->role_id }}">{{ $role->name }}</option>    
+                                                    @endif
+                                                @endif
+                                            @endforeach
+                                        @endif
+                                        <!--<option value="">Select a role</option>
                                         <option value="administration">Administration</option>
                                         <option value="buyer">Buyer</option>
-                                        <option value="seller">Seller</option>
+                                        <option value="seller">Seller</option>-->
                                     </select> 
                                 </div>
                             </div>
