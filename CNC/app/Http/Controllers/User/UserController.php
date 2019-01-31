@@ -26,11 +26,16 @@ class UserController extends Controller
 
     public function showAccount(User $user){
         //Admin
-        if(Auth::check() && Auth::user()->role_id == 1){
-    	    $suspend = Suspend_Users::where('user_id', $user->user_id)->first();
-            if(!empty($suspend)){
-                return view('user.user')->with(compact('user', 'suspend'));
+        $suspend = Suspend_Users::where('user_id', $user->user_id)->first();
+        if(!empty($suspend)){
+            if(Carbon::now() < $suspend->suspend_end){
+                //abort(404);
+
             }
+        }
+        
+        if(Auth::check() && Auth::user()->role_id == 1){
+            return view('user.user')->with(compact('user', 'suspend'));
         }
         //Current user can view his/her account
         else if(Auth::check() && Auth::user()->user_id == $user->user_id){
