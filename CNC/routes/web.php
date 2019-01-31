@@ -42,6 +42,9 @@ Route::post('/updateAccount/{id}', 'User\UserController@updateAccount');
 //Delete Accounts
 Route::get('/users/delete/{user}', 'User\UserController@deleteAccount');
 
+//Ban
+Route::get('/users/ban/{user}', 'User\UserController@banAccount');
+
 //Main Page after logging in
 Route::get('/', 'Service\ServiceController@show');
 

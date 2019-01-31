@@ -94,8 +94,23 @@
 								{{ $user->activation_datetime }}
 							@endif
 						</div>
+
+						<div class="form-group">
+							<label for="activation_datetime" class="col-md-6 control-label">Ban Begin Date</label>
+							@if(!empty($suspend->suspend_start))
+								{{ $suspend->suspend_start }}
+							@endif
+						</div>
+
+						<div class="form-group">
+							<label for="activation_datetime" class="col-md-6 control-label">Ban End Date</label>
+							@if(!empty($suspend->suspend_end))
+								{{ $suspend->suspend_end }}
+							@endif
+						</div>
 						<a href="/CNC/public/users/edit/{{ $user->user_id}}"><button type="button" class="btn btn-primary">Edit Account</button></a>
 						<a href="/CNC/public/users/delete/{{ $user->user_id}}"><button type="button" class="btn btn-primary">Delete Account</button></a>
+						<a href="/CNC/public/users/ban/{{ $user->user_id}}"><button type="button" class="btn btn-primary">Ban Account</button></a>
 						<!-- form-->
 						@endif
 					</div>

@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use DateTime;
+use DateInterval;
 use Auth;
 use App\Role;
+use App\Suspend_Users;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -24,7 +27,10 @@ class UserController extends Controller
     public function showAccount(User $user){
         //Admin
         if(Auth::check() && Auth::user()->role_id == 1){
-    	   return view('user.user')->with('user', $user);
+    	    $suspend = Suspend_Users::where('user_id', $user->user_id)->first();
+            if(!empty($suspend)){
+                return view('user.user')->with(compact('user', 'suspend'));
+            }
         }
         //Current user can view his/her account
         else if(Auth::check() && Auth::user()->user_id == $user->user_id){
@@ -96,6 +102,15 @@ class UserController extends Controller
         else{
             abort(404);
         }
-        
+    }
+
+    public function banAccount(User $user){
+        $suspend = new Suspend_Users;
+        $suspend->user_id = $user->user_id;
+        $suspend->suspend_start = Carbon::now();
+        $suspend->suspend_end = Carbon::now()->addHours(1);
+        $suspend->save();
+
+        return $this->showAccount($user);
     }
 }
