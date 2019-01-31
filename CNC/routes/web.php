@@ -69,8 +69,12 @@ Route::get('/approveProduct/{id}', 'Product\ProductController@approveProduct');
 Route::get('/adminProductsView/', 'Product\ProductController@showAdminProductsView');
 Route::get('/deleteProduct/{product}', 'Product\ProductController@deleteProduct');
 Route::get('/deletedProducts/', 'Product\ProductController@deletedProducts');
-
+Route::get('/inventory/', 'Product\ProductController@inventory');
+//orders
+Route::get('/orders', 'Orders\OrdersController@otp');
+Route::get('/orderstbs',  'Orders\OrdersController@otf');
 Route::get('/customers',function(){
+
 	
 /*
 Route::get('/customers',function(){

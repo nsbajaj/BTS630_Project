@@ -374,4 +374,7 @@ class ProductController extends Controller
                                 @endforeach
         */
     }
+	public function inventory(){
+		return view('product.inventory');
+	}
 }
