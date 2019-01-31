@@ -16,6 +16,7 @@ use App\Attributes;
 use App\Product_Attributes;
 use App\Product_Photo;
 
+
 class ProductController extends Controller
 {
     public function showProducts(Subcategory_Types $subsubcategory){
@@ -98,6 +99,8 @@ class ProductController extends Controller
     public function showAdminProductsView(){
         if(Auth::check() && Auth::user()->role_id == 1){
             $product = Product::all();
+            //$product = Product::withTrashed()->get();
+            
             /*
             foreach($product as $p){
                 $price = $p->price()->latest()->first();
@@ -231,7 +234,7 @@ class ProductController extends Controller
     }
 
     public function updateProduct($id){
-        $product = Product::where('product_id', 1)->first();
+        $product = Product::where('product_id', $id)->first();
         if(!empty($product)){
             if(Auth::check() && (Auth::user()->role_id == 1) || (Auth::user()->user_id == $product->user_id)){
 
@@ -308,5 +311,36 @@ class ProductController extends Controller
             }
             return redirect('/products')->with(compact('products', 'prices'));
         }
+    }
+
+    public function deleteProduct(Product $product){
+        if(Auth::check() && Auth::user()->role_id == 1){
+                $product->delete();
+                return $this->showAdminProductsView();
+        } 
+        else if(Auth::check() && Auth::user()->user_id == $product->user_id){
+            $product->delete();
+            return $this->showAllProducts();
+        }
+    }
+
+    //Shows all deleted products
+    public function deletedProducts(){
+        if(Auth::check() && Auth::user()->role_id == 1){
+            $deletedCollection = Product::onlyTrashed()->get();
+            return view('product.deletedProducts')->with(compact('deletedCollection'));
+        }
+        else if(Auth::check() && Auth::user()->role_id == 3){
+            $deletedCollection = Product::withTrashed()->where('user_id', Auth::user()->user_id)->get();
+            return view('product.deletedProducts')->with(compact('deletedCollection'));
+        }
+        else{
+            abort(404);
+        }
+        /*
+            @foreach ($deletedCollection as $delete => $value)
+                                    <p>{{ $value->product_id }}</p>
+                                @endforeach
+        */
     }
 }

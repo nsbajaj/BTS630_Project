@@ -5,9 +5,13 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Price;
 use App\Subcategory_Types;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
     protected $table = 'product'; //Custom Table Name
 	protected $primaryKey = 'product_id';
 

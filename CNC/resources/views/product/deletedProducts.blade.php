@@ -38,7 +38,6 @@
 					<div class="page-header">
 						<h1 id="tables">Products</h1>
 						<a href="{{ url('/addProduct') }}"><button type="button" class="btn btn-primary">Create New Product</button></a>
-						<a href="{{ url('/deletedProducts') }}"><button type="button" class="btn btn-primary">Deleted</button></a>
 					</div>
 					<div class="bs-component">
 						<table class="table table-hover">
@@ -53,11 +52,11 @@
 								</tr>
 							</thead>
 							<tbody>
-								@if(!empty($product))
+								@if(!empty($deletedCollection))
 									@php
 					            		$i = 0;
 					            	@endphp
-									@foreach ($product as $p)
+									@foreach ($deletedCollection as $p)
 									<!-- Product needing approval will be highlighted as danger -->
 									@if($p->approved_product_id == null)
 								    	<tr class="table-danger">

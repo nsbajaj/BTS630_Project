@@ -64,6 +64,8 @@ Route::get('/addProduct', 'Product\ProductController@showCreateProduct');
 Route::post('/addProduct', 'Product\ProductController@createProduct');
 Route::get('/approveProduct/{id}', 'Product\ProductController@approveProduct');
 Route::get('/adminProductsView/', 'Product\ProductController@showAdminProductsView');
+Route::get('/deleteProduct/{product}', 'Product\ProductController@deleteProduct');
+Route::get('/deletedProducts/', 'Product\ProductController@deletedProducts');
 
 Route::get('/customers',function(){
 	
