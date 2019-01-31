@@ -21,19 +21,19 @@ Below are the prototypes we plan to deliver through four iterations:
 4. Admin/Seller will be able to alter products. - Change description, price, quantity, etc.     
 5. Admin/Seller will be able to remove products that they added. - Products can be removed if the admin or the seller (who added the product) wants to.     
 6. All the users will be able to see the product inventory. Such as in stock, out of stock, the number of items left in stock, discontinued, etc.     
-7. Admin and/or seller orders to be filled template will be finalized
-8. Orders template will be worked on and finalized 
+7. Orders to be filled template will be finalized for admin and seller.
+8. Orders placed template will be designed and finalized.
 9. Category/subcategory Listing and Product Listing Pages will be transitioned to a Grid system with pictures and better UI from text only.
 10. Product pages will be enhanced with colour and model specifications.
-11. Shipping and handling options will be added to the seller as well as the ability to set prices by shipping
-12. Linkage of the inventory system and product to the product page 
-13. The product shopping cart will be created with proper UI and listing all products and model selected by user provide totals and lead to PayPal for paying
-14. PayPal integration for completed payment of the order
-15. Once the user completes the purchase, the user will be able to see and cancel his order and the content of order in his dashboard
+11. Shipping and handling options will be added to the seller as well as the ability to set prices by shipping.
+12. Linkage of the inventory system and product to the product page.
+13. The product shopping cart will be created with proper UI and listing all products and model selected by user provide totals and lead to PayPal for paying.
+14. PayPal integration for completed payment of the order.
+15. Once the user completes the purchase, the user will be able to see and cancel his order and the content of order in his dashboard.
 16. Once an order places the admin and seller user will be able to see the order time, where to ship and what items to ship and with what kind of shipping.
-17. Activate review system after seller purchases an item
-18. User Add review
-19. Disproved review (fraudulent or any other issue)
+17. Activate review system after seller purchases an item.
+18. User will be able to add a review for the purchased product.
+19. Disprove a review (fraudulent or any other issue).
  
 ## Iteration 1 Task List
 
