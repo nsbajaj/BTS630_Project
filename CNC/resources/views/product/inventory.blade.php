@@ -2,10 +2,11 @@
 	@section('content')
 	<div class="container Listings">
 		<div class="row justify-content-center">
-			<div class="col-md-9 col-md-offset-1 categories">
+			<div class="col-lg-12">
             <h1>Inventory</h1>
-                <table>
-                    <tr class="headtable">
+                <table class="table table-hover">
+							<thead>
+								<tr class="headtable">
                         <th>Product</th>
                         <th>Name</th>
                         <th>Description</th>
@@ -13,6 +14,8 @@
                         <th>Cancel</th>
                         
                     </tr>
+                    </thead>
+                   <tbody>
                     <tr id="row056">
                         <td>00056</td>
                         <td>
@@ -50,6 +53,7 @@
                         
                         </td>
                     </tr>
+                <tbody>
                 </table>
                   
                    

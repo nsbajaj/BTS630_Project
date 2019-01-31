@@ -2,10 +2,12 @@
 	@section('content')
 	<div class="container Listings">
 		<div class="row justify-content-center">
-			<div class="col-md-9 col-md-offset-1 categories">
-            <h1>Orders</h1>
-                <table>
-                    <tr class="headtable">
+			<div class="col-lg-12">
+
+                           <h1>Orders</h1>
+                <table class="table table-hover">
+							<thead>
+								<tr class="headtable">
                         <th>Order</th>
                         <th>contents</th>
                         <th>Date placed</th>
@@ -16,6 +18,8 @@
                         <th>Send</th>
                         
                     </tr>
+					</thead>
+                   <tbody>
                     <tr>
                         <td>00056</td>
                         <td><ul>
@@ -59,6 +63,7 @@
                         <td class="status">No</td>
                         <td><a href="javascript:void" class="Send" data="071">Cancel</a></td>
                     </tr>
+                    <tbody>
                 </table>
                   
                    
