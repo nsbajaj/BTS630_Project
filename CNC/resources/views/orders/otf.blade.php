@@ -46,7 +46,7 @@
                         <td>2 Ash ketchum road Toronto On canada m3e 2ek </td>                        
                         <td class="shipped">Not Shipped </td>
                         <td class="status">No</td>
-                        <td><a href="javascript:void" class="Send" data="067">Cancel</a></td>
+                        <td><a href="javascript:void" class="Send" data="067">Send Order</a></td>
                     </tr>
                     <tr id="row071">
                         <td>00067</td>
@@ -61,7 +61,7 @@
                         
                         <td class="shipped">Not Shipped </td>
                         <td class="status">No</td>
-                        <td><a href="javascript:void" class="Send" data="071">Cancel</a></td>
+                        <td><a href="javascript:void" class="Send" data="071">Send Order</a></td>
                     </tr>
                     <tbody>
                 </table>
@@ -84,5 +84,5 @@
     </script>
     <style>
 		 .headtable{background-color: #000; color:white;}
-        .Send{color:white;background-color: limegreen; padding:.5em 1em;}
+        .Send{color:white;background-color: limegreen; padding:.5em 1em;display:inline-block;text-align: center;}
 	</style>

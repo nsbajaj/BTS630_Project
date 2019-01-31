@@ -8,7 +8,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.css') }}" media="screen">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
    <!--<link href="{{ asset('css/updatecss.css') }}" rel="stylesheet">-->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <script src="{{ asset('js/additonal.js') }}"></script>
@@ -98,15 +97,15 @@
           <h5>Contacts</h5>
           <dl class="contact-list">
             <dt>Address:</dt>
-            <dd>798 South Park Avenue, Jaipur, Raj</dd>
+            <dd>70 The Pond Rd ,North York, ON M3J 3M6</dd>
           </dl>
           <dl class="contact-list">
             <dt>email:</dt>
-            <dd><a href="mailto:#">dkstudioin@gmail.com</a></dd>
+            <dd><a href="mailto:#">IdeaStore@gmail.com</a></dd>
           </dl>
           <dl class="contact-list">
             <dt>phones:</dt>
-            <dd><a href="tel:#">+91 7568543012</a> <span>or</span> <a href="tel:#">+91 9571195353</a>
+            <dd><a href="tel:#">+91 000000000</a> <span>or</span> <a href="tel:#">+91 0000000</a>
             </dd>
           </dl>
         </div>
