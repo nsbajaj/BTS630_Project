@@ -377,4 +377,13 @@ class ProductController extends Controller
 	public function inventory(){
 		return view('product.inventory');
 	}
+	public function otp()
+    {
+       return view('orders.otp');
+    }
+	
+	public function otf()
+    {
+        return view('orders.otf');
+    }
 }

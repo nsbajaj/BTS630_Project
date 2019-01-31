@@ -70,9 +70,10 @@ Route::get('/adminProductsView/', 'Product\ProductController@showAdminProductsVi
 Route::get('/deleteProduct/{product}', 'Product\ProductController@deleteProduct');
 Route::get('/deletedProducts/', 'Product\ProductController@deletedProducts');
 Route::get('/inventory/', 'Product\ProductController@inventory');
-//orders
-Route::get('/orders', 'Orders\OrdersController@otp');
-Route::get('/orderstbs',  'Orders\OrdersController@otf');
+//orders to be changed to its own controll at later day
+Route::get('/orders/', 'Product\ProductController@otp');
+Route::get('/orderstbs/',  'Product\ProductController@otf');
+//extra
 Route::get('/customers',function(){
 
 	

@@ -1,4 +1,6 @@
-<div class="container Listings">
+@extends('layout')
+	@section('content')
+	<div class="container Listings">
 		<div class="row justify-content-center">
 			<div class="col-md-9 col-md-offset-1 categories">
             <h1>Inventory</h1>
