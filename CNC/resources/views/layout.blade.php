@@ -110,13 +110,12 @@
           </dl>
         </div>
         <div class="col-md-4 col-xl-3">
-          <h5>Links</h5>
+          <h5>User Functions</h5>
           <ul class="nav-list">
-            <li><a href="#">About</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Contacts</a></li>
-            <li><a href="#">Pricing</a></li>
+            <li><a href="{{ url('/orders') }}">Orders</a></li>
+            <li><a href="{{ url('/orderstbs') }}">Orders to fill</a></li>
+            <li><a href="{{ url('/inventory') }}">Inventory</a></li>
+           
           </ul>
         </div>
       </div>
