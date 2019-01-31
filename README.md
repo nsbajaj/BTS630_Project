@@ -33,7 +33,7 @@ Below are the prototypes we plan to deliver through four iterations:
 16. Once an order places the admin and seller user will be able to see the order time, where to ship and what items to ship and with what kind of shipping.
 17. Activate review system after seller purchases an item
 18. User Add review
-19. Disproved review ( fraudulent or any other issue)
+19. Disproved review (fraudulent or any other issue)
  
 ## Iteration 1 Task List
 
@@ -46,4 +46,4 @@ Below are the prototypes we plan to deliver through four iterations:
 | 5 | Admin/Seller will be able to remove products that they added. <br /> - Products can be removed if the admin or the seller (who added the product) requires to, this will be done from the inventory page. To remove a product from inventory, Admin/Seller must find the specific product, and then remove it from the dashboard in a remove product screen. |   |
 | 6 | Product inventory, Page will be made<br /> - this is the main product page, we can see the details of the product as well as quantity/stock, price, etc. Admin/Seller will be able to remove products from this page, or discontinue if necesary. |   |
 | 7 | "Orders To be filled" - Template UI.<br /> - This template is for the future filling of data of orders to fill for the admin/seller. It will show which orders have been filled and which have not. As well as all the details relevant to the order and whether it has been shipped or not. |   |
-| 8 | Orders Placed Template UI.<br /> - It will show the orders that they have placed by the user,  content, description of  items, how many items, the price of items, the overall cost of the order, relevant  taxes if applied,  shipped or not  shipped status etc  |   |
+| 8 | "Order(s) Placed" - Template UI.<br /> - It will show the orders that they have placed by the user,  content, description of items, how many items, the price of items, the overall cost of the order, relevant taxes if applied, shipped or not shipped status, etc.  |   |
