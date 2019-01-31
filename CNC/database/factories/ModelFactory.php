@@ -17,6 +17,21 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     $roles = App\Role::all()->pluck('role_id');
     $organizations = App\Organization::all()->pluck('organization_id');
 
+    $tempUser = new App\User;
+    $tempUser->first_name = "John";
+    $tempUser->last_name = "Doe";
+    $tempUser->username = "johndoe";
+    $tempUser->password = bcrypt('n');
+    $tempUser->email = "johndoe@myseneca.ca";
+    $tempUser->role_id = 3;
+    $tempUser->organization_id = $faker->randomElement($organizations);
+    $tempUser->account_join_date = $faker->dateTimeBetween($startDate = '-10 years', $endDate = 'now', $timezone = null);
+    $tempUser->account_delete_date = null;
+    $tempUser->last_signin = $faker->dateTimeBetween($startDate = '-3 years', $endDate = 'now', $timezone = null);
+    $tempUser->activation_datetime = $faker->dateTimeBetween($startDate = '-5 years', $endDate = 'now', $timezone = null);
+    $tempUser->unsuccessful_signin_attempt = $faker->numberBetween($min = 0, $max = 10);
+    $tempUser->save();
+
     return $user = [
         'first_name' => 'Nitish',
         'last_name' => 'Bajaj',
@@ -393,3 +408,38 @@ $factory->define(App\Product_Subcategory_Types::class, function (Faker\Generator
         'subcategory_types_id' => $faker->randomElement($subcategory)
     ];
 });
+
+$factory->define(App\Attributes::class, function (Faker\Generator $faker) {
+    $attribute1 = new App\Attributes;
+    $attribute1->attribute_name = "Colour";
+    $attribute1->value = "Black";
+    $attribute1->save();
+
+    $attribute2 = new App\Attributes;
+    $attribute2->attribute_name = "Colour";
+    $attribute2->value = "White";
+    $attribute2->save();   
+
+    $attribute3 = new App\Attributes;
+    $attribute3->attribute_name = "Colour";
+    $attribute3->value = "Grey";
+    $attribute3->save();
+
+    $attribute4 = new App\Attributes;
+    $attribute4->attribute_name = "Size";
+    $attribute4->value = "Small";
+    $attribute4->save();
+
+    $attribute5 = new App\Attributes;
+    $attribute5->attribute_name = "Size";
+    $attribute5->value = "Medium";
+    $attribute5->save();
+
+    $attribute6 = new App\Attributes;
+    $attribute6->attribute_name = "Size";
+    $attribute6->value = "Large";
+    $attribute6->save();
+
+    return $last = ['attribute_name' => 'X-Size', 'value' => 'x-Large'];
+});
+

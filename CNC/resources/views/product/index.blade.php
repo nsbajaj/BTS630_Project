@@ -81,10 +81,7 @@
 									     <th></th>
 									     @endif
 									    @php $i++; @endphp
-									    <a href="/CNC/public/product/{{-- $p->product_id --}}">
-									    	<th>EDIT</th>
-										</a>
-										
+									    <th><a href="/CNC/public/editProduct/{{ $p->product_id }}">EDIT</a></th>
 								</tr>
 									@endforeach
 								@endif

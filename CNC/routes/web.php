@@ -58,7 +58,8 @@ Route::get('/subsubcategories/{subcategory}', 'Category\CategoryController@showS
 Route::get('/products/{subsubcategory}', 'Product\ProductController@showProducts');
 Route::get('/product/{id}', 'Product\ProductController@showProduct');
 Route::get('/products', 'Product\ProductController@showAllProducts');
-//Route::get('/editProduct/{id}', 'Product\ProductController@editProduct');
+Route::get('/editProduct/{product}', 'Product\ProductController@editProduct');
+Route::post('/updateProduct/{product}', 'Product\ProductController@updateProduct');
 Route::get('/addProduct', 'Product\ProductController@showCreateProduct');
 Route::post('/addProduct', 'Product\ProductController@createProduct');
 Route::get('/approveProduct/{id}', 'Product\ProductController@approveProduct');

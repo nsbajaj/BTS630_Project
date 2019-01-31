@@ -11,15 +11,21 @@
 
 <body>
   <h1 id="tables">Products</h1>
-	@if(Auth::check() && Auth::user()->role_id == 1) 
+	@if(Auth::check()) 
     <div class="form-group">
       <div class="col-md-8 col-md-offset-4">
+        @if(Auth::user()->role_id == 1)
         <a href="/CNC/public/adminProductsView">
           <button type="button" class="btn btn-primary">
             Admin View
           </button>
-          </a>
-    <a href="{{ url('/addProduct') }}"><button type="button" class="btn btn-primary">Create New Product</button></a>
+        </a>
+        @endif
+        @if(Auth::user()->role_id == 1 || Auth::user()->role_id == 3)
+        <a href="{{ url('/addProduct') }}">
+          <button type="button" class="btn btn-primary">Create New Product</button>
+        </a>
+        @endif
       </div>
     </div>
 	@endif

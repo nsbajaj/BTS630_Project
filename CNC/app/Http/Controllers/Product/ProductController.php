@@ -108,101 +108,185 @@ class ProductController extends Controller
     }
 
     public function showCreateProduct(){
-        $subcategory = Subcategory_Types::all();
-        $attributes = Attributes::all();
-        $sellers = User::where('role_id', 3)->get();
-        return view('product.addProduct')->with(compact('subcategory', 'attributes', 'sellers'));
+        if(Auth::check() && (Auth::user()->role_id == 1) || Auth::user()->role_id == 3){
+            $subcategory = Subcategory_Types::all();
+            $attributes = Attributes::all();
+            $sellers = User::where('role_id', 3)->get();
+            return view('product.addProduct')->with(compact('subcategory', 'attributes', 'sellers'));
+        }
+        else{
+            abort(404);
+        }
     }
 
     public function createProduct(Request $request){
-        $messages = [
-            'pname.required' => 'Please enter a product name.',
-            'pname.max' => 'Please enter a shorter product name.',
+        if(Auth::check() && (Auth::user()->role_id == 1) || Auth::user()->role_id == 3){
+            $messages = [
+                'pname.required' => 'Please enter a product name.',
+                'pname.max' => 'Please enter a shorter product name.',
 
-            'description.required' => 'Please enter a description.',
-            'description.max' => 'Please enter a shorter product description.',
+                'description.required' => 'Please enter a description.',
+                'description.max' => 'Please enter a shorter product description.',
 
-            'price.required' => 'Please enter a price.',
-        ];
+                'price.required' => 'Please enter a price.',
+            ];
 
-        $this->validate(request(), [
-            'pname' => 'required|max:25',
-            'description' => 'required|max:100',
-            'price' => 'required'
-        ], $messages);
+            $this->validate(request(), [
+                'pname' => 'required|max:25',
+                'description' => 'required|max:100',
+                'price' => 'required'
+            ], $messages);
 
-        $product = new Product;
-        $product->name = request('pname');
-        $product->description = request('description');
-        //If seller wants admin to add the product, seller ID is used.
-        if(empty(request('sellers'))){
-            $product->user_id = Auth::user()->user_id;
-        }
-        else{
-            $product->user_id = request('sellers');
-        }
-        
-
-/*
-        $price = new Price;
-        $price = request('price');
-        $now = new DateTime();
-        $price->price_set_datetime = $now;
-        $price->last_updated = $now;
-*/
-        //$product->price_id = request('price');
-        //$product->price_id = '1';
-
-        $product->save();
-        
-        //Create a temp table for approvals and disapproval
-        
-        $psub = new Product_Subcategory_Types;
-        $psub->product_id = $product->product_id;
-        $psub->subcategory_types_id = request('subcategories');
-        $psub->save();
-
-        $pa = new Product_Attributes;
-        $pa->product_id = $product->product_id;
-        $pa->attribute_id = request('attributes');
-        $pa->save();
-
-        //Product Photo
-/*
-        $this->validate($request, [
-            'filename' => 'required',
-            'filename.*' => 'mimes:doc,pdf,docx,zip,png,jpg,jpeg'
-        ]);
-*/
-        if($request->hasfile('filename')){
-        foreach($request->file('filename') as $file){
-                $name=$file->getClientOriginalName();
-                $file->move(public_path().'/files/', $name);  
-                $data[] = $name;  
-
-                $photo = new Product_Photo();
-                $photo->filename = $name;
-                $photo->product_id = $product->product_id;
-                $photo->user_id = Auth::user()->user_id;
-                $photo->save();
+            $product = new Product;
+            $product->name = request('pname');
+            $product->description = request('description');
+            //If seller wants admin to add the product, seller ID is used.
+            if(empty(request('sellers'))){
+                $product->user_id = Auth::user()->user_id;
             }
-        }
-
-        if(Auth::check() && Auth::user()->role_id == 1){
-            $products = Product::all();
-            /*
-            $prices = array();
-            $i = 0;
-            foreach ($products as $q) {
-                $prices[$i] = Price::find($q->price_id);
-                $i++;
+            else{
+                $product->user_id = request('sellers');
             }
-            */
             
-            return redirect('/products')->with(compact('products'));
+
+    /*
+            $price = new Price;
+            $price = request('price');
+            $now = new DateTime();
+            $price->price_set_datetime = $now;
+            $price->last_updated = $now;
+    */
+            //$product->price_id = request('price');
+            //$product->price_id = '1';
+
+            $product->save();
+            
+            //Create a temp table for approvals and disapproval
+            
+            $psub = new Product_Subcategory_Types;
+            $psub->product_id = $product->product_id;
+            $psub->subcategory_types_id = request('subcategories');
+            $psub->save();
+
+            $pa = new Product_Attributes;
+            $pa->product_id = $product->product_id;
+            $pa->attribute_id = request('attributes');
+            $pa->save();
+
+            //Product Photo
+    /*
+            $this->validate($request, [
+                'filename' => 'required',
+                'filename.*' => 'mimes:doc,pdf,docx,zip,png,jpg,jpeg'
+            ]);
+    */
+            if($request->hasfile('filename')){
+            foreach($request->file('filename') as $file){
+                    $name=$file->getClientOriginalName();
+                    $file->move(public_path().'/files/', $name);  
+                    $data[] = $name;  
+
+                    $photo = new Product_Photo();
+                    $photo->filename = $name;
+                    $photo->product_id = $product->product_id;
+                    $photo->user_id = Auth::user()->user_id;
+                    $photo->save();
+                }
+            }
+
+            if(Auth::check() && Auth::user()->role_id == 1){
+                $products = Product::all();
+                /*
+                $prices = array();
+                $i = 0;
+                foreach ($products as $q) {
+                    $prices[$i] = Price::find($q->price_id);
+                    $i++;
+                }
+                */
+                
+                return redirect('/products')->with(compact('products'));
+            }
+            else{
+                print("Product Submitted for Approval!");
+            }
+        }
+    }
+
+    public function editProduct(Product $product){
+        //Admin can edit and the product being edited has to be by the seller.
+        if(Auth::check() && (Auth::user()->role_id == 1) || (Auth::user()->user_id == $product->user_id)){
+            $subcategory = Subcategory_Types::all();
+            
+            //$subsubcategory = Product_Subcategory_Types::where('product_id', $product->product_id); --
+
+            $attributes = Attributes::all();
+            $sellers = User::where('role_id', 3)->get();
+            $price = Price::where('product_id', $product->product_id)->latest()->first();
+            return view('product.editProduct')->with(compact('subcategory', 'attributes', 'sellers', 'product', 'price'));
         }
         else{
-            print("Product Submitted for Approval!");
+            abort(404);
+        }
+    }
+
+    public function updateProduct($id){
+        $product = Product::where('product_id', 1)->first();
+        if(!empty($product)){
+            if(Auth::check() && (Auth::user()->role_id == 1) || (Auth::user()->user_id == $product->user_id)){
+
+                $messages = [
+                    'pname.required' => 'Please enter a product name.',
+                    'pname.max' => 'Please enter a shorter product name.',
+
+                    'description.required' => 'Please enter a description.',
+                    'description.max' => 'Please enter a shorter product description.',
+
+                    'price.required' => 'Please enter a price.',
+                ];
+
+                $this->validate(request(), [
+                    'pname' => 'required|max:25',
+                    'description' => 'required|max:100',
+                    'price' => 'required'
+                ], $messages);
+
+                //$product = Product::where('product_id', $id)->first();
+                if(!empty($product)){
+                    $product->name = request('pname');
+                    $product->description = request('description');
+                    
+                    //Price
+                    $price = Price::where('product_id', $id)->latest()->first();
+                    if(!empty($price)){
+                        $price->amount = request('price');
+                        $price->save();
+                    }
+
+                    Product::find($id)->subcategory()->updateExistingPivot($id, ['subcategory_types_id' => request('subcategories')]);
+
+                    //Attribute
+                    //Only one attribute can be updated at the moment
+                    Product::find($id)->attributes()->updateExistingPivot($id, ['attribute_id' => request('attributes')]);
+
+                    
+                    //If seller wants admin to add the product, seller ID is used.
+                    if(empty(request('sellers'))){
+                        $product->user_id = Auth::user()->user_id;
+                    }
+                    else{
+                        $product->user_id = request('sellers');
+                    }
+                    $product->save();
+
+                    if(Auth::check() && Auth::user()->role_id == 1){
+                        return $this->showAdminProductsView();
+                    }
+                    else if(Auth::check() && Auth::user()->role_id == 3){
+                        return $this->showProduct($id);
+                    }
+                }
+            }
         }
     }
 

@@ -4,10 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Add Product</title>
+    <title>Edit Product</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="css/bootstrap.css" media="screen">
+    <link rel="stylesheet" href={{ asset('css/bootstrap.css') }}" media="screen">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <style>
@@ -58,18 +58,18 @@
             <div class="col-md-8 col-md-offset-2 ">
                 <div class="panel panel-default ">
                     <div class="panel-heading text-center">
-                        <h1>Add Product</h1>
+                        <h1>Edit Product</h1>
                     </div>
-
+                    @if(!empty($product))
                     <div class="panel-body">
-                        <form class="form-horizontal" method="POST" action="/CNC/public/addProduct" enctype="multipart/form-data">
+                        <form class="form-horizontal" method="POST" action="/CNC/public/updateProduct/{{ $product->product_id }}" enctype="multipart/form-data">
                         {{ csrf_field() }}
                             <div class="step1">
                                 <div class="form-group">
                             <label for="pname" class="col-md-6 control-label">Product Name</label>
 
                             <div class="col-md-12">
-                                <input id="pname" type="text" class="form-control" name="pname" value="" required autofocus>
+                                <input id="pname" value="{{ $product->name }}" type="text" class="form-control" name="pname" required autofocus>
 
                                
                                     <span class="invalid-feedback"  ><!-- Remove  display block -->
@@ -83,7 +83,7 @@
                             <label for="Description" class="col-md-6 control-label">Description</label>
 
                             <div class="col-md-12">
-                                <input id="description" type="text" class="form-control" name="description" value="" required autofocus>
+                                <input id="description" type="text" class="form-control" name="description" value="{{ $product->description }}" required autofocus>
 
                                
                                     <span class="invalid-feedback"  ><!-- Remove  display block -->
@@ -93,11 +93,11 @@
                                     </span>
                             </div>
                         </div>
+                        @if(!empty($price))
                         <div class="form-group">
                             <label for="price" class="col-md-6 control-label">Price</label>
-
                             <div class="col-md-12">
-                                <input id="price" type="text" class="form-control" name="price" value="" required autofocus>
+                                <input id="price" type="text" class="form-control" name="price" value="{{ $price->amount }}" required autofocus>
 
                                     <span class="invalid-feedback"  ><!-- Remove  display block -->
                                         @if ($errors->has('price')) 
@@ -106,7 +106,7 @@
                                     </span>
                             </div>
                         </div>
-                                
+                        @endif  
                                 <div class="form-group">
                                     <div class="col-md-8 col-md-offset-4">
                                         <a class="nextstep1" href="javascript:void(0)">
@@ -192,7 +192,7 @@
                                 <div class="form-group">
                                     <div class="col-md-8 col-md-offset-4">
                                         <button type="submit" class="btn btn-primary">
-                                            Add Product
+                                            Update Product
                                         </button>
                                     </div>
                                 </div>
@@ -208,7 +208,7 @@
                             </div>
                         </form>
                     </div>
-
+                    @endif
                 </div>
             </div>
         </div>

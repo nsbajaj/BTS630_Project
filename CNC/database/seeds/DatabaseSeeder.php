@@ -13,7 +13,6 @@ class DatabaseSeeder extends Seeder
         //$this->call(UsersTableSeeder::class);
         factory(App\Role::class, 1)->create();
         factory(App\Organization::class, 25)->create();
-        //factory(App\User::class, 10)->create();
         factory(App\User::class, 1)->create();
         //factory(App\Password_Reset::class, 0)->create();
         factory(App\General_Category::class, 1)->create();
@@ -28,5 +27,6 @@ class DatabaseSeeder extends Seeder
         factory(App\Product::class, 20)->create();
         factory(App\Price::class, 1)->create();
         factory(App\Product_Subcategory_Types::class, 1)->create();
+        factory(App\Attributes::class, 1)->create();
     }
 }
