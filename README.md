@@ -48,3 +48,14 @@ Below are the prototypes we plan to deliver through four iterations:
 | 6 | Product inventory, Page will be made<br /> - this is the main product page, we can see the details of the product as well as quantity/stock, price, etc. Admin/Seller will be able to remove products from this page, or discontinue if necesary. | Completed as planned |
 | 7 | "Orders To be filled" - Template UI.<br /> - This template is for the future filling of data of orders to fill for the admin/seller. It will show which orders have been filled and which have not. As well as all the details relevant to the order and whether it has been shipped or not. | Completed as planned but it requires some improvement |
 | 8 | "Order(s) Placed" - Template UI.<br /> - It will show the orders that they have placed by the user,  content, description of items, how many items, the price of items, the overall cost of the order, relevant taxes if applied, shipped or not shipped status, etc.  | Completed as planned but it requires some improvement |
+
+## Iteration 2 Task List
+
+| Number | Task Description | Status |
+| --- | --- | --- |
+| 1 |  |  |
+| 2 |  |  |
+| 3 |  |  |
+| 4 |  |  |
+| 5 |  |  |
+| 6 |  |  |
