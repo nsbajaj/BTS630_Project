@@ -54,8 +54,8 @@ Below are the prototypes we plan to deliver through four iterations:
 | Number | Task Description | Status |
 | --- | --- | --- |
 | 1 | Profile page will be available for all users.<br /> - The profile page UI will be improved.<br /> - User will be able to see their information<br /> - User will be able to accesss the seller functionality<br /> - User will be able to see orders<br /> - User will be able to see products linked to them (inventory) |  |
-| 2 | Category/Subcategory Listing and Product Listing Pages will be transitioned to a Grid System with pictures and better UI from text only. |  |
-| 3 | Shipping and handling options will be added to the seller as well as the ability to update the shipping charges. (Current system does not have any shipping opetion) |  |
+| 2 | Category/Subcategory Listing and Product Listing Pages will be transitioned to a Grid System with pictures and better UI from text only.<br /> - The current system shows products in a list of text, we will be changing this UI into a grid that is better looking and more capable. |  |
+| 3 | Shipping and handling options will be added to the seller as well as the ability to update the shipping charges.<br /> - Current system does not have any shipping option. We will be adding the shipping options for sellers and the ability to change/update the shipping charges. |  |
 | 4 |  |  |
 | 5 |  |  |
 | 6 |  |  |
