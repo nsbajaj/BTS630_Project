@@ -53,7 +53,7 @@ Below are the prototypes we plan to deliver through four iterations:
 
 | Number | Task Description | Status |
 | --- | --- | --- |
-| 1 | Profile page will be available for all users.<br /> - The profile page UI will be improved. User will be able to see their information<br /> - will be able to accesss the seller functionality, will be able to see orders history, will be able to see products linked to them (inventory) |  |
+| 1 | Profile page will be available for all users.<br /> - The profile page UI will be improved.<br /> - User will be able to see their information<br /> - User will be able to accesss the seller functionality<br /> - User will be able to see orders<br /> - User will be able to see products linked to them (inventory) |  |
 | 2 |  |  |
 | 3 |  |  |
 | 4 |  |  |
