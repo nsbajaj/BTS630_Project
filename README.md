@@ -34,6 +34,7 @@ Below are the prototypes we plan to deliver through four iterations:
 17. Activate review system after seller purchases an item.
 18. User will be able to add a review for the purchased product.
 19. Disprove a review (fraudulent or any other issue).
+20. Profile page for all the users.
  
 ## Iteration 1 Task List
 
