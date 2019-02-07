@@ -57,5 +57,5 @@ Below are the prototypes we plan to deliver through four iterations:
 | 2 | Category/Subcategory Listing and Product Listing Pages will be transitioned to a Grid System with pictures and better UI.<br /> - The current system shows products in a list of text, we will be changing this UI into a grid that is better looking and more capable. |  |
 | 3 | Shipping and handling options will be added to the seller as well as the ability to update the shipping charges.<br /> - Current system does not have any shipping option. We will be adding the shipping options for sellers and the ability to change/update the shipping charges. |  |
 | 4 | Linkage of Inventory System and Product to the Product Page.<br /> - Product and Inventory are linked, if the product is clicked then it will navigate to its product page. |  |
-| 5 |  |  |
+| 5 | The product shopping cart will be created with proper UI and listing all products and model selected by user.<br /> - The cart will provide a total amount due for buying the product(s) that are in the cart and it will lead to Paypal. |  |
 | 6 |  |  |
