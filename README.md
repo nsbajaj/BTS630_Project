@@ -54,7 +54,7 @@ Below are the prototypes we plan to deliver through four iterations:
 | Number | Task Description | Status |
 | --- | --- | --- |
 | 1 | Profile page will be available for all users.<br /> - The profile page UI will be improved.<br /> - User will be able to see their information<br /> - User will be able to accesss the seller functionality<br /> - User will be able to see orders<br /> - User will be able to see products linked to them (inventory) |  |
-| 2 |  |  |
+| 2 | Category/Subcategory Listing and Product Listing Pages will be transitioned to a Grid System with pictures and better UI from text only. |  |
 | 3 |  |  |
 | 4 |  |  |
 | 5 |  |  |
