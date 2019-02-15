@@ -155,23 +155,6 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="exampleSelect1">Sellers</label>
-                                    <select class="form-control" id="sellers" name="sellers">
-                                        <option></option>
-                                      @if(!empty($sellers))
-                                        @foreach ($sellers as $s)
-                                            <option value="{{$s->user_id}}">{{ $s->first_name . " " . $s->last_name }}</option>
-                                        @endforeach
-                                      @endif
-                                    </select>
-                                    <span class="invalid-feedback" style="display:block;">
-                                        @if ($errors->has('sellers')) 
-                                            <strong>{{ $errors->first('sellers') }}</strong>
-                                        @endif
-                                    </span>
-                                </div>
-
-                                <div class="form-group">
                                     <div class="input-group control-group increment" >
                                   <input type="file" name="filename[]" class="form-control">
                                   <div class="input-group-btn"> 

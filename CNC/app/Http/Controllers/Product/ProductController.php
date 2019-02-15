@@ -156,14 +156,7 @@ class ProductController extends Controller
                 $product = new Product;
                 $product->name = request('pname');
                 $product->description = request('description');
-                //If seller wants admin to add the product, seller ID is used.
-                if(empty(request('sellers'))){
-                    $product->user_id = Auth::user()->user_id;
-                }
-                else{
-                    $product->user_id = request('sellers');
-                }
-                
+                $product->user_id = Auth::user()->user_id;                
 
         /*
                 $price = new Price;
@@ -298,13 +291,7 @@ class ProductController extends Controller
                         Product::find($id)->attributes()->updateExistingPivot($id, ['attribute_id' => request('attributes')]);
 
                         
-                        //If seller wants admin to add the product, seller ID is used.
-                        if(empty(request('sellers'))){
-                            $product->user_id = Auth::user()->user_id;
-                        }
-                        else{
-                            $product->user_id = request('sellers');
-                        }
+                        $product->user_id = Auth::user()->user_id;
                         $product->save();
 
                         if(Auth::check() && Auth::user()->role_id == 1){
