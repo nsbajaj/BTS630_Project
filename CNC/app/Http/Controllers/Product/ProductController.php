@@ -145,18 +145,21 @@ class ProductController extends Controller
                     'description.max' => 'Please enter a shorter product description.',
 
                     'price.required' => 'Please enter a price.',
+                    'quantity.required' => 'Please enter a quantity.'
                 ];
 
                 $this->validate(request(), [
                     'pname' => 'required|max:25',
                     'description' => 'required|max:100',
-                    'price' => 'required'
+                    'price' => 'required',
+                    'quantity' => 'required'
                 ], $messages);
 
                 $product = new Product;
                 $product->name = request('pname');
                 $product->description = request('description');
-                $product->user_id = Auth::user()->user_id;                
+                $product->user_id = Auth::user()->user_id;  
+                $product->quantity = request('quantity');
 
         /*
                 $price = new Price;
@@ -238,7 +241,9 @@ class ProductController extends Controller
                 $attributes = Attributes::all();
                 $sellers = User::where('role_id', 3)->get();
                 $price = Price::where('product_id', $product->product_id)->latest()->first();
-                return view('product.editProduct')->with(compact('subcategory', 'attributes', 'sellers', 'product', 'price'));
+                $quantityTemp = Product::where('product_id', $product->product_id)->pluck('quantity')->toArray();
+                $quantity = $quantityTemp[0];
+                return view('product.editProduct')->with(compact('subcategory', 'attributes', 'sellers', 'product', 'price', 'quantity'));
             }
             else{
                 abort(404);
@@ -264,12 +269,14 @@ class ProductController extends Controller
                         'description.max' => 'Please enter a shorter product description.',
 
                         'price.required' => 'Please enter a price.',
+                    'quantity.required' => 'Please enter a quantity.'
                     ];
 
                     $this->validate(request(), [
                         'pname' => 'required|max:25',
                         'description' => 'required|max:100',
-                        'price' => 'required'
+                        'price' => 'required',
+                        'quantity' => 'required'
                     ], $messages);
 
                     //$product = Product::where('product_id', $id)->first();
@@ -292,6 +299,7 @@ class ProductController extends Controller
 
                         
                         $product->user_id = Auth::user()->user_id;
+                        $product->quantity = request('quantity');
                         $product->save();
 
                         if(Auth::check() && Auth::user()->role_id == 1){

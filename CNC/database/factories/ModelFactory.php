@@ -365,7 +365,8 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
         'SKU' => null,
         'UPC' => null,
         'discount_id' => $faker->randomElement(App\Discount::all()->pluck('discount_id')),
-        'approved_product_id' => $faker->randomElement(App\Approved_Product::all()->pluck('approved_product_id'))
+        'approved_product_id' => $faker->randomElement(App\Approved_Product::all()->pluck('approved_product_id')),
+        'quantity' => $faker->randomNumber(2)
     ];    
 });
 

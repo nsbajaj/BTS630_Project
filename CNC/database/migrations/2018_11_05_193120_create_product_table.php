@@ -30,6 +30,8 @@ class CreateProductTable extends Migration
             $table->integer('approved_product_id')->unsigned()->nullable();
             $table->foreign('approved_product_id')->references('approved_product_id')->on('approved_product'); //Foreign Key  
 
+            $table->integer('quantity');
+
             $table->softDeletes();
 
             $table->timestamps();

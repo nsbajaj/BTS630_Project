@@ -155,12 +155,28 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label for="quantity" class="col-md-6 control-label">Quantity</label>
+
+                                    <div class="col-md-12">
+                                        <input id="quantity" type="text" class="form-control" name="quantity" value="" required autofocus>
+
+                                            <span class="invalid-feedback"  ><!-- Remove  display block -->
+                                                @if ($errors->has('quantity')) 
+                                                    <strong>{{ $errors->first('quantity') }}</strong>
+                                                @endif
+                                            </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
                                     <div class="input-group control-group increment" >
                                   <input type="file" name="filename[]" class="form-control">
                                   <div class="input-group-btn"> 
                                     <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
                                   </div>
                                 </div>
+
+                                
                                 <!--
                                 <div class="clone hide">
                                   <div class="control-group input-group" style="margin-top:10px">
