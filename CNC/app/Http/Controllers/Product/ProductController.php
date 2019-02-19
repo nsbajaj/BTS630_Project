@@ -193,7 +193,7 @@ class ProductController extends Controller
                 ]);
         */
                 if($request->hasfile('filename')){
-                foreach($request->file('filename') as $file){
+                    foreach($request->file('filename') as $file){
                         $name=$file->getClientOriginalName();
                         $file->move(public_path().'/files/', $name);  
                         $data[] = $name;  

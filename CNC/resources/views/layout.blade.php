@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.css') }}" media="screen">
-   <!--<link href="{{ asset('css/updatecss.css') }}" rel="stylesheet">-->
+   <!-- <link href="{{ asset('css/updatecss.css') }}" rel="stylesheet"> -->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <script src="{{ asset('js/additonal.js') }}"></script>
    <style>
