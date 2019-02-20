@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> session storage</title>
+</head>
+<body>
+    <script>
+        var product= {"id":1, "name":"Gundam", "quantity":1, "price":3.50 } ;
+        function add(){
+            var a = [];
+            if(localStorage.getItem("products") ==undefined){
+              a.push(product);
+                
+                localStorage.setItem("products",JSON.stringify(a));
+            }else{
+               a = JSON.parse(localStorage.getItem("products"));
+               a.push(product);
+             localStorage.setItem("products",JSON.stringify(a));
+            }
+        }
+        
+    </script>
+</body>
+</html>
