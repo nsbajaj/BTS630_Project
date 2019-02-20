@@ -90,43 +90,34 @@
 <div class="container">
     <h3 class="h3">Products</h3>
     <div class="row">
-        @if(!empty($p))
+      @if(!empty($p))
             @foreach ($p as $product)
-        <div class="col-md-3 col-sm-6">
-            <div class="product-grid">
-                <div class="product-image">
-                    <a href="/CNC/public/product/{{ $product->product_id }}">
-                        <!-- <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo9/images/img-1.jpg"> -->
-                        <img class="pic-1" src="/CNC/public/files/max.PNG">
-                        <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo9/images/img-2.jpg">
+        <div class="col-md-4 col-sm-6">
+            <div class="product-grid8">
+                <div class="product-image8">
+                    <a href="/CNC/public/product/{{ $product->product_id}}">
+                        <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo7/images/img-1.jpg">
+                        <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo7/images/img-2.jpg">
                     </a>
                     <ul class="social">
-                        <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                        <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                        <li><a href="" class="fa fa-search"></a></li>
+                        <li><a href="" class="fa fa-shopping-bag"></a></li>
+                        <li><a href="" class="fa fa-shopping-cart"></a></li>
                     </ul>
-                    <span class="product-new-label">Sale</span>
-                    <span class="product-discount-label">20%</span>
+                    <span class="product-discount-label">-20%</span>
                 </div>
-                <ul class="rating">
-                    <li class="fa fa-star"></li>
-                    <li class="fa fa-star"></li>
-                    <li class="fa fa-star"></li>
-                    <li class="fa fa-star"></li>
-                    <li class="fa fa-star disable"></li>
-                </ul>
                 <div class="product-content">
-                    <h3 class="title"><a href="#">{{ $product->name }}</a></h3>
-                    <div class="price">$16.00
-                        <span>$20.00</span>
+                    <div class="price">$ 8.00
+                        <span>$ 10.00</span>
                     </div>
-                    <a class="add-to-cart" href="">+ Add To Cart</a>
+                    <span class="product-shipping">Free Shipping</span>
+                    <h3 class="title"><a href="#">{{ $product->name }}</a></h3>
+                    <a class="all-deals" href="">See all deals <i class="fa fa-angle-right icon"></i></a>
                 </div>
             </div>
         </div>
         @endforeach
             @endif
-        
     </div>
 </div>
 <hr>
