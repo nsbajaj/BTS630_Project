@@ -244,7 +244,7 @@
                   </form>
                   <h5 class="mb-5">Lastest Questions</h5>
                   <ol class="list-unstyled last-questions-list">
-                    <li><i class="fa fa-comment"></i> <span>Hello david, can i pay with credit card?</span></li>
+                    <li><i class="fa fa-comment"></i> <span>Hello {{ $user->get('0')->first_name }}, can i pay with credit card?</span></li>
                     <li><i class="fa fa-comment"></i> <span>can i send it to another address?</span></li>
                   </ol>
                 </div>

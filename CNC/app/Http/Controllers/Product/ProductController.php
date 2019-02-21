@@ -46,7 +46,7 @@ class ProductController extends Controller
     public function showProduct($id){
         //Add approved check
         $product = Product::find($id);
-        $photos = Product_Photo::where('product_id', $id)->get()->pluck('filename');
+        $photos = Product_Photo::where('product_id', $id)->take(5)->get()->pluck('filename');
         $price = Price::where('product_id', $id)->get()->pluck('amount');
         $user = User::where('user_id', $product->user_id)->get();
         $productsFromUser = Product::where('user_id', $product->user_id)->whereNotIn('product_id', array($id))->take(4)->get();
@@ -66,10 +66,18 @@ class ProductController extends Controller
         $p = Product::all()->where('approved_product_id', '<>', null);
         $pictures = array();
         $i = 0;
-        foreach ($p as $pro) {
-            $pictures[$i++] = $pro->pictures;
+        foreach ($p as $key => $value) {
+            $pictures[$i++] = Product_Photo::where('product_id', $value->product_id)->take(1)->get();
         }
-        return view('product.allProducts')->with(compact('p', 'pictures'));
+        
+        $final = array();
+        $j = 0;
+        foreach($pictures as $key => $value){
+            foreach($value as $n){
+                $final[$j++] = $n;
+            }
+        }
+        return view('product.allProducts')->with(compact('p', 'final'));
 
         /*
         if(Auth::check() && Auth::user()->role_id == 1){

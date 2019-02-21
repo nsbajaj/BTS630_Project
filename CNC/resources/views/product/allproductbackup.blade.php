@@ -96,15 +96,19 @@
             <div class="product-grid8">
                 <div class="product-image8">
                     <a href="/CNC/public/product/{{ $product->product_id}}">
-                      <!-- <img class="pic-1" height="445" width="348" src="/CNC/public/files/imagenotfound.png"> -->
-                      
-                          @foreach($final as $key => $value)
-                            @if($product->product_id == $value->product_id)
-                              <img class="pic-1" height="445" width="348" src="/CNC/public/files/{{ $value->filename }}">
-                              @break
-                            @endif
-                          @endforeach
-                        
+                      @if(!empty($pictures))
+                            @foreach($pictures as $key => $value)
+                              @foreach($value as $n)
+                                @if($product->product_id == $n->product_id)
+                                  <img class="pic-1" height="445" width="348" src="/CNC/public/files/{{ $n->filename }}">
+                                  @break;
+                                @else
+                                  <img class="pic-1" height="445" width="348" src="/CNC/public/files/imagenotfound.png">
+                                  @break
+                                @endif
+                              @endforeach
+                            @endforeach
+                        @endif
                     </a>
                     <ul class="social">
                         <li><a href="" class="fa fa-search"></a></li>
@@ -114,8 +118,8 @@
                     <span class="product-discount-label">-20%</span>
                 </div>
                 <div class="product-content">
-                    <div class="price">$ 00.00
-                        <span>$ 00.00</span>
+                    <div class="price">$ 8.00
+                        <span>$ 10.00</span>
                     </div>
                     <span class="product-shipping">Free Shipping</span>
                     <h3 class="title"><a href="/CNC/public/product/{{ $product->product_id}}">{{ $product->name }}</a></h3>

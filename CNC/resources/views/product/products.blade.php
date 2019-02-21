@@ -65,7 +65,7 @@
                               @foreach($value as $n)
                                 @if($product->product_id == $n->product_id)
                                   <img class="pic-1" height="445" width="348" src="/CNC/public/files/{{ $n->filename }}">
-                                  @break;
+                                  @break
                                 @endif
                               @endforeach
                             @endforeach
