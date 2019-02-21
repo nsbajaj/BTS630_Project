@@ -1,9 +1,10 @@
+
 @extends('layout')
 	@section('content')
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-  
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
    <div class='container'>
     <div class='row' style='padding-top:25px; padding-bottom:25px;'>
         <div class='col-md-12'>
@@ -238,8 +239,8 @@
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="collapseThree" class="panel-collapse collapse">
-                                    <div class="panel-body">
+                                <div id="" style="display:block">
+                                    <div class="panel-body"  style="display:block">
                                         <span class='payment-errors'></span>
                                         <fieldset>
                                             <legend>What method would you like to pay with today?</legend>
@@ -335,12 +336,14 @@
             </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="{{ asset('js/additonal.js') }}"></script>
     <script>
 		$(document).ready(function(){
 			
 			$('#paynow').on("click",function(){
-				window.location.href("/placed");
-			}
+				window.location.href="{{ url('/placed') }}";
+			});
 								
 		});
 	</script>

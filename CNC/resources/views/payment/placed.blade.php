@@ -1,6 +1,7 @@
 @extends('layout')
 	@section('content')
-	<div class="container">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <div class="container">
 		<div class="row">
 			<div class="col-sm-12 col-md-10 col-md-offset-1">
 				<div id="empty">
@@ -68,12 +69,14 @@
 			</div>
 		</div>
 	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 	<script>
 		$(document).ready(function(){
 			loadpage1();
 			
 			$('.returnshop').on("click",function(){
-				window.location.href("/products");
-			}
+				window.location.href ="{{ url('/') }}";
+			});
 		});
 	</script>

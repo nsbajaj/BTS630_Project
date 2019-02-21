@@ -262,6 +262,26 @@ function loadpage() {
 		$("#cartcontents").show();
 	}
 }
+function loadpage1() {
+	if (localStorage.getItem("products") == undefined) {
+		$("#empty").show();
+		$("#cartcontents").hide();
+	} else {
+		$("#empty").hide();
+		var a = [];
+		var finalsum = 0;
+		data = [];
+		a = JSON.parse(localStorage.getItem("products"));
+		for (var i = 0; i < a.length; i++) {
+			var productn = a[i];
+			createrowsuccess(productn.name, productn.quantity, productn.price, productn.id)
+			addproducttovar(productn);
+			finalsum += productn.quantity * productn.price;
+		}
+		updatetotal(finalsum);
+		$("#cartcontents").show();
+	}
+}
 function createrowsuccess() {
 	if (localStorage.getItem("products") == undefined) {
 		$("#empty").show();

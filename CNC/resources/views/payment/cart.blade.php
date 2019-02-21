@@ -1,5 +1,7 @@
 @extends('layout')
 	@section('content')
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12 col-md-10 col-md-offset-1">
@@ -64,7 +66,7 @@
 								</button></td>
 							<td>
 								<input type="hidden" id="itemlist" name="cart" value="" />
-								<button type="button" class="btn btn-success">
+								<button type="button" id="billing" class="btn btn-success">
 
 									Checkout <span class="glyphicon glyphicon-play"></span>
 								</button></td>
@@ -74,6 +76,7 @@
 			</div>
 		</div>
 	</div>
+	   <script src="{{ asset('js/additonal.js') }}"></script>
 	<script>
 		$(document).ready(function(){
 			loadpage();
@@ -89,8 +92,12 @@
 					update(uid,uqty);
 				}
 			});
+			$('#billing').on("click",function(){
+				window.location.href="{{ url('/billing') }}";
+			
+			});
 			$('.returnshop').on("click",function(){
-				window.location.href("/products");
-			}
+				window.location.href ="{{ url('/products') }}" ;
+			});
 		});
 	</script>
