@@ -31,14 +31,18 @@
                 localStorage.setItem("products", JSON.stringify(a));
             } else {
                 a = JSON.parse(localStorage.getItem("products"));
+				var exist= false;
                for (var i =0;i<a.length;i++) {
                     var productn = a[i];
                     if (productn.id == product.id) {
                         productn.quantity = productn.quantity + product.quantity;
-                    } else {
-                        a.push(product);
-                    }
+						exist =true;
+                    } 
                 }
+				if(!exist){
+					a.push(product);
+                    
+				}
 
                 localStorage.setItem("products", JSON.stringify(a));
             }
@@ -51,15 +55,18 @@
                 localStorage.setItem("products", JSON.stringify(a));
             } else {
                 a = JSON.parse(localStorage.getItem("products"));
+				var exist= false;
                 for (var i =0;i<a.length;i++) {
                     var productn = a[i];
                     if (productn.id == product1.id) {
-                        productn.quantity = productn.quantity + product1.quantity;
-                    } else {
-                        a.push(product1);
-                    }
+                        productn.quantity = productn.quantity + product1.quantity
+						exist =true;
+                    } 
                 }
-
+if(!exist){
+					a.push(product);
+                    
+				}
                 localStorage.setItem("products", JSON.stringify(a));
             }
         }
@@ -96,7 +103,7 @@
 			 updatetotal(finalsum);
         }
 function createrow(name,quantity,price,id){
-    var rowhtml = "<tr id='row"+id+"'> <td class='col-sm-8 col-md-6'><div class='media'><a class='thumbnail pull-left' href='#'>  </a><div class='media-body'><h4 class='media-heading'><a href='#'>"+name+"</a></h4></div> </div></td>  <td class='col-sm-1 col-md-1' style='text-align: center'><input type='email' class='form-control' disabled id='exampleInputEmail1' value='"+quantity+ "'><a href='javascript:void()'>update</a></td> <td class='col-sm-1 col-md-1 text-center'><strong>$"+price.toFixed(2)+"</strong></td><td class='col-sm-1 col-md-1 text-center'><strong>$"+(price*quantity).toFixed(2)+"</strong></td><td class='col-sm-1 col-md-1'> <button type='button' data="+id+"  class='btn btn-danger'><span class='glyphicon glyphicon-remove'></span> Remove </button></td> </tr>"
+    var rowhtml = "<tr id='row"+id+"'> <td class='col-sm-8 col-md-6'><div class='media'><a class='thumbnail pull-left' href='#'>  </a><div class='media-body'><h4 class='media-heading'><a href='#'>"+name+"</a></h4></div> </div></td>  <td class='col-sm-1 col-md-1' style='text-align: center'><input type='email' class='form-control qtyctr' disabled id='exampleInputEmail1' value='"+quantity+ "'><a class='updateqty' data="+id+" href='javascript:void()'>update</a></td> <td class='col-sm-1 col-md-1 text-center'><strong>$"+price.toFixed(2)+"</strong></td><td class='col-sm-1 col-md-1 text-center'><strong>$"+(price*quantity).toFixed(2)+"</strong></td><td class='col-sm-1 col-md-1'> <button  type='button' data="+id+"  class='btn btn-danger removebtn'><span class='glyphicon glyphicon-remove'></span> Remove </button></td> </tr>"
     $("#cartbody").prepend(rowhtml);
     
 }
@@ -121,11 +128,13 @@ function loadpage(){
 		$("#empty").hide();
 		  var a = [];
 		 var finalsum = 0;
+		 data=[];
          a = JSON.parse(localStorage.getItem("products"));
-         for(var i in a) {
-			createrow(i.name,i.quantity,i.price,i.id)
-				addproducttovar(i);
-				finalsum+=i.quantity*i.price;
+          for (var i =0;i<a.length;i++) {
+                    var productn = a[i];
+			createrow(productn.name,productn.quantity,productn.price,productn.id)
+				addproducttovar(productn);
+				finalsum+=productn.quantity*productn.price;
 			}
 		 updatetotal(finalsum);
 		$("#cartcontents").show(); 
@@ -200,6 +209,23 @@ function loadpage(){
 			</div>
 		</div>
 	</div>
+	<script>
+		$(document).ready(function(){
+			loadpage();
+			$('.removebtn').on("click",function(){
+				update($(this).attr("data"),0);
+			});
+			$('.updateqty').on("click",function(){
+				if($("#row"+$(this).attr("data")+ " .qtyctr").attr("disabled")!=undefined){
+				$("#row"+$(this).attr("data")+ " .qtyctr").removeAttr("disable")
+				}else{
+					var uid =$(this).attr("data");
+					var uqty = $("#row"+$(this).attr("data")+ " .qtyctr").val();		  
+					update(uid,uqty);
+				}
+			});
+		});
+	</script>
 </body>
 
 </html>
