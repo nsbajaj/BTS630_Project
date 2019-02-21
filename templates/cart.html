@@ -2,22 +2,28 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title> session storage</title>
-<link rel="stylesheet" href="css/bootstrap.css" media="screen">   
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+	<meta charset="UTF-8">
+	<title> session storage</title>
+	<link rel="stylesheet" href="css/bootstrap.css" media="screen">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
-    <script>
-        var data = [];
+	<script>
+		var data = [];
         var product = {
             "id": 1,
             "name": "Gundam",
             "quantity": 1,
             "price": 3.50
         };
-
+			
+		var product2 = {
+            "id": 3,
+            "name": "Gundam3",
+            "quantity": 1,
+            "price": 5.50
+        };
         function add() {
             var a = [];
             if (localStorage.getItem("products") == undefined) {
@@ -25,12 +31,32 @@
                 localStorage.setItem("products", JSON.stringify(a));
             } else {
                 a = JSON.parse(localStorage.getItem("products"));
-                for (var i in a) {
-                    var productn = i;
+               for (var i =0;i<a.length;i++) {
+                    var productn = a[i];
                     if (productn.id == product.id) {
-                        i.id = i.id + 1;
+                        productn.quantity = productn.quantity + product.quantity;
                     } else {
                         a.push(product);
+                    }
+                }
+
+                localStorage.setItem("products", JSON.stringify(a));
+            }
+        }
+		
+		function addspecific(product1) {
+            var a = [];
+            if (localStorage.getItem("products") == undefined) {
+                a.push(product1);
+                localStorage.setItem("products", JSON.stringify(a));
+            } else {
+                a = JSON.parse(localStorage.getItem("products"));
+                for (var i =0;i<a.length;i++) {
+                    var productn = a[i];
+                    if (productn.id == product1.id) {
+                        productn.quantity = productn.quantity + product1.quantity;
+                    } else {
+                        a.push(product1);
                     }
                 }
 
@@ -40,25 +66,37 @@
 
         function update(mid, nammount) {
             var a = [];
+			data =[];
+			var finalsum =0;
             a = JSON.parse(localStorage.getItem("products"));
             if (nammount > 0) {
-                for(var i in a) {
-                    if (i.id == mid) {
-                        i.quantity = nammount;
+                for (var i =0;i<a.length;i++) {
+                    var productn = a[i];
+                    if (productn.id == mid) {
+                        productn.quantity = nammount;
                     }
+					addproducttovar(productn);
+				    finalsum+=i.quantity*i.price;
                 }
                 localStorage.setItem("products", JSON.stringify(a));
             }else if(nammount==0){
                 var b = [];
-                 for(var i in a) {
-                    if (i.id != mid ) {
-                       b.push(i);
+				
+                 for (var i =0;i<a.length;i++) {
+                    var productn = a[i];
+                    if (productn.id != mid ) {
+                       b.push(productn);
+					 	addproducttovar(productn);
+					    finalsum+=productn.quantity*productn.price;	
                     }
                 }
+				localStorage.setItem("products", JSON.stringify(b));
+				$("#row"+mid).remove();
             }
+			 updatetotal(finalsum);
         }
 function createrow(name,quantity,price,id){
-    var rowhtml = "<tr id='"+id+"'> <td class='col-sm-8 col-md-6'><div class='media'><a class='thumbnail pull-left' href='#'>  </a><div class='media-body'><h4 class='media-heading'><a href='#'>"+name+"</a></h4></div> </div></td>  <td class='col-sm-1 col-md-1' style='text-align: center'><input type='email' class='form-control' disabled id='exampleInputEmail1' value='"+quantity+ "'><a href='javascript:void()'>update</a></td> <td class='col-sm-1 col-md-1 text-center'><strong>$"+price.toFixed(2)+"</strong></td><td class='col-sm-1 col-md-1 text-center'><strong>$"+(price*quantity).toFixed(2)+"</strong></td><td class='col-sm-1 col-md-1'> <button type='button' data="+id+"  class='btn btn-danger'><span class='glyphicon glyphicon-remove'></span> Remove </button></td> </tr>"
+    var rowhtml = "<tr id='row"+id+"'> <td class='col-sm-8 col-md-6'><div class='media'><a class='thumbnail pull-left' href='#'>  </a><div class='media-body'><h4 class='media-heading'><a href='#'>"+name+"</a></h4></div> </div></td>  <td class='col-sm-1 col-md-1' style='text-align: center'><input type='email' class='form-control' disabled id='exampleInputEmail1' value='"+quantity+ "'><a href='javascript:void()'>update</a></td> <td class='col-sm-1 col-md-1 text-center'><strong>$"+price.toFixed(2)+"</strong></td><td class='col-sm-1 col-md-1 text-center'><strong>$"+(price*quantity).toFixed(2)+"</strong></td><td class='col-sm-1 col-md-1'> <button type='button' data="+id+"  class='btn btn-danger'><span class='glyphicon glyphicon-remove'></span> Remove </button></td> </tr>"
     $("#cartbody").prepend(rowhtml);
     
 }
@@ -75,64 +113,93 @@ function addproducttovar(prod){
     data.push(cartproduct);
      $("#itemlist").val(JSON.stringify(data));
 }  
-        
+function loadpage(){
+	 if (localStorage.getItem("products") == undefined) {
+	 	$("#empty").show();
+		$("#cartcontents").hide(); 
+	 }else{
+		$("#empty").hide();
+		  var a = [];
+		 var finalsum = 0;
+         a = JSON.parse(localStorage.getItem("products"));
+         for(var i in a) {
+			createrow(i.name,i.quantity,i.price,i.id)
+				addproducttovar(i);
+				finalsum+=i.quantity*i.price;
+			}
+		 updatetotal(finalsum);
+		$("#cartcontents").show(); 
+	 }
+}        
     </script>
-    <div class="container">
-    <div class="row">
-        <div class="col-sm-12 col-md-10 col-md-offset-1">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>Product</th>
-                        <th>Quantity</th>
-                        <th class="text-center">Price</th>
-                        <th class="text-center">Total</th>
-                        <th> </th>
-                    </tr>
-                </thead>
-                <tbody id="cartbody">
-                    
-                    <tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td><h5>Subtotal</h5></td>
-                        <td class="text-right"><h5><strong id="sub">$</strong></h5></td>
-                    </tr>
-                    <tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td><h5>Estimated tax</h5></td>
-                        <td class="text-right"><h5><strong id="tax">$</strong></h5></td>
-                    </tr>
-                    <tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td><h3>Total</h3></td>
-                        <td class="text-right"><h3><strong id="total">$</strong></h3></td>
-                    </tr>
-                    <tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>
-                        <button type="button" class="btn btn-default">
-                            <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
-                        </button></td>
-                        <td>
-                         <input type="hidden" id="itemlist" name="cart" value=""/>
-                        <button type="button" class="btn btn-success">
-                           
-                            Checkout <span class="glyphicon glyphicon-play"></span>
-                        </button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 col-md-10 col-md-offset-1">
+				<table class="table table-hover" id="cartcontents">
+					<thead>
+						<tr>
+							<th>Product</th>
+							<th>Quantity</th>
+							<th class="text-center">Price</th>
+							<th class="text-center">Total</th>
+							<th> </th>
+						</tr>
+					</thead>
+					<tbody id="cartbody">
+
+						<tr>
+							<td>   </td>
+							<td>   </td>
+							<td>   </td>
+							<td>
+								<h5>Subtotal</h5>
+							</td>
+							<td class="text-right">
+								<h5><strong id="sub">$</strong></h5>
+							</td>
+						</tr>
+						<tr>
+							<td>   </td>
+							<td>   </td>
+							<td>   </td>
+							<td>
+								<h5>Estimated tax</h5>
+							</td>
+							<td class="text-right">
+								<h5><strong id="tax">$</strong></h5>
+							</td>
+						</tr>
+						<tr>
+							<td>   </td>
+							<td>   </td>
+							<td>   </td>
+							<td>
+								<h3>Total</h3>
+							</td>
+							<td class="text-right">
+								<h3><strong id="total">$</strong></h3>
+							</td>
+						</tr>
+						<tr>
+							<td>   </td>
+							<td>   </td>
+							<td>   </td>
+							<td>
+								<button type="button" class="btn btn-default">
+									<span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
+								</button></td>
+							<td>
+								<input type="hidden" id="itemlist" name="cart" value="" />
+								<button type="button" class="btn btn-success">
+
+									Checkout <span class="glyphicon glyphicon-play"></span>
+								</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>
