@@ -269,4 +269,20 @@
     </div>
   </div>
 </main>
+<script>
+	var product =  {
+            "id": {{ $product->id }},
+            "name": "{{ $product->name }}",
+            "quantity": 1,
+            "price":{{ $price->get('0') }}
+        };
+	$(document).ready(function(){
+		
+		$('#addToCart').on("click",function(){
+			product.quantity = $("#quant").val();
+			addProduct();
+			window.location.href("/cart");
+		}
+	}
+</script>
 <script src="{{ asset('js/productjs.js') }}"></script>
