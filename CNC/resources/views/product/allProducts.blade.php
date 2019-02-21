@@ -92,12 +92,23 @@
     <div class="row">
       @if(!empty($p))
             @foreach ($p as $product)
+                
+                  
         <div class="col-md-4 col-sm-6">
             <div class="product-grid8">
                 <div class="product-image8">
                     <a href="/CNC/public/product/{{ $product->product_id}}">
-                        <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo7/images/img-1.jpg">
-                        <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo7/images/img-2.jpg">
+                      @if(!empty($pictures))
+                          @foreach ($pictures as $pic)
+                            @if($product->product_id == $pic->product_id)
+                              <img class="pic-1" height="445" width="348" src="/CNC/public/files/{{ $pic->filename }}">
+                              @break;
+                            @else
+                              
+                            @endif
+                          <!-- <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo7/images/img-2.jpg">-->
+                          @endforeach
+                        @endif
                     </a>
                     <ul class="social">
                         <li><a href="" class="fa fa-search"></a></li>
@@ -111,13 +122,14 @@
                         <span>$ 10.00</span>
                     </div>
                     <span class="product-shipping">Free Shipping</span>
-                    <h3 class="title"><a href="#">{{ $product->name }}</a></h3>
-                    <a class="all-deals" href="">See all deals <i class="fa fa-angle-right icon"></i></a>
+                    <h3 class="title"><a href="/CNC/public/product/{{ $product->product_id}}">{{ $product->name }}</a></h3>
+                    <!-- <a class="all-deals" href="">See all deals <i class="fa fa-angle-right icon"></i></a> -->
                 </div>
             </div>
         </div>
-        @endforeach
-            @endif
+
+          @endforeach
+        @endif
     </div>
 </div>
 <hr>

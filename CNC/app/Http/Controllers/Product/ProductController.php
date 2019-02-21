@@ -17,6 +17,10 @@ use App\Product_Attributes;
 use App\Product_Photo;
 use App\Suspend_Users;
 use Carbon\Carbon;
+use App\Subcategory_Subcategory_Types;
+use App\Subcategory;
+use App\General_Category_Subcategory;
+use App\General_Category;
 
 class ProductController extends Controller
 {
@@ -38,44 +42,28 @@ class ProductController extends Controller
 
     public function showProduct($id){
         $product = Product::find($id);
-        $finalSub = array();
-        $i = 0;
-        //Add/Fix approved filter. Might not need it, since approved product is only being shown.
-        foreach ($product->subcategory as $p) {
-            $finalSub[$i] = $p;
-            $i++;
-                /*
-            if($p->approved_product_id != null){
-                $final[$i] = $p;
-                $i++;
-            }
-            */
-        }
-        $attribute = Product::find($id);
-        $finalAtt = array();
-        $i = 0;
-        foreach ($attribute->attributes as $a){
-            $finalAtt[$i] = $a;
-            $i++;
-        }
-
-
-        //$photos = Product_Photo::where('product_id', $id)->flatten()->get();
         $photos = Product_Photo::where('product_id', $id)->get()->pluck('filename');
-        
-        /*
-        $photos = array();
-        $i = 0;
-        foreach ($tempPhotos as $t) {
-            dump($t->filename);
-        }
-        */
-        return view('product.product')->with(compact('product', 'finalSub', 'finalAtt', 'photos'));
+        $price = Price::where('product_id', $id)->get()->pluck('amount');
+        $user = User::where('user_id', $product->user_id)->get();
+        $productsFromUser = Product::where('user_id', $product->user_id)->whereNotIn('product_id', array($id))->take(4)->get();
+        $psub = Product_Subcategory_Types::where('product_id', $id)->get()->pluck('subcategory_types_id');
+        $subType = Subcategory_Types::where('subcategory_types_id', $psub)->get()->pluck('name');
+        $subsub = Subcategory_Subcategory_Types::where('subcategory_types_id', $psub)->get()->pluck('subcategory_id');
+        $subsubType = Subcategory::where('subcategory_id', $subsub)->get()->pluck('name');
+        $gen = General_Category_Subcategory::where('subcategory_id', $subsub)->get()->pluck('general_category_id');
+        $genType = General_Category::where('general_category_id', $gen)->get()->pluck('name');
+        $pAtt = Product_Attributes::where('product_id', $id)->get()->pluck('attribute_id');
+        $pAttType = Attributes::where('attribute_id', $pAtt)->get();
+
+        return view('product.product')->with(compact('product', 'photos', 'price', 'user', 'productsFromUser', 'subType', 'subsubType', 'genType', 'pAttType', '$pAttType'));
     }
 
     public function showAllProducts(){
         $p = Product::all()->where('approved_product_id', '<>', null);
-        return view('product.allProducts')->with(compact('p'));
+        foreach ($p as $pro) {
+            $pictures = $pro->pictures;
+        }
+        return view('product.allProducts')->with(compact('p', 'pictures'));
         /*
         if(Auth::check() && Auth::user()->role_id == 1){
             //$p = Product::all();

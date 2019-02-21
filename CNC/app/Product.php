@@ -31,4 +31,8 @@ class Product extends Model
     public function price(){
         return $this->hasMany('App\Price', 'product_id');
     }
+
+    public function pictures(){
+        return $this->hasMany('App\Product_Photo', 'product_id');
+    }
 }
