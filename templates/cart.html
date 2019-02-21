@@ -1,25 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title> session storage</title>
 </head>
+
 <body>
     <script>
-        var product= {"id":1, "name":"Gundam", "quantity":1, "price":3.50 } ;
-        function add(){
+        var product = {
+            "id": 1,
+            "name": "Gundam",
+            "quantity": 1,
+            "price": 3.50
+        };
+
+        function add() {
             var a = [];
-            if(localStorage.getItem("products") ==undefined){
-              a.push(product);
-                
-                localStorage.setItem("products",JSON.stringify(a));
-            }else{
-               a = JSON.parse(localStorage.getItem("products"));
-               a.push(product);
-             localStorage.setItem("products",JSON.stringify(a));
+            if (localStorage.getItem("products") == undefined) {
+                a.push(product);
+                localStorage.setItem("products", JSON.stringify(a));
+            } else {
+                a = JSON.parse(localStorage.getItem("products"));
+                foreach(var i in a) {
+                    var productn = i;
+                    if (productn.id == product.id) {
+                        i.id = i.id + 1;
+                    } else {
+                        a.push(product);
+                    }
+                }
+
+                localStorage.setItem("products", JSON.stringify(a));
             }
         }
-        
+
+        function update(mid, nammount) {
+            var a = [];
+            a = JSON.parse(localStorage.getItem("products"));
+            if (nammount > 0) {
+                foreach(var i in a) {
+                    if (i.id == mid) {
+                        i.quantity = nammount;
+                    }
+                }
+                localStorage.setItem("products", JSON.stringify(a));
+            }else if(nammount==0){
+                var b = [];
+                 foreach(var i in a) {
+                    if (i.id != mid ) {
+                       b.push(i);
+                    }
+                }
+            }
+        }
+
     </script>
 </body>
+
 </html>
