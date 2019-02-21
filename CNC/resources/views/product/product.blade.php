@@ -259,7 +259,7 @@
               <div class="text-muted mb-2"><small>know more about delivery time and shipping forms</small></div>
               <label for="quant">Quantity</label>
               <input type="number" name="quantity" min="1" id="quant" class="form-control mb-5 input-lg" placeholder="Choose the quantity">
-              <button class="btn btn-primary btn-lg btn-block">Add to Cart</button>
+              <button id="addToCart" class="btn btn-primary btn-lg btn-block">Add to Cart</button>
               
             </div>
           </div>
