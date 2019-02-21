@@ -385,4 +385,7 @@ class ProductController extends Controller
     {
         return view('orders.otf');
     }
+		public function cart(){
+		 return view('payment.cart');
+	}
 }

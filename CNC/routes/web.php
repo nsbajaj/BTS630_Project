@@ -73,7 +73,10 @@ Route::get('/inventory/', 'Product\ProductController@inventory');
 //orders to be changed to its own controll at later day
 Route::get('/orders/', 'Product\ProductController@otp');
 Route::get('/orderstbs/',  'Product\ProductController@otf');
+//payment to be changed to its own control later
+Route::::get('/cart',  'Product\ProductController@cart');
 //extra
+
 Route::get('/customers',function(){
 
 	
