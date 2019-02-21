@@ -92,22 +92,19 @@
     <div class="row">
       @if(!empty($p))
             @foreach ($p as $product)
-                
-                  
         <div class="col-md-4 col-sm-6">
             <div class="product-grid8">
                 <div class="product-image8">
                     <a href="/CNC/public/product/{{ $product->product_id}}">
                       @if(!empty($pictures))
-                          @foreach ($pictures as $pic)
-                            @if($product->product_id == $pic->product_id)
-                              <img class="pic-1" height="445" width="348" src="/CNC/public/files/{{ $pic->filename }}">
-                              @break;
-                            @else
-                              
-                            @endif
-                          <!-- <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo7/images/img-2.jpg">-->
-                          @endforeach
+                            @foreach($pictures as $key => $value)
+                              @foreach($value as $n)
+                                @if($product->product_id == $n->product_id)
+                                  <img class="pic-1" height="445" width="348" src="/CNC/public/files/{{ $n->filename }}">
+                                  @break;
+                                @endif
+                              @endforeach
+                            @endforeach
                         @endif
                     </a>
                     <ul class="social">

@@ -35,12 +35,16 @@ class ProductController extends Controller
                 $final[$i] = $p;
                 $i++;
             }
-            
         }
-        return view('product.products')->with(compact('subsubcategory', 'final'));
+        $j = 0;
+        foreach ($final as $pro) {
+            $pictures[$j++] = $pro->pictures;
+        }
+        return view('product.products')->with(compact('subsubcategory', 'final', 'pictures'));
     }
 
     public function showProduct($id){
+        //Add approved check
         $product = Product::find($id);
         $photos = Product_Photo::where('product_id', $id)->get()->pluck('filename');
         $price = Price::where('product_id', $id)->get()->pluck('amount');
@@ -60,10 +64,13 @@ class ProductController extends Controller
 
     public function showAllProducts(){
         $p = Product::all()->where('approved_product_id', '<>', null);
+        $pictures = array();
+        $i = 0;
         foreach ($p as $pro) {
-            $pictures = $pro->pictures;
+            $pictures[$i++] = $pro->pictures;
         }
         return view('product.allProducts')->with(compact('p', 'pictures'));
+
         /*
         if(Auth::check() && Auth::user()->role_id == 1){
             //$p = Product::all();
@@ -149,13 +156,14 @@ class ProductController extends Controller
                 $product->user_id = Auth::user()->user_id;  
                 $product->quantity = request('quantity');
 
-        /*
+        
                 $price = new Price;
                 $price = request('price');
                 $now = new DateTime();
                 $price->price_set_datetime = $now;
                 $price->last_updated = $now;
-        */
+                $price->save();
+
                 //$product->price_id = request('price');
                 //$product->price_id = '1';
 
