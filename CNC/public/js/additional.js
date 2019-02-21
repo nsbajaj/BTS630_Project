@@ -136,7 +136,7 @@ function validateEmail(email, errormesg) {
 	return retval;
 }
 
-function add() {
+function addProduct() {
 	var a = [];
 	if (localStorage.getItem("products") == undefined) {
 		a.push(product);
