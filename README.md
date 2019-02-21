@@ -53,7 +53,7 @@ Below are the prototypes we plan to deliver through four iterations:
 
 | Number | Task Description | Status |
 | --- | --- | --- |
-| 1 | Profile page will be available for all users.<br /> - The profile page UI will be improved.<br /> - User will be able to see their information<br /> - User will be able to accesss the seller functionality<br /> - User will be able to see orders<br /> - User will be able to see products linked to them (inventory) | Profile page has been built successfully but not implemented |
+| 1 | Profile page will be available for all users.<br /> - The profile page UI will be improved.<br /> - User will be able to see their information<br /> - User will be able to accesss the seller functionality<br /> - User will be able to see orders<br /> - User will be able to see products linked to them (inventory) | Profile page has been built but not implemented |
 | 2 | Category/Subcategory Listing and Product Listing Pages will be transitioned to a Grid System with pictures and better UI.<br /> - The current system shows products in a list of text, we will be changing this UI into a grid that is better looking and more capable. | Product listing and page has been redesigned, but not Category/Subcategory Listing |
 | 3 | Shipping and handling options will be added to the seller as well as the ability to update the shipping charges.<br /> - Current system does not have any shipping option. We will be adding the shipping options for sellers and the ability to change/update the shipping charges. | (NOT DOING THIS TASK IN THIS ITERATION) |
 | 4 | Linkage of Inventory System and Product to the Product Page.<br /> - Product and Inventory are linked, if the product is clicked then it will navigate to its product page. |  |
