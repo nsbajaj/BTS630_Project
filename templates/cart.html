@@ -10,6 +10,7 @@
 
 <body>
     <script>
+        var data = [];
         var product = {
             "id": 1,
             "name": "Gundam",
@@ -66,7 +67,15 @@ function    updatetotal(totals){
     $("#tax").text("$"+(0.13*totals).toFixed(2));
     $("#total").text("$"+(1.13*totals).toFixed(2));
 }
-       
+function addproducttovar(prod){
+    var cartproduct = {
+            "id": prod.id,           
+            "quantity": prod.quantity
+        };
+    data.push(cartproduct);
+     $("#itemlist").val(JSON.stringify(data));
+}  
+        
     </script>
     <div class="container">
     <div class="row">
@@ -88,21 +97,21 @@ function    updatetotal(totals){
                         <td>   </td>
                         <td>   </td>
                         <td><h5>Subtotal</h5></td>
-                        <td class="text-right"><h5><strong id="sub">$24.59</strong></h5></td>
+                        <td class="text-right"><h5><strong id="sub">$</strong></h5></td>
                     </tr>
                     <tr>
                         <td>   </td>
                         <td>   </td>
                         <td>   </td>
                         <td><h5>Estimated tax</h5></td>
-                        <td class="text-right"><h5><strong id="tax">$6.94</strong></h5></td>
+                        <td class="text-right"><h5><strong id="tax">$</strong></h5></td>
                     </tr>
                     <tr>
                         <td>   </td>
                         <td>   </td>
                         <td>   </td>
                         <td><h3>Total</h3></td>
-                        <td class="text-right"><h3><strong id="total">$31.53</strong></h3></td>
+                        <td class="text-right"><h3><strong id="total">$</strong></h3></td>
                     </tr>
                     <tr>
                         <td>   </td>
