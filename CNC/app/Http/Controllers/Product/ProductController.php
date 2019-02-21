@@ -377,7 +377,13 @@ class ProductController extends Controller
     {
         return view('orders.otf');
     }
-		public function cart(){
-		 return view('payment.cart');
+	public function cart(){
+		return view('payment.cart');
+	}
+	public function billing(){
+		 return view('payment.billing');
+	}
+	public function placed(){
+		 return view('payment.placed');
 	}
 }
