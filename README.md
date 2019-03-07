@@ -59,3 +59,9 @@ Below are the prototypes we plan to deliver through four iterations:
 | 4 | Linkage of Inventory System and Product to the Product Page.<br /> - Product and Inventory are linked, if the product is clicked then it will navigate to its product page. | Not completed as planned (if you click an item from the shopping cart, it will not redirect to its product page) |
 | 5 | The product shopping cart will be created with proper UI and listing all products and model selected by user.<br /> - The cart will provide a total amount due for buying the product(s) that are in the cart and it will lead to Paypal. | Shopping Cart/Billing Page is currently a dummy page. Placed order currently uses permanent storage, but we would like to move this to session storage (REMOVING PAYPAL) |
 | 6 | Users will be able to see their orders history and will have the ability to cancel their recently placed order.<br /> - Once the user completes the purchase, they will be able to see their order on dashbaord and will have the ability to cancel recently placed order. | Not completed as planned. Currently, it does not take any orders, and does not check for inventory  |
+
+## System Description (Scope Changes)
+
+The program scope has changed and we are now down scaling the scope from marketplace to a mere store program (this changes scopes on the database as well). This is now a cellphone store.
+- We will be reducing our categories and sub categories.
+- There are only two types of user from now on: 1) Admin 2) Customer
