@@ -62,7 +62,7 @@ Below are the prototypes we plan to deliver through four iterations:
 
 ## System Description (Scope Changes)
 
-The program scope has changed and we are now down scaling the scope from marketplace to a mere store program (this changes scopes on the database as well). This is now a cellphone store. We are only going to sell different types of cell phones from different companies such as Apple, Samsung, Google, etc. 
+The program scope has changed and we are now down scaling the scope from marketplace to a mere store program (this changes scopes on the database as well). This is now a cellphone store. We are only going to sell different types of cell phones from different manufacturers.
 - We will be reducing our categories and sub categories.
 - There are only two types of user from now on: 1) Admin 2) Customer
 
@@ -70,7 +70,9 @@ The program scope has changed and we are now down scaling the scope from marketp
 
 | Number | Task Description | Status |
 | --- | --- | --- |
-| 1 | Making the site more phone oriented.<br /> - Such as adding more attributes, database seeding. |   |
+| 1 | Making the site more phone oriented.<br /> - Such as adding more attributes (screen size, RAM, storage size, colour, OS, etc) |   |
 | 2 | Customer will be able to pay for the items using Paypal. |   |
 | 3 | Users will be able to see their orders history.<br /> - Once the user completes the purchase, they will be able to see their order(s) on dashbaord |   |
-| 4 | Admin/Seller will be able to see how many orders are left to fulfill (yet to ship). |   |
+| 4 | Admin will be able to see how many orders are left to fulfill (yet to ship). |   |
+| 5 | Update user roles and authentication according the changes made to the system. |   |
+| 6 | Re-Code photo logic when displaying the list of products. |   |
