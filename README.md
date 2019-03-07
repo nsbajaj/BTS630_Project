@@ -62,6 +62,6 @@ Below are the prototypes we plan to deliver through four iterations:
 
 ## System Description (Scope Changes)
 
-The program scope has changed and we are now down scaling the scope from marketplace to a mere store program (this changes scopes on the database as well). This is now a cellphone store.
+The program scope has changed and we are now down scaling the scope from marketplace to a mere store program (this changes scopes on the database as well). This is now a cellphone store. We are only going to sell different types of cell phones from different companies such as Apple, Samsung, Google, etc. 
 - We will be reducing our categories and sub categories.
 - There are only two types of user from now on: 1) Admin 2) Customer
