@@ -63,16 +63,17 @@ Below are the prototypes we plan to deliver through four iterations:
 ## System Description (Scope Changes)
 
 The program scope has changed and we are now down scaling the scope from marketplace to a mere store program (this changes scopes on the database as well). This is now a cellphone store. We are only going to sell different types of cell phones from different manufacturers.
-- We will be reducing our categories and sub categories.
+- We will be reducing our categories and sub categories
 - There are only two types of user from now on: 1) Admin 2) Customer
+- There will not be any shipping fee (FREE SHIPPING)
 
 ## Iteration 3 Task List
 
 | Number | Task Description | Status |
 | --- | --- | --- |
 | 1 | Making the site more phone oriented.<br /> - Such as adding more attributes (screen size, RAM, storage size, colour, OS, etc) |   |
-| 2 | Customer will be able to pay for the items using Paypal. |   |
+| 2 | Customers will be able to pay for the items using Paypal. |   |
 | 3 | Users will be able to see their orders history.<br /> - Once the user completes the purchase, they will be able to see their order(s) on dashbaord |   |
-| 4 | Admin will be able to see how many orders are left to fulfill (yet to ship). |   |
+| 4 | Admin will be able to see how many orders are left to fulfill (yet to ship).<br /> - Once the customer completes the payment, it will show on Admin dashbaord, which needs to be shipped. |   |
 | 5 | Update user roles and authentication according the changes made to the system.<br /> - Remove "Seller" account(s) from previous System and authentication |   |
 | 6 | Re-Code photo logic when displaying the list of products.<br /> - Product page will have pictures of the product itself in the grid view as a preview, and the user can click on it in order to view more details about the that perticular product  |   |
