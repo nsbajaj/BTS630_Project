@@ -66,7 +66,7 @@ The program scope has changed and we are now down scaling the scope from marketp
 - We will be reducing our categories and sub categories.
 - There are only two types of user from now on: 1) Admin 2) Customer
 
-## Iteration 2 Task List
+## Iteration 3 Task List
 
 | Number | Task Description | Status |
 | --- | --- | --- |
