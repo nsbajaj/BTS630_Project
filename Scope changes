@@ -1,0 +1,29 @@
+The program scope has changed and we are now down scaling the scope from marketplace to a mere store program, this changes scopes on the database
+
+this is now a cellphone store
+
+reducing our categories and sub categories a lot.
+Phone Manufacturer -> Phone model -> Phone
+
+if we want to add other items it be category and I would believe data would have to be remodelled in this way
+
+Type of Accessory -> Phone model -> Accessory
+
+however this is pending.
+
+This makes also the inventory table much simple
+
+Product has inventory.(this means we can eliminate inventory table
+
+We have now only customers, no admin, removing need of roles other than a biol flag named admin
+
+ this makes admin the main seller
+who will have access to orders unfulfilled(yet to be shipped)
+ and user
+Access to orders placed by them 
+
+Shipping is one flat fee, if at all mentioned, or free shipping to be decided
+
+
+Paypall  sandbox is still in place.
+
