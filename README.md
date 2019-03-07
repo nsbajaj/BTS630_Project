@@ -76,4 +76,4 @@ The program scope has changed and we are now down scaling the scope from marketp
 | 3 | Users will be able to see their orders history.<br /> - Once the user completes the purchase, they will be able to see their order(s) on dashbaord |   |
 | 4 | Admin will be able to see how many orders are left to fulfill (yet to ship).<br /> - Once the customer completes the payment, it will show on Admin dashbaord, which needs to be shipped |   |
 | 5 | Update user roles and authentication according the changes made to the system.<br /> - Remove "Seller" aspect/account(s) from previous System |   |
-| 6 | Re-Code photo logic when displaying the list of products.<br /> - Product page will have pictures of the product itself in the grid view as a preview, and the user can click on it in order to view more details about the that perticular product  |   |
+| 6 | Re-Code photo logic when displaying the list of products.<br /> - Product page will have pictures of the product itself in the grid view as a preview, and the user can click on it, in order to view more details about that perticular product  |   |
