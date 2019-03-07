@@ -72,7 +72,7 @@ The program scope has changed and we are now down scaling the scope from marketp
 | Number | Task Description | Status |
 | --- | --- | --- |
 | 1 | Making the site more phone oriented.<br /> - Such as adding more attributes (screen size, RAM, storage size, colour, OS, etc) |   |
-| 2 | Customers will be able to pay for the items using Paypal. |   |
+| 2 | Customers will be able to pay for the items using Paypal.<br /> - Once the user finalizes their order in shipping cart, it will lead them to Paypal in order to make payment |   |
 | 3 | Users will be able to see their orders history.<br /> - Once the user completes the purchase, they will be able to see their order(s) on dashbaord |   |
 | 4 | Admin will be able to see how many orders are left to fulfill (yet to ship).<br /> - Once the customer completes the payment, it will show on Admin dashbaord, which needs to be shipped. |   |
 | 5 | Update user roles and authentication according the changes made to the system.<br /> - Remove "Seller" account(s) from previous System and authentication |   |
