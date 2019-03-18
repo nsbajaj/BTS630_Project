@@ -1,15 +1,12 @@
 @extends('layout')
 	@section('content')
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-	<div class="container">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <div class="container">
 		<div class="row">
 			<div class="col-sm-12 col-md-10 col-md-offset-1">
 				<div id="empty">
-					<h2>The cart currently has no items</h2>
-					<button type="button" class="btn btn-default returnshop">
-									<span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
-								</button>
+					<h2>No Order in place</h2>
+					<a href="/">Return home</a>
 				</div>
 				<table class="table table-hover" id="cartcontents">
 					<thead>
@@ -65,39 +62,21 @@
 									<span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
 								</button></td>
 							<td>
-								<input type="hidden" id="itemlist" name="cart" value="" />
-								<button type="button" id="billing" class="btn btn-success">
-
-									Checkout <span class="glyphicon glyphicon-play"></span>
-								</button></td>
+								
 						</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
 	</div>
-	   <script src="{{ asset('js/additonal.js') }}"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 	<script>
 		$(document).ready(function(){
-			loadpage();
-			$('.removebtn').on("click",function(){
-				update($(this).attr("data"),0);
-			});
-			$('.updateqty').on("click",function(){
-				if($("#row"+$(this).attr("data")+ " .qtyctr").attr("disabled")!=undefined){
-				$("#row"+$(this).attr("data")+ " .qtyctr").removeAttr("disable")
-				}else{
-					var uid =$(this).attr("data");
-					var uqty = $("#row"+$(this).attr("data")+ " .qtyctr").val();		  
-					update(uid,uqty);
-				}
-			});
-			$('#billing').on("click",function(){
-				window.location.href="{{ url('/billing') }}";
+			loadpage1();
 			
-			});
 			$('.returnshop').on("click",function(){
-				window.location.href ="{{ url('/products') }}" ;
+				window.location.href ="{{ url('/') }}";
 			});
 		});
 	</script>

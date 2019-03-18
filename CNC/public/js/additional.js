@@ -221,6 +221,12 @@ function createrow(name, quantity, price, id) {
 
 }
 
+function createrowsuccess(name, quantity, price, id) {
+	var rowhtml = "<tr id='row" + id + "'> <td class='col-sm-8 col-md-6'><div class='media'><a class='thumbnail pull-left' href='#'>  </a><div class='media-body'><h4 class='media-heading'><a href='#'>" + name + "</a></h4></div> </div></td>  <td class='col-sm-1 col-md-1' style='text-align: center'><input type='email' class='form-control qtyctr' disabled id='exampleInputEmail1' value='" + quantity + "'></td> <td class='col-sm-1 col-md-1 text-center'><strong>$" + price.toFixed(2) + "</strong></td><td class='col-sm-1 col-md-1 text-center'><strong>$" + (price * quantity).toFixed(2) + "</strong></td><td class='col-sm-1 col-md-1'> </td> </tr>"
+	$("#cartbody").prepend(rowhtml);
+
+}
+
 function updatetotal(totals) {
 	$("#sub").text("$" + totals.toFixed(2));
 	$("#tax").text("$" + (0.13 * totals).toFixed(2));
@@ -237,6 +243,46 @@ function addproducttovar(prod) {
 }
 
 function loadpage() {
+	if (localStorage.getItem("products") == undefined) {
+		$("#empty").show();
+		$("#cartcontents").hide();
+	} else {
+		$("#empty").hide();
+		var a = [];
+		var finalsum = 0;
+		data = [];
+		a = JSON.parse(localStorage.getItem("products"));
+		for (var i = 0; i < a.length; i++) {
+			var productn = a[i];
+			createrow(productn.name, productn.quantity, productn.price, productn.id)
+			addproducttovar(productn);
+			finalsum += productn.quantity * productn.price;
+		}
+		updatetotal(finalsum);
+		$("#cartcontents").show();
+	}
+}
+function loadpage1() {
+	if (localStorage.getItem("products") == undefined) {
+		$("#empty").show();
+		$("#cartcontents").hide();
+	} else {
+		$("#empty").hide();
+		var a = [];
+		var finalsum = 0;
+		data = [];
+		a = JSON.parse(localStorage.getItem("products"));
+		for (var i = 0; i < a.length; i++) {
+			var productn = a[i];
+			createrowsuccess(productn.name, productn.quantity, productn.price, productn.id)
+			addproducttovar(productn);
+			finalsum += productn.quantity * productn.price;
+		}
+		updatetotal(finalsum);
+		$("#cartcontents").show();
+	}
+}
+function createrowsuccess() {
 	if (localStorage.getItem("products") == undefined) {
 		$("#empty").show();
 		$("#cartcontents").hide();

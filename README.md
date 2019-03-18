@@ -47,15 +47,33 @@ Below are the prototypes we plan to deliver through four iterations:
 | 5 | Admin/(Iteration 2: Seller) will be able to remove products that they added. <br /> - Products can be removed if the admin or the seller (who added the product) requires to, this will be done from the inventory page. To remove a product from inventory, Admin/Seller must find the specific product, and then remove it from the dashboard in a remove product screen. | Not completed for seller part, so moved to Iteration 2 |
 | 6 | Product inventory, Page will be made<br /> - This is the main product page, we can see the details of the product as well as quantity/stock, price, etc. Admin/Seller will be able to remove products from this page, or discontinue if necesary. | Completed as planned |
 | 7 | "Orders To be filled" - Template UI.<br /> - This template is for the future filling of data of orders to fill for the admin/seller. It will show which orders have been filled and which have not. As well as all the details relevant to the order and whether it has been shipped or not. | Completed as planned but it requires some improvement |
-| 8 | "Order(s) Placed" - Template UI.<br /> - It will show the orders that they have placed by the user,  content, description of items, how many items, the price of items, the overall cost of the order, relevant taxes if applied, shipped or not shipped status, etc.  | Completed as planned but it requires some improvement |
+| 8 | "Order(s) Placed" - Template UI.<br /> - It will show the orders that they have placed by the user,  content, description of items, how many items, the price of items, the overall cost of the order, relevant taxes if applied, shipped or not shipped status, etc. | Completed as planned but it requires some improvement |
 
 ## Iteration 2 Task List
 
 | Number | Task Description | Status |
 | --- | --- | --- |
-| 1 | Profile page will be available for all users.<br /> - The profile page UI will be improved.<br /> - User will be able to see their information<br /> - User will be able to accesss the seller functionality<br /> - User will be able to see orders<br /> - User will be able to see products linked to them (inventory) |  |
-| 2 | Category/Subcategory Listing and Product Listing Pages will be transitioned to a Grid System with pictures and better UI.<br /> - The current system shows products in a list of text, we will be changing this UI into a grid that is better looking and more capable. |  |
-| 3 | Shipping and handling options will be added to the seller as well as the ability to update the shipping charges.<br /> - Current system does not have any shipping option. We will be adding the shipping options for sellers and the ability to change/update the shipping charges. |  |
-| 4 | Linkage of Inventory System and Product to the Product Page.<br /> - Product and Inventory are linked, if the product is clicked then it will navigate to its product page. |  |
-| 5 | The product shopping cart will be created with proper UI and listing all products and model selected by user.<br /> - The cart will provide a total amount due for buying the product(s) that are in the cart and it will lead to Paypal. |  |
-| 6 | Users will be able to see their orders history and will have the ability to cancel their recently placed order.<br /> - Once the user completes the purchase, they will be able to see their order on dashbaord and will have the ability to cancel recently placed order. |  |
+| 1 | Profile page will be available for all users.<br /> - The profile page UI will be improved.<br /> - User will be able to see their information<br /> - User will be able to access the seller functionality<br /> - User will be able to see orders<br /> - User will be able to see products linked to them (inventory) | Not completed as planned. Also need to update task list by seperating each task from this task in next iteration (such as profile page, orders page, etc)  |
+| 2 | Category/Subcategory Listing and Product Listing Pages will be transitioned to a Grid System with pictures and better UI.<br /> - The current system shows products in a list of text, we will be changing this UI into a grid that is better looking and more capable. | Product listing, Product page have been redesigned (Contain few bugs), but not Category/Subcategory Listing |
+| 3 | Shipping and handling options will be added to the seller as well as the ability to update the shipping charges.<br /> - Current system does not have any shipping option. We will be adding the shipping options for sellers and the ability to change/update the shipping charges. | (NOT DOING THIS TASK IN THIS ITERATION) |
+| 4 | Linkage of Inventory System and Product to the Product Page.<br /> - Product and Inventory are linked, if the product is clicked then it will navigate to its product page. | Not completed as planned (if you click an item from the shopping cart, it will not redirect to its product page) |
+| 5 | The product shopping cart will be created with proper UI and listing all products and model selected by user.<br /> - The cart will provide a total amount due for buying the product(s) that are in the cart and it will lead to Paypal. | Shopping Cart/Billing Page is currently a dummy page. Placed order currently uses permanent storage, but we would like to move this to session storage (REMOVING PAYPAL) |
+| 6 | Users will be able to see their orders history and will have the ability to cancel their recently placed order.<br /> - Once the user completes the purchase, they will be able to see their order on dashbaord and will have the ability to cancel recently placed order. | Not completed as planned. Currently, it does not take any orders, and does not check for inventory  |
+
+## System Description (Scope Changes)
+
+The program scope has changed and we are now down scaling the scope from marketplace to a mere store program (this changes scopes on the database as well). This is now a cellphone store. We are only going to sell different types of cell phones from different manufacturers.
+- We will be reducing our categories and sub categories
+- There are only two types of user from now on: 1) Admin 2) Customer
+- There will not be any shipping fee (FREE SHIPPING)
+
+## Iteration 3 Task List
+
+| Number | Task Description | Status |
+| --- | --- | --- |
+| 1 | Making the site more phone oriented.<br /> - Such as adding more attributes (screen size, RAM, storage size, colour, OS, etc) |   |
+| 2 | Customers will be able to pay for the items using Paypal.<br /> - Once the user finalizes their order in shipping cart, it will lead them to Paypal in order to make payment |   |
+| 3 | Users will be able to see their orders history.<br /> - Once the user completes the purchase, they will be able to see their order(s) on dashbaord |   |
+| 4 | Admin will be able to see how many orders are left to fulfill (yet to ship).<br /> - Once the customer completes the payment, it will show on Admin dashbaord, which needs to be shipped |   |
+| 5 | Update user roles and authentication according the changes made to the system.<br /> - Remove "Seller" aspect/account(s) from previous System |   |
+| 6 | Re-Code photo logic when displaying the list of products.<br /> - Product page will have pictures of the product itself in the grid view as a preview, and the user can click on it, in order to view more details about that perticular product  |   |
