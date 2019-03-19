@@ -258,9 +258,13 @@
               <p class="mb-0"><i class="fa fa-truck"></i> Delivery in all territory</p>
               <div class="text-muted mb-2"><small>know more about delivery time and shipping forms</small></div>
               <label for="quant">Quantity</label>
-              <input type="number" name="quantity" min="1" id="quant" class="form-control mb-5 input-lg" placeholder="Choose the quantity">
-              <button id="addToCart" class="btn btn-primary btn-lg btn-block">Add to Cart</button>
-              
+              <form action="{{ url('/shoppingCart') }}" method="get">
+                {{ csrf_field() }}
+                <input type="hidden" id="productName" name="productName" value="{{ $product->name }}"> 
+                <input type="hidden" id="price" name="price" value="{{ $price->get('0') }}"> 
+                <input type="number" name="quantity" min="1" id="quantity" class="form-control mb-5 input-lg" placeholder="Choose the quantity" required>
+                <button id="addToCart" class="btn btn-primary btn-lg btn-block">Add to Cart</button>
+              </form>
             </div>
           </div>
           @endif

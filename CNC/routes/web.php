@@ -71,6 +71,7 @@ Route::get('/deleteProduct/{product}', 'Product\ProductController@deleteProduct'
 Route::get('/deletedProducts/', 'Product\ProductController@deletedProducts');
 Route::get('/inventory/', 'Product\ProductController@inventory');
 Route::get('/search', 'Product\ProductController@search');
+Route::get('/shoppingCart', 'Product\ProductController@shoppingCart');
 
 //orders to be changed to its own controll at later day
 Route::get('/orders/', 'Product\ProductController@otp');

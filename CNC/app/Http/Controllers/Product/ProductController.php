@@ -396,4 +396,23 @@ class ProductController extends Controller
             return view('product.allProducts')->with(compact('p', 'final'));
         }
     }
+
+    public function shoppingCart(){
+        if(!empty(request('quantity')) && !empty(request('price')) && !empty(request('productName'))){
+            $quantity = request('quantity');
+            $price = request('price');
+            $productName = request('productName');
+            $data = array(
+                "id" => "3",
+                "name" => $productName,
+                "quantity" => $quantity,
+                "price" => $price
+            );            
+            $data = json_encode($data);
+            return view('product.cart')->with(compact('data'));
+        }
+        else{
+            //Return to page
+        }
+    }
 }
