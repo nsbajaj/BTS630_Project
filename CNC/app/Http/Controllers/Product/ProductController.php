@@ -21,6 +21,7 @@ use App\Subcategory_Subcategory_Types;
 use App\Subcategory;
 use App\General_Category_Subcategory;
 use App\General_Category;
+use DB;
 
 class ProductController extends Controller
 {
@@ -43,6 +44,25 @@ class ProductController extends Controller
         return view('product.products')->with(compact('subsubcategory', 'final', 'pictures'));
     }
 
+    public function showAllProducts(){
+        //$p = Product::all()->where('approved_product_id', '<>', null); //Approved Query
+        $p = Product::all();
+        $pictures = array();
+        $i = 0;
+        foreach ($p as $key => $value) {
+            $pictures[$i++] = Product_Photo::where('product_id', $value->product_id)->take(1)->get();
+        }
+        
+        $final = array();
+        $j = 0;
+        foreach($pictures as $key => $value){
+            foreach($value as $n){
+                $final[$j++] = $n;
+            }
+        }
+        return view('product.allProducts')->with(compact('p', 'final'));
+    }
+
     public function showProduct($id){
         //Add approved check
         $product = Product::find($id);
@@ -58,46 +78,7 @@ class ProductController extends Controller
         $genType = General_Category::where('general_category_id', $gen)->get()->pluck('name');
         $pAtt = Product_Attributes::where('product_id', $id)->get()->pluck('attribute_id');
         $pAttType = Attributes::where('attribute_id', $pAtt)->get();
-
         return view('product.product')->with(compact('product', 'photos', 'price', 'user', 'productsFromUser', 'subType', 'subsubType', 'genType', 'pAttType', '$pAttType'));
-    }
-
-    public function showAllProducts(){
-        $p = Product::all()->where('approved_product_id', '<>', null);
-        $pictures = array();
-        $i = 0;
-        foreach ($p as $key => $value) {
-            $pictures[$i++] = Product_Photo::where('product_id', $value->product_id)->take(1)->get();
-        }
-        
-        $final = array();
-        $j = 0;
-        foreach($pictures as $key => $value){
-            foreach($value as $n){
-                $final[$j++] = $n;
-            }
-        }
-        return view('product.allProducts')->with(compact('p', 'final'));
-
-        /*
-        if(Auth::check() && Auth::user()->role_id == 1){
-            //$p = Product::all();
-            /*
-            $prices = array();
-            $i = 0;
-            foreach ($product as $q) {
-                $prices[$i] = Price::find($q->price_id);
-                $i++;
-            }
-            */
-            //return view('product.index')->with(compact('product', 'prices'));
-            //return view('product.index')->with(compact('product'));
-            /*
-            return view('product.products')->with(compact('p'));
-        }
-        else if(Auth::check() && Auth::user()->role_id >= 2){
-            return view('product.products')->with(compact('p'));
-        }*/
     }
 
     public function showAdminProductsView(){
@@ -393,5 +374,26 @@ class ProductController extends Controller
 	}
 	public function placed(){
 		 return view('payment.placed');
-	}
+    }
+    
+    public function search(){
+        $search = request('search');
+        if(!empty($search)){
+            $p = Product::where('name','LIKE','%'.$search.'%')->orWhere('description','LIKE','%'.$search.'%')->get();
+            $pictures = array();
+            $i = 0;
+            foreach ($p as $key => $value) {
+                $pictures[$i++] = Product_Photo::where('product_id', $value->product_id)->take(1)->get();
+            }
+            
+            $final = array();
+            $j = 0;
+            foreach($pictures as $key => $value){
+                foreach($value as $n){
+                    $final[$j++] = $n;
+                }
+            }
+            return view('product.allProducts')->with(compact('p', 'final'));
+        }
+    }
 }

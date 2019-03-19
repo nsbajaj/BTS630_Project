@@ -310,10 +310,10 @@ $factory->define(App\Subcategory_Subcategory_Types::class, function (Faker\Gener
     $sub13->subcategory_types_id = 14;
     $sub13->save();    
 
-    $sub13 = new App\Subcategory_Subcategory_Types;
-    $sub13->subcategory_id = 8;
-    $sub13->subcategory_types_id = 15;
-    $sub13->save();
+    $sub14 = new App\Subcategory_Subcategory_Types;
+    $sub14->subcategory_id = 8;
+    $sub14->subcategory_types_id = 15;
+    $sub14->save();
 
     return $sub = ['subcategory_id' => 9, 'subcategory_types_id' => 16];
 
@@ -394,10 +394,10 @@ $factory->define(App\Price::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Product_Subcategory_Types::class, function (Faker\Generator $faker) {
-    $products = App\Product::limit(15)->pluck('product_id');
+    $products = App\Product::limit(19)->pluck('product_id');
     $subcategory = App\Subcategory_Types::all()->pluck('subcategory_types_id');
 
-     foreach($products as $p){
+     for($i = 0; $i < 100; $i++){
         $sub = new App\Product_Subcategory_Types;
         $sub->product_id = $faker->randomElement($products);
         $sub->subcategory_types_id = $faker->randomElement($subcategory);
@@ -444,3 +444,135 @@ $factory->define(App\Attributes::class, function (Faker\Generator $faker) {
     return $last = ['attribute_name' => 'X-Size', 'value' => 'x-Large'];
 });
 
+$factory->define(App\Product_Photo::class, function (Faker\Generator $faker) {
+    $productPhoto1 = new App\Product_Photo;
+    $productPhoto1->filename = "productphoto1.jpg";
+    $productPhoto1->product_id = 1;
+    $productPhoto1->user_id = 2;
+    $productPhoto1->save();
+
+    $productPhoto2 = new App\Product_Photo;
+    $productPhoto2->filename = "productphoto2.jpg";
+    $productPhoto2->product_id = 2;
+    $productPhoto2->user_id = 2;
+    $productPhoto2->save();
+
+    $productPhoto3 = new App\Product_Photo;
+    $productPhoto3->filename = "productphoto3.jpg";
+    $productPhoto3->product_id = 3;
+    $productPhoto3->user_id = 2;
+    $productPhoto3->save();
+
+    $productPhoto4 = new App\Product_Photo;
+    $productPhoto4->filename = "productphoto4.jpg";
+    $productPhoto4->product_id = 4;
+    $productPhoto4->user_id = 2;
+    $productPhoto4->save();
+
+    $productPhoto5 = new App\Product_Photo;
+    $productPhoto5->filename = "productphoto5.jpg";
+    $productPhoto5->product_id = 5;
+    $productPhoto5->user_id = 2;
+    $productPhoto5->save();
+
+    $productPhoto6 = new App\Product_Photo;
+    $productPhoto6->filename = "productphoto6.jpg";
+    $productPhoto6->product_id = 6;
+    $productPhoto6->user_id = 2;
+    $productPhoto6->save();
+
+    $productPhoto7 = new App\Product_Photo;
+    $productPhoto7->filename = "productphoto7.jpg";
+    $productPhoto7->product_id = 7;
+    $productPhoto7->user_id = 2;
+    $productPhoto7->save();
+
+    $productPhoto8 = new App\Product_Photo;
+    $productPhoto8->filename = "productphoto8.jpg";
+    $productPhoto8->product_id = 8;
+    $productPhoto8->user_id = 2;
+    $productPhoto8->save();
+
+    $productPhoto9 = new App\Product_Photo;
+    $productPhoto9->filename = "productphoto9.jpg";
+    $productPhoto9->product_id = 9;
+    $productPhoto9->user_id = 2;
+    $productPhoto9->save();
+
+    $productPhoto10 = new App\Product_Photo;
+    $productPhoto10->filename = "productphoto10.jpg";
+    $productPhoto10->product_id = 10;
+    $productPhoto10->user_id = 2;
+    $productPhoto10->save();
+
+    $productPhoto11 = new App\Product_Photo;
+    $productPhoto11->filename = "productphoto11.jpg";
+    $productPhoto11->product_id = 11;
+    $productPhoto11->user_id = 2;
+    $productPhoto11->save();
+
+    $productPhoto12 = new App\Product_Photo;
+    $productPhoto12->filename = "productphoto12.jpg";
+    $productPhoto12->product_id = 12;
+    $productPhoto12->user_id = 2;
+    $productPhoto12->save();
+
+    $productPhoto13 = new App\Product_Photo;
+    $productPhoto13->filename = "productphoto13.jpg";
+    $productPhoto13->product_id = 13;
+    $productPhoto13->user_id = 2;
+    $productPhoto13->save();
+
+    $productPhoto14 = new App\Product_Photo;
+    $productPhoto14->filename = "productphoto14.jpg";
+    $productPhoto14->product_id = 14;
+    $productPhoto14->user_id = 2;
+    $productPhoto14->save();
+
+    $productPhoto15 = new App\Product_Photo;
+    $productPhoto15->filename = "productphoto15.jpg";
+    $productPhoto15->product_id = 15;
+    $productPhoto15->user_id = 2;
+    $productPhoto15->save();
+
+    $productPhoto16 = new App\Product_Photo;
+    $productPhoto16->filename = "productphoto16.jpg";
+    $productPhoto16->product_id = 16;
+    $productPhoto16->user_id = 2;
+    $productPhoto16->save();
+
+    $productPhoto17 = new App\Product_Photo;
+    $productPhoto17->filename = "productphoto17.jpg";
+    $productPhoto17->product_id = 17;
+    $productPhoto17->user_id = 2;
+    $productPhoto17->save();
+
+    $productPhoto18 = new App\Product_Photo;
+    $productPhoto18->filename = "productphoto18.jpg";
+    $productPhoto18->product_id = 18;
+    $productPhoto18->user_id = 2;
+    $productPhoto18->save();
+
+    $productPhoto19 = new App\Product_Photo;
+    $productPhoto19->filename = "productphoto19.jpg";
+    $productPhoto19->product_id = 19;
+    $productPhoto19->user_id = 2;
+    $productPhoto19->save();
+
+    return $last = ['filename' => 'productphoto20.jpg', 'user_id' => 2 ,'product_id' => 20];
+});
+
+$factory->define(App\Product_Attributes::class, function (Faker\Generator $faker) {
+    //$productLastElement = DB::table('product')->orderBy('product_id', 'desc')->pluck('product_id')->first();
+    $products = App\Product::limit(19)->pluck('product_id');
+    $lastElement = DB::table('attributes')->orderBy('attribute_id', 'desc')->pluck('attribute_id')->first();
+    $attributes = App\Attributes::limit($lastElement)->pluck('attribute_id');
+
+    foreach($products as $p){
+        $pAtt = new App\Product_Attributes;
+        $pAtt->product_id = $faker->randomElement($products);
+        $pAtt->attribute_id = $faker->randomElement($attributes);
+        $pAtt->save();
+    }
+    return $last = ['product_id' => 1, 'attribute_id' => 1 ];
+});

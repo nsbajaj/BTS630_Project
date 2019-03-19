@@ -28,5 +28,7 @@ class DatabaseSeeder extends Seeder
         factory(App\Price::class, 1)->create();
         factory(App\Product_Subcategory_Types::class, 1)->create();
         factory(App\Attributes::class, 1)->create();
+        factory(App\Product_Photo::class, 1)->create();
+        factory(App\Product_Attributes::class, 1)->create();
     }
 }

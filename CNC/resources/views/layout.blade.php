@@ -74,8 +74,9 @@
         </li>
         @endif
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" placeholder="Search" type="text">
+      <form class="form-inline my-2 my-lg-0"  action="{{ url('/search') }}" method="get">
+        {{ csrf_field() }}
+        <input class="form-control mr-sm-2" placeholder="Search" type="text" name="search" id="search">
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>
