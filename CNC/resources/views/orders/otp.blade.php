@@ -11,8 +11,8 @@
                         <th>Order</th>
                         <th>contents</th>
                         <th>Date placed</th>
-                        <th>Date sent</th>
-                        <th>Arrived</th>
+                        <th>Date paid</th>
+                        <th>status</th>
                         <th>Cancel</th>
                         
                     </tr>
@@ -38,8 +38,8 @@
                             </ul>
                         </td>
                         <td>2019-01-31 </td>
-                        <td>Not Shipped </td>
-                        <td>No</td>
+                        <td>Not Paid </td>
+                        <td>1 = placed</td>
                         <td><a href="javascript:void" class="remove" data="067">Cancel</a></td>
                     </tr>
                     <tr id="row071">
@@ -50,9 +50,21 @@
                             </ul>
                         </td>
                         <td>2019-01-31 </td>
-                        <td>Not Shipped </td>
-                        <td>No</td>
-                        <td><a href="javascript:void" class="remove" data="071">Cancel</a></td>
+                        <td>2019-02-01 </td>
+                        <td>2 - shipped</td>
+                        <td><!-- if order is shipped no temoved--></td>
+                    </tr>
+                    <tr id="row072">
+                        <td>00067</td>
+                        <td><ul>
+                                <li>1x guitar</li>
+                                <li>2x cloth</li>
+                            </ul>
+                        </td>
+                        <td>2019-01-31 </td>
+                        <td>2019-02-01 </td>
+                        <td>3 - completed</td>
+                        <td><!-- if order is completed no temoved--></td>
                     </tr>
 					 </tbody>
                 </table>
