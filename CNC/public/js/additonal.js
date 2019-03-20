@@ -250,7 +250,7 @@ function loadpage() {
 		$("#empty").show();
 		//$("#cartcontents").hide();
         var dummy = [];
-        localStorage.setItem("products":JSON.stringify(dummy));
+        localStorage.setItem("products",JSON.stringify(dummy));
 	} else {
 		$("#empty").hide();
     }

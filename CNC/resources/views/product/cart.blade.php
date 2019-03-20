@@ -94,10 +94,9 @@
                  if($("#total").text()==="$0.00"){  
                    e.preventDefault();
                     return false;   
-                }
-                
+                    }                
                 var dummy = [];
-                localStorage.setItem("products":JSON.stringify(dummy));   
+                localStorage.setItem( "products", JSON.stringify(dummy));   
             });
 		});
 	</script>
