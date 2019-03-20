@@ -77,7 +77,7 @@ Route::get('/shoppingCart', 'Product\ProductController@shoppingCart');
 Route::get('/orders/', 'Product\ProductController@otp');
 Route::get('/orderstbs/',  'Product\ProductController@otf');
 //payment to be changed to its own control later
-Route::get('/cart',  'Product\ProductController@cart');
+//Route::get('/cart',  'Product\ProductController@cart');//not in use
 Route::get('/billing',  'Product\ProductController@billing');
 Route::get('/placed',  'Product\ProductController@placed');
 //extra
