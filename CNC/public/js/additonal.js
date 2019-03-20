@@ -266,7 +266,7 @@ function loadpage() {
 		}
 		updatetotal(finalsum);
 		$("#cartcontents").show();
-	}
+	
 }
 function loadpage1() {
 	if (localStorage.getItem("products") == undefined) {
