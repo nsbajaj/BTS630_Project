@@ -77,7 +77,12 @@
 			$('.removebtn').on("click",function(){
 				update($(this).attr("data"),0);
 			});
-			$('.updateqty').on("click",function(){
+			$('.updateqty').on("click",function(e){
+                if(($("#itemlist").val() == "")||($("#itemlist").val() == undefined));
+                {  
+                   e.preventDefault();
+                    return false;   
+                }
 				if($("#row"+$(this).attr("data")+ " .qtyctr").attr("disabled")!=undefined){
 				$("#row"+$(this).attr("data")+ " .qtyctr").removeAttr("disable")
 				}else{
