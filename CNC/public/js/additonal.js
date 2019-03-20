@@ -210,9 +210,9 @@ function update(mid, nammount) {
 			}
 		}
 		localStorage.setItem("products", JSON.stringify(b));
+        $("#itemlist").val("");
 		$("#row" + mid).remove();
 	}
-	updatetotal(finalsum);
 }
 
 function createrow(name, quantity, price, id) {
