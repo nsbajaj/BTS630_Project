@@ -65,7 +65,7 @@
 							<form action="{{ url('/checkout') }}" method="post">
 								{{ csrf_field() }}
 								<input type="hidden" id="itemlist" name="itemlist" name="cart" value="" />
-								<input type="submit" class="btn btn-success" value="Checkout">
+								<input type="submit" id="paynow" class="btn btn-success" value="Checkout">
 									</td>
 							</form>
 						</tr>
@@ -81,10 +81,7 @@
 				update($(this).attr("data"),0);
 			});
 			$('.updateqty').on("click",function(e){
-                if($("#total").text()==="$0.00"){  
-                   e.preventDefault();
-                    return false;   
-                }
+               
 				if($("#row"+$(this).attr("data")+ " .qtyctr").attr("disabled")!=undefined){
 				$("#row"+$(this).attr("data")+ " .qtyctr").removeAttr("disable")
 				}else{
@@ -93,6 +90,15 @@
 					update(uid,uqty);
 				}
 			});
+            $("$paynow").on("click",function(e){
+                 if($("#total").text()==="$0.00"){  
+                   e.preventDefault();
+                    return false;   
+                }
+                
+                var dummy = [];
+                localStorage.setItem("products":JSON.stringify(dummy));   
+            });
 		});
 	</script>
 
