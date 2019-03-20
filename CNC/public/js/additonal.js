@@ -252,13 +252,15 @@ function loadpage() {
         var dummy = [];
         localStorage.setItem("products",JSON.stringify(dummy));
 	} else {
+        
 		$("#empty").hide();
     }
         var a = [];
 		var finalsum = 0;
 		data = [];
 		a = JSON.parse(localStorage.getItem("products"));
-		for (var i = 0; i < a.length; i++) {
+		if(a.length==0){$("#empty").show();}
+        for (var i = 0; i < a.length; i++) {
 			var productn = a[i];
 			createrow(productn.name, productn.quantity, productn.price, productn.id)
 			addproducttovar(productn);
