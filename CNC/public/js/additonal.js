@@ -248,10 +248,13 @@ function addproducttovar(prod) {
 function loadpage() {
 	if (localStorage.getItem("products") == undefined) {
 		$("#empty").show();
-		$("#cartcontents").hide();
+		//$("#cartcontents").hide();
+        var dummy = [];
+        localStorage.setItem("products":JSON.stringify(dummy));
 	} else {
 		$("#empty").hide();
-		var a = [];
+    }
+        var a = [];
 		var finalsum = 0;
 		data = [];
 		a = JSON.parse(localStorage.getItem("products"));

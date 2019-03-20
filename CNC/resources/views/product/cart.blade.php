@@ -5,6 +5,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12 col-md-10 col-md-offset-1">
+			    <p id="empty">
+			        There is no items on carts 
+			    </p>
 				<table class="table table-hover" id="cartcontents">
 					<thead>
 						<tr>
@@ -78,8 +81,7 @@
 				update($(this).attr("data"),0);
 			});
 			$('.updateqty').on("click",function(e){
-                if(($("#itemlist").val() == "")||($("#itemlist").val() == undefined));
-                {  
+                if($("#total").text()==="$0.00"){  
                    e.preventDefault();
                     return false;   
                 }
