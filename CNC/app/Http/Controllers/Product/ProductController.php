@@ -22,6 +22,8 @@ use App\Subcategory;
 use App\General_Category_Subcategory;
 use App\General_Category;
 use DB;
+use App\Orders;
+use App\User_Order_Products;
 
 class ProductController extends Controller
 {
@@ -413,6 +415,45 @@ class ProductController extends Controller
         }
         else{
             //Return to page
+        }
+    }
+
+    //1 - Placed
+    //2 - Shipped
+    //3 - Completed
+    public function checkout(){
+        if(Auth::check()){ //Logged in
+            if(!empty(request('itemlist'))){
+                $itemList = request('itemlist');
+                $arr = json_decode($itemList);
+                
+                $order = new Orders;
+                $order->user_id = Auth::user()->user_id;
+                $order->payment_method = 0; //Needs to be changed later
+                
+                $order->order_status_code = 1;
+                $order->order_placed_date = Carbon::now();
+                $order->order_paid_date = Carbon::now();
+                $order->total_order_price = 100; //Calculate it later
+                $order->save();
+
+                foreach($arr as $key => $value){
+                    $orderDetails = new User_Order_Products;
+                    $orderDetails->order_id = $order->order_id;
+                    $orderDetails->product_id = $value->id;
+                    $orderDetails->quantity = $value->quantity;
+                    $orderDetails->save();
+                }
+                return redirect('/orders');
+            }
+            //Cart is empty
+            else{
+
+            }
+        }
+        //Redirect to login page
+        else{
+
         }
     }
 }

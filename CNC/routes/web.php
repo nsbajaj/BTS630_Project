@@ -72,6 +72,7 @@ Route::get('/deletedProducts/', 'Product\ProductController@deletedProducts');
 Route::get('/inventory/', 'Product\ProductController@inventory');
 Route::get('/search', 'Product\ProductController@search');
 Route::get('/shoppingCart', 'Product\ProductController@shoppingCart');
+Route::post('/checkout', 'Product\ProductController@checkout');
 
 //orders to be changed to its own controll at later day
 Route::get('/orders/', 'Product\ProductController@otp');
@@ -81,6 +82,8 @@ Route::get('/orderstbs/',  'Product\ProductController@otf');
 Route::get('/billing',  'Product\ProductController@billing');
 Route::get('/placed',  'Product\ProductController@placed');
 //extra
+
+
 
 Route::get('/customers',function(){
 

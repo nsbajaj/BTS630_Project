@@ -54,15 +54,17 @@
 							<td>   </td>
 							<td>   </td>
 							<td>
-								<button type="button" class="btn btn-default">
+								<a href="{{ url('/products') }}"><button type="button" class="btn btn-default">
 									<span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
-								</button></td>
+								</button></a>
+								</td>
 							<td>
-								<input type="hidden" id="itemlist" name="cart" value="" />
-								<button type="button" class="btn btn-success">
-
-									Checkout <span class="glyphicon glyphicon-play"></span>
-								</button></td>
+							<form action="{{ url('/checkout') }}" method="post">
+								{{ csrf_field() }}
+								<input type="hidden" id="itemlist" name="itemlist" name="cart" value="" />
+								<input type="submit" class="btn btn-success" value="Checkout">
+									</td>
+							</form>
 						</tr>
 					</tbody>
 				</table>
