@@ -426,34 +426,34 @@ class ProductController extends Controller
             if(!empty(request('itemlist'))){
                 $itemList = request('itemlist');
                 $arr = json_decode($itemList);
+                dump($arr);
+                // $order = new Orders;
+                // $order->user_id = Auth::user()->user_id;
+                // $order->payment_method = 0; //Needs to be changed later
                 
-                $order = new Orders;
-                $order->user_id = Auth::user()->user_id;
-                $order->payment_method = 0; //Needs to be changed later
-                
-                $order->order_status_code = 1;
-                $order->order_placed_date = Carbon::now();
-                $order->order_paid_date = Carbon::now();
-                $order->total_order_price = 100; //Calculate it later
-                $order->save();
+                // $order->order_status_code = 1;
+                // $order->order_placed_date = Carbon::now();
+                // $order->order_paid_date = Carbon::now();
+                // $order->total_order_price = 100; //Calculate it later
+                // $order->save();
 
-                foreach($arr as $key => $value){
-                    $orderDetails = new User_Order_Products;
-                    $orderDetails->order_id = $order->order_id;
-                    $orderDetails->product_id = $value->id;
-                    $orderDetails->quantity = $value->quantity;
-                    $orderDetails->save();
-                }
-                return redirect('/orders');
+                // foreach($arr as $key => $value){
+                //     $orderDetails = new User_Order_Products;
+                //     $orderDetails->order_id = $order->order_id;
+                //     $orderDetails->product_id = $value->id;
+                //     $orderDetails->quantity = $value->quantity;
+                //     $orderDetails->save();
+                // }
+                // return redirect('/orders');
             }
             //Cart is empty
             else{
-
+                
             }
         }
         //Redirect to login page
         else{
-
+            return redirect('/signin');
         }
     }
 }
