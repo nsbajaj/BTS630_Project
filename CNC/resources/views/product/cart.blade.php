@@ -86,7 +86,9 @@
 				$("#row"+$(this).attr("data")+ " .qtyctr").removeAttr("disabled");
 				}else{
 					var uid =$(this).attr("data");
-					var uqty = $("#row"+$(this).attr("data")+ " .qtyctr").val();		  
+					var uqty = $("#row"+$(this).attr("data")+ " .qtyctr").val();
+					 var uprc= parseFloat($("#row"+$(this).attr("data")+ " .qtcpcrt").text());//GET PRICE
+					$("#row"+$(this).attr("data")+ " .qtcfpcrt").text((uprc * uqty).toFixed(2));// FINAL PRICE
 					update(uid,uqty);
 				}
 			});

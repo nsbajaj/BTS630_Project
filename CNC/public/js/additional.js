@@ -195,7 +195,7 @@ function update(mid, nammount) {
 				productn.quantity = nammount;
 			}
 			addproducttovar(productn);
-			finalsum += i.quantity * i.price;
+			finalsum += productn.quantity * productn.price;
 		}
 		localStorage.setItem("products", JSON.stringify(a));
 	} else if (nammount == 0) {
@@ -211,18 +211,21 @@ function update(mid, nammount) {
 		}
 		localStorage.setItem("products", JSON.stringify(b));
 		$("#row" + mid).remove();
+         if(a.length==1){
+            $("#itemlist").val("");
+        }
 	}
-	updatetotal(finalsum);
+	updatetotal(finalsum);   
 }
 
 function createrow(name, quantity, price, id) {
-	var rowhtml = "<tr id='row" + id + "'> <td class='col-sm-8 col-md-6'><div class='media'><a class='thumbnail pull-left' href='#'>  </a><div class='media-body'><h4 class='media-heading'><a href='#'>" + name + "</a></h4></div> </div></td>  <td class='col-sm-1 col-md-1' style='text-align: center'><input type='email' class='form-control qtyctr' disabled id='exampleInputEmail1' value='" + quantity + "'><a class='updateqty' data=" + id + " href='javascript:void()'>update</a></td> <td class='col-sm-1 col-md-1 text-center'><strong>$" + price.toFixed(2) + "</strong></td><td class='col-sm-1 col-md-1 text-center'><strong>$" + (price * quantity).toFixed(2) + "</strong></td><td class='col-sm-1 col-md-1'> <button  type='button' data=" + id + "  class='btn btn-danger removebtn'><span class='glyphicon glyphicon-remove'></span> Remove </button></td> </tr>"
+	var rowhtml = "<tr id='row" + id + "'> <td class='col-sm-8 col-md-6'><div class='media'><a class='thumbnail pull-left' href='#'>  </a><div class='media-body'><h4 class='media-heading'><a href='#'>" + name + "</a></h4></div> </div></td>  <td class='col-sm-1 col-md-1' style='text-align: center'><input type='email' class='form-control qtyctr' disabled id='exampleInputEmail1' value='" + quantity + "'><a class='updateqty' data=" + id + " href='#'>update</a></td> <td class='col-sm-1 col-md-1 text-center'><strong>$<span class='qtcpcrt'>" + (price).toFixed(2) + "</span></strong></td><td class='col-sm-1 col-md-1 text-center'><strong>$<span class='qtcfpcrt'>" + (price * quantity).toFixed(2) + "</span></strong></td><td class='col-sm-1 col-md-1'> <button  type='button' data=" + id + "  class='btn btn-danger removebtn'><span class='glyphicon glyphicon-remove'></span> Remove </button></td> </tr>"
 	$("#cartbody").prepend(rowhtml);
 
 }
 
 function createrowsuccess(name, quantity, price, id) {
-	var rowhtml = "<tr id='row" + id + "'> <td class='col-sm-8 col-md-6'><div class='media'><a class='thumbnail pull-left' href='#'>  </a><div class='media-body'><h4 class='media-heading'><a href='#'>" + name + "</a></h4></div> </div></td>  <td class='col-sm-1 col-md-1' style='text-align: center'><input type='email' class='form-control qtyctr' disabled id='exampleInputEmail1' value='" + quantity + "'></td> <td class='col-sm-1 col-md-1 text-center'><strong>$" + price.toFixed(2) + "</strong></td><td class='col-sm-1 col-md-1 text-center'><strong>$" + (price * quantity).toFixed(2) + "</strong></td><td class='col-sm-1 col-md-1'> </td> </tr>"
+	var rowhtml = "<tr id='row" + id + "'> <td class='col-sm-8 col-md-6'><div class='media'><a class='thumbnail pull-left' href='#'>  </a><div class='media-body'><h4 class='media-heading'><a href='#'>" + name + "</a></h4></div> </div></td>  <td class='col-sm-1 col-md-1' style='text-align: center'><input type='email' class='form-control qtyctr' disabled id='exampleInputEmail1' value='" + quantity + "'></td> <td class='col-sm-1 col-md-1 text-center'><strong>$<span class='qtcpcrt'>" + (price).toFixed(2) + "</span></strong></td><td class='col-sm-1 col-md-1 text-center'><strong>$<span class='qtcfpcrt'>" + (price * quantity).toFixed(2) + "</span></strong></td><td class='col-sm-1 col-md-1'> </td> </tr>"
 	$("#cartbody").prepend(rowhtml);
 
 }
@@ -245,14 +248,19 @@ function addproducttovar(prod) {
 function loadpage() {
 	if (localStorage.getItem("products") == undefined) {
 		$("#empty").show();
-		$("#cartcontents").hide();
+		//$("#cartcontents").hide();
+        var dummy = [];
+        localStorage.setItem("products",JSON.stringify(dummy));
 	} else {
+        
 		$("#empty").hide();
-		var a = [];
+    }
+        var a = [];
 		var finalsum = 0;
 		data = [];
 		a = JSON.parse(localStorage.getItem("products"));
-		for (var i = 0; i < a.length; i++) {
+		if(a.length==0){$("#empty").show();}
+        for (var i = 0; i < a.length; i++) {
 			var productn = a[i];
 			createrow(productn.name, productn.quantity, productn.price, productn.id)
 			addproducttovar(productn);
@@ -260,7 +268,7 @@ function loadpage() {
 		}
 		updatetotal(finalsum);
 		$("#cartcontents").show();
-	}
+	
 }
 function loadpage1() {
 	if (localStorage.getItem("products") == undefined) {
