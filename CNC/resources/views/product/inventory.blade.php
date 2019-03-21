@@ -2,13 +2,12 @@
 	@section('content')
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	
-	<div class="container Listings">
+		<div class="container Listings">
 		<div class="row justify-content-center">
-			<div class="col-lg-12">
+			<div class="col-md-9 col-md-offset-1 categories">
             <h1>Inventory</h1>
-                <table class="table table-hover">
-							<thead>
-								<tr class="headtable">
+                <table>
+                    <tr class="headtable">
                         <th>Product</th>
                         <th>Name</th>
                         <th>Description</th>
@@ -16,8 +15,6 @@
                         <th>Cancel</th>
                         
                     </tr>
-                    </thead>
-                   <tbody>
                     <tr id="row056">
                         <td>00056</td>
                         <td>
@@ -40,22 +37,7 @@
                          </td> 
                         <td><a href="javascript:void" class="tfs" data="067">Stop Offering</a> <a href="javascript:void" style="display: none;" class="tfe" data="067">Re-Offer</a></td>
                     </tr>
-                    <tr id="row071">
-                        <td>00071</td>
-                        <td>
-                            towel
-                        </td>
-                        <td>Basic Bathroom towel </td>
-                         <td><span class="tbu" >10</span> <a href="javascript:void" data="071" class="update">Update quantity </a>
-                        <input type="number" value="10" style="display: none;" class="upn"/><a href="javascript:void" style="display: none;" class="updated" data="067">Update quantity </a>
-                         </td> 
-                        <td>
-                            <a href="javascript:void" class="remove" data="071">Cancel Aproval</a>
-                            <a href="javascript:void" style="display: none;" class="reaproval" data="071">Request Aproval</a>
-                        
-                        </td>
-                    </tr>
-                <tbody>
+                   
                 </table>
                   
                    
@@ -110,9 +92,9 @@
             
         });
     </script>
-    <style>
+     <style>
 	.headtable{background-color: #000; color:white;}
-        .remove,.tfs{color:white;background: red; padding:.5em 1em;display: inline-block;    text-align: center;}
+        .remove,.tfs{color:white;background: #B22222; padding:.5em 1em;display: inline-block;    text-align: center;}
         .tfe,.reaproval {color:white;background: limegreen; padding:.5em 1em;display: inline-block;    text-align: center;}
         
 		
