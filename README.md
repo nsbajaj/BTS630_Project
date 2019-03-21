@@ -71,9 +71,10 @@ The program scope has changed and we are now down scaling the scope from marketp
 
 | Number | Task Description | Status |
 | --- | --- | --- |
-| 1 | Making the site more phone oriented.<br /> - Such as adding more attributes (screen size, RAM, storage size, colour, OS, etc) |   |
-| 2 | Customers will be able to pay for the items using Paypal.<br /> - Once the user finalizes their order in shipping cart, it will lead them to Paypal in order to make payment |   |
-| 3 | Users will be able to see their orders history.<br /> - Once the user completes the purchase, they will be able to see their order(s) on dashbaord |   |
+| 1 | Re-Code methods for managing the categories.<br /> - Categories will be only related to cell phones such as Manufacturers, OS, Storage, etc. |   |
+| 2 | Re-Code methods for managing prodcuts and inventories.<br /> - Product Page will be reduced to show cell phones only, considering the new changes. |   |
+| 3 | Re-Code methods that handles attributes while adding/viewing the product.<br /> - User will be able to see attributes only related to cell phones such as screen size, memory, colours, etc. |   |
+| 4 | Create a product page which will show the information about the product (cell phone) in details.<br /> - This page will display all the attributes of the product, images, price, etc. |   |  
 | 4 | Admin will be able to see how many orders are left to fulfill (yet to ship).<br /> - Once the customer completes the payment, it will show on Admin dashbaord, which needs to be shipped |   |
 | 5 | Update user roles and authentication according the changes made to the system.<br /> - Remove "Seller" aspect/account(s) from previous System |   |
 | 6 | Re-Code photo logic when displaying the list of products.<br /> - Product page will have pictures of the product itself in the grid view as a preview, and the user can click on it, in order to view more details about that perticular product  |   |
