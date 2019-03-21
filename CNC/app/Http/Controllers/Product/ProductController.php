@@ -359,10 +359,48 @@ class ProductController extends Controller
 	public function inventory(){
 		return view('product.inventory');
 	}
-	public function otp()
-    {
-       return view('orders.otp');
+	public function otp(){
+        $orders = Orders::where('user_id', Auth::user()->user_id)->get();
+        $orderDetails = array();
+        $products = array();
+        if(!empty($orders)){
+            foreach($orders as $key => $value){
+                $orderDetails[$key] = User_Order_Products::where('order_id', $value->order_id)->get()->toArray();
+            }
+            
+            // foreach($orderDetails as $key => $value){
+            //     foreach($value as $v){
+            //         $t = $v->products($v->product_id);
+            //     }
+            // }
+            // $i = 0;
+            // foreach($orderDetails as $key => $value){
+            //     foreach($value as $v){
+            //         $products[$i++] = Product::where('product_id', $v->product_id)->get();
+            //     }
+            // }
+            $orderSuccess = true;
+            return view('orders.otp')->with(compact('orders', 'orderSuccess'));
+        }        
     }
+
+    public function orderDetails($id){
+        //Add validation for current order being viewed is users own order.
+        if(!empty($id)){
+            $orderDetails = User_Order_Products::where('order_id', $id)->get();
+            return view('orders.orderDetails')->with(compact('orderDetails'));
+        }
+    }
+
+    public function deleteOrder($id){
+        //Add validation for current order being viewed is users own order.
+        if(!empty($id)){
+            $order = Orders::where('order_id', $id)->first();
+            $order->deleted_at = Carbon::now();
+            $order->save();
+        }
+        return redirect('/orders');
+    }        
 	
 	public function otf()
     {
@@ -414,7 +452,7 @@ class ProductController extends Controller
             return view('product.cart')->with(compact('data'));
         }
         else{
-            //Return to page
+            return view('product.cart');
         }
     }
 
@@ -426,29 +464,29 @@ class ProductController extends Controller
             if(!empty(request('itemlist'))){
                 $itemList = request('itemlist');
                 $arr = json_decode($itemList);
-                dump($arr);
-                // $order = new Orders;
-                // $order->user_id = Auth::user()->user_id;
-                // $order->payment_method = 0; //Needs to be changed later
                 
-                // $order->order_status_code = 1;
-                // $order->order_placed_date = Carbon::now();
-                // $order->order_paid_date = Carbon::now();
-                // $order->total_order_price = 100; //Calculate it later
-                // $order->save();
+                $order = new Orders;
+                $order->user_id = Auth::user()->user_id;
+                $order->payment_method = 0; //Needs to be changed later
+                
+                $order->order_status_code = 1;
+                $order->order_placed_date = Carbon::now();
+                $order->order_paid_date = Carbon::now();
+                $order->total_order_price = 100; //Calculate it later
+                $order->save();
 
-                // foreach($arr as $key => $value){
-                //     $orderDetails = new User_Order_Products;
-                //     $orderDetails->order_id = $order->order_id;
-                //     $orderDetails->product_id = $value->id;
-                //     $orderDetails->quantity = $value->quantity;
-                //     $orderDetails->save();
-                // }
-                // return redirect('/orders');
+                foreach($arr as $key => $value){
+                    $orderDetails = new User_Order_Products;
+                    $orderDetails->order_id = $order->order_id;
+                    $orderDetails->product_id = $value->id;
+                    $orderDetails->quantity = $value->quantity;
+                    $orderDetails->save();
+                }
+                return redirect('/orders');
             }
             //Cart is empty
             else{
-                
+                return redirect('/shoppingCart');
             }
         }
         //Redirect to login page

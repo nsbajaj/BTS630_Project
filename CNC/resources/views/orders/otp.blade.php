@@ -1,47 +1,61 @@
 @extends('layout')
 	@section('content')
-	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    @if(!empty($orderSuccess))
+        <p class="flag" data-sys="{{ $orderSuccess }}" style="display:none;"><p>;
+        <!-- It's Not Empty -->
+    @else
+        <!-- Empty -->
+    @endif
+
+
 	<div class="container Listings">
 		<div class="row justify-content-center">
 						<div class="col-lg-12">
             <h1>Orders</h1>
                  <table class="table table-hover">
-							<thead>
-								<tr class="headtable">
+					<thead>
+					<tr class="headtable">
                         <th>Order</th>
-                        <th>contents</th>
                         <th>Date placed</th>
-                        <th>Date paid</th>
+                        <th>Date shipped</th>
                         <th>status</th>
+                        <th>View Details</th>
                         <th>Cancel</th>
-                        
                     </tr>
                     </thead>
                    <tbody>
-                    <tr>
-                        <td>00056</td>
-                        <td><ul>
-                                <li>1x headphones</li>
-                                <li>2x cleaning cloth</li>
-                            </ul>
-                        </td>
-                        <td>2019-01-15 </td>
-                        <td>2019-01-18 </td>
-                        <td>yes</td>
-                        <td></td>
-                    </tr>
-                    <tr id="row067">
-                        <td>00067</td>
-                        <td><ul>
-                                <li>1x clicker</li>
-                                <li>1x cooking sheet</li>
-                            </ul>
-                        </td>
-                        <td>2019-01-31 </td>
-                        <td>Not Paid </td>
-                        <td>1 = placed</td>
-                        <td><a href="javascript:void" class="remove" data="067">Cancel</a></td>
-                    </tr>
+                    @if(!empty($orders))
+                        @foreach($orders as $o)
+                        <tr id="row{{ $o->order_id }}">
+                            <td>{{ $o->order_id }}  </td>
+                            <td>{{ $o->order_placed_date }}</td>
+                            <td>{{ $o->order_paid_date }}</td>
+                            
+                            @if(!empty($o->order_status_code))
+                                @if($o->order_status_code == 1)
+                                    <td>Placed</td>
+                                @elseif($o->order_status_code == 2)
+                                    <td>Shipped</td>
+                                @elseif($o->order_status_code == 3)
+                                    <td>Completed</td>
+                                @endif
+                            @endif
+
+                            <td><a href="/CNC/public/orderDetails/{{ $o->order_id }}"><button class="btn btn-primary" type="button">Details</button></a></td>
+
+                            @if(!empty($o->order_status_code))
+                                @if($o->order_status_code == 1)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+                                    <!-- <td><a href="javascript:void" class="remove btn btn-primary" data="{{ $o->order_id }}">Cancel</a></td> -->
+                                    <td><a href="/CNC/public/deleteOrder/{{ $o->order_id }}" class="remove btn btn-primary" data="{{ $o->order_id }}">Cancel Order</a></td>
+                                @endif
+                            @endif
+                        </tr>
+                        @endforeach
+                    @endif
+                    
+<!--                     
                     <tr id="row071">
                         <td>00067</td>
                         <td><ul>
@@ -52,7 +66,7 @@
                         <td>2019-01-31 </td>
                         <td>2019-02-01 </td>
                         <td>2 - shipped</td>
-                        <td><!-- if order is shipped no temoved--></td>
+                        <td>
                     </tr>
                     <tr id="row072">
                         <td>00067</td>
@@ -64,8 +78,8 @@
                         <td>2019-01-31 </td>
                         <td>2019-02-01 </td>
                         <td>3 - completed</td>
-                        <td><!-- if order is completed no temoved--></td>
-                    </tr>
+                        <td>
+                    </tr> -->
 					 </tbody>
                 </table>
                   

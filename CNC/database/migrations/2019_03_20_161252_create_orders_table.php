@@ -26,6 +26,8 @@ class CreateOrdersTable extends Migration
             $table->datetime('order_paid_date');
             $table->decimal('total_order_price', '19', '4');
 
+            $table->softDeletes();
+
             $table->timestamps();
         });
     }

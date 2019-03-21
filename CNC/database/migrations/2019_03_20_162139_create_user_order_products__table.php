@@ -22,6 +22,7 @@ class CreateUserOrderProductsTable extends Migration
 
             $table->integer('quantity');
 
+            $table->softDeletes();
             $table->timestamps();
         });
     }

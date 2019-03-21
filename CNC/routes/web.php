@@ -73,6 +73,8 @@ Route::get('/inventory/', 'Product\ProductController@inventory');
 Route::get('/search', 'Product\ProductController@search');
 Route::get('/shoppingCart', 'Product\ProductController@shoppingCart');
 Route::post('/checkout', 'Product\ProductController@checkout');
+Route::get('/orderDetails/{id}', 'Product\ProductController@orderDetails');
+Route::get('/deleteOrder/{id}', 'Product\ProductController@deleteOrder');
 
 //orders to be changed to its own controll at later day
 Route::get('/orders/', 'Product\ProductController@otp');
