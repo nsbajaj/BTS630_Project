@@ -195,7 +195,7 @@ function update(mid, nammount) {
 				productn.quantity = nammount;
 			}
 			addproducttovar(productn);
-			finalsum += i.quantity * i.price;
+			finalsum += productn.quantity * productn.price;
 		}
 		localStorage.setItem("products", JSON.stringify(a));
 	} else if (nammount == 0) {
