@@ -54,22 +54,22 @@
 <div class="container">
     <h3 class="h3">Products</h3>
     <div class="row">
-      @if(!empty($final))
-            @foreach ($final as $product)
+      @if(!empty($products))
+            @foreach ($products as $product)
+              @foreach($product as $key => $value)
         <div class="col-md-4 col-sm-6">
             <div class="product-grid8">
                 <div class="product-image8">
-                    <a href="/CNC/public/product/{{ $product->product_id}}">
+                    <a href="/CNC/public/product/{{ $value->product_id}}">
                       @if(!empty($pictures))
-                            @foreach($pictures as $key => $value)
-                              @foreach($value as $n)
-                                @if($product->product_id == $n->product_id)
-                                  <img class="pic-1" height="445" width="348" src="/CNC/public/files/{{ $n->filename }}">
-                                  @break
-                                @endif
-                              @endforeach
-                            @endforeach
-                        @endif
+                        @foreach($pictures as $pic)
+                          @foreach($pic as $p)
+                            @if($value->product_id == $p->product_id)
+                              <img class="pic-1" height="445" width="348" src="/CNC/public/files/{{ $p->filename }}">
+                            @endif
+                          @endforeach  
+                        @endforeach
+                      @endif
                     </a>
                     <ul class="social">
                         <li><a href="" class="fa fa-search"></a></li>
@@ -83,12 +83,12 @@
                         <span>$ 10.00</span>
                     </div>
                     <span class="product-shipping">Free Shipping</span>
-                    <h3 class="title"><a href="/CNC/public/product/{{ $product->product_id}}">{{ $product->name }}</a></h3>
+                    <h3 class="title"><a href="/CNC/public/product/{{ $value->product_id}}">{{ $value->name }}</a></h3>
                     <!-- <a class="all-deals" href="">See all deals <i class="fa fa-angle-right icon"></i></a> -->
                 </div>
             </div>
         </div>
-
+            @endforeach
           @endforeach
         @endif
     </div>

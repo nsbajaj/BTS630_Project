@@ -28,22 +28,32 @@ use App\User_Order_Products;
 class ProductController extends Controller
 {
     public function showProducts(Subcategory_Types $subsubcategory){
-    	//Optimize price further
-        //dump($subsubcategory);
-        $products = Subcategory_Types::find($subsubcategory->subcategory_types_id);
-        $final = array();
+    	//Add approved filter
+        $products = array();
+        $pictures = array();
+        $tempProducts = Product_Subcategory_Types::where('subcategory_types_id', $subsubcategory->subcategory_types_id)->distinct()->get();
         $i = 0;
-        foreach ($products->products as $p) {
-            if($p->approved_product_id != null){
-                $final[$i] = $p;
-                $i++;
-            }
+        foreach($tempProducts as $key => $value){
+            $products[$i] = Product::where('product_id', $value->product_id)->get();
+            $pictures[$i] = Product_Photo::where('product_id', $value->product_id)->take(1)->get();
+            $i++;
         }
-        $j = 0;
-        foreach ($final as $pro) {
-            $pictures[$j++] = $pro->pictures;
-        }
-        return view('product.products')->with(compact('subsubcategory', 'final', 'pictures'));
+
+        // $products = Subcategory_Types::find($subsubcategory->subcategory_types_id);
+        // $final = array();
+        // $i = 0;
+        // foreach ($products->products as $p) {
+        //     if($p->approved_product_id != null){
+        //         $final[$i] = $p;
+        //         $i++;
+        //     }
+        // }
+        // $j = 0;
+        // foreach ($final as $pro) {
+        //     $pictures[$j++] = $pro->pictures;
+        // }
+        // return view('product.products')->with(compact('subsubcategory', 'final', 'pictures'));
+        return view('product.products')->with(compact('subsubcategory', 'products', 'pictures'));
     }
 
     public function showAllProducts(){
@@ -394,6 +404,7 @@ class ProductController extends Controller
 
     public function deleteOrder($id){
         //Add validation for current order being viewed is users own order.
+        //Add validation for order status, cannot delete once shipped.
         if(!empty($id)){
             $order = Orders::where('order_id', $id)->first();
             $order->deleted_at = Carbon::now();
