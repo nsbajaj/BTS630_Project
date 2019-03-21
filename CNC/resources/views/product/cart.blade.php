@@ -81,7 +81,7 @@
 				update($(this).attr("data"),0);
 			});
 			$('.updateqty').on("click",function(e){
-               
+               e.preventDefault();
 				if($("#row"+$(this).attr("data")+ " .qtyctr").attr("disabled")!=undefined){
 				$("#row"+$(this).attr("data")+ " .qtyctr").removeAttr("disable")
 				}else{
