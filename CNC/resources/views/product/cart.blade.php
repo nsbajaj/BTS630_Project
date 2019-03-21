@@ -95,8 +95,7 @@
                    e.preventDefault();
                     return false;   
                     }                
-                var dummy = [];
-                localStorage.setItem( "products", JSON.stringify(dummy));   
+                 
             });
 		});
 	</script>

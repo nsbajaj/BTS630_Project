@@ -2,13 +2,7 @@
 	@section('content')
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    @if(!empty($orderSuccess))
-        <p class="flag" data-sys="{{ $orderSuccess }}" style="display:none;"><p>;
-        <!-- It's Not Empty -->
-    @else
-        <!-- Empty -->
-    @endif
-
+    
 
 	<div class="container Listings">
 		<div class="row justify-content-center">
@@ -94,6 +88,11 @@
                     $("#row"+$(this).attr("data")).hide();
                 }
             });
+			@if(!empty($orderSuccess))
+				var dummy = [];
+                localStorage.setItem( "products", JSON.stringify(dummy)); 
+			@endif
+				
         });
     </script> 
     <style>
