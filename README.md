@@ -74,7 +74,10 @@ The program scope has changed and we are now down scaling the scope from marketp
 | 1 | Re-Code methods for managing the categories.<br /> - Categories will be only related to cell phones such as Manufacturers, OS, Storage, etc. |   |
 | 2 | Re-Code methods for managing prodcuts and inventories.<br /> - Product Page will be reduced to show cell phones only, considering the new changes. |   |
 | 3 | Re-Code methods that handles attributes while adding/viewing the product.<br /> - User will be able to see attributes only related to cell phones such as screen size, memory, colours, etc. |   |
-| 4 | Create a product page which will show the information about the product (cell phone) in details.<br /> - This page will display all the attributes of the product, images, price, etc. |   |  
-| 4 | Admin will be able to see how many orders are left to fulfill (yet to ship).<br /> - Once the customer completes the payment, it will show on Admin dashbaord, which needs to be shipped |   |
-| 5 | Update user roles and authentication according the changes made to the system.<br /> - Remove "Seller" aspect/account(s) from previous System |   |
-| 6 | Re-Code photo logic when displaying the list of products.<br /> - Product page will have pictures of the product itself in the grid view as a preview, and the user can click on it, in order to view more details about that perticular product  |   |
+| 4 | Recreate a product page which will show the information about the product (cell phone) in details.<br /> - This page will display all the attributes of the product, images, price, etc. |   |
+| 5 | User will be able to add/remove product from shopping cart.<br /> - User can add a product from product page by clicking on add to cart, and also remove any product from the shopping cart by clicking remove. |   |
+| 6 | User will be able to place the order.<br /> - Once the user finalizes the shopping cart and places the order, it will generate an order to fulfill for admin. (For payment, we will be adding Paypal in next iteration) |   |
+| 7 | Once the user places an order, the user will be able to see the status of the order.<br /> - User will be able to see that the order has been shipped or not shipped yet. |   |
+| 8 | Admin will be able to see how many orders are left to fulfill (yet to ship).<br /> - Once the customer completes the order, it will show on Admin dashbaord, which needs to be shipped or has not been shipped yet. |   |
+| 9 | Admin will be able to update the status of the order.<br /> - If the order has been shipped then the admin can update the status of the order to "Shipped", and customer can see that on their end as well. |   |
+| 10 | Update user roles and authentication according the changes made to the system.<br /> - Remove "Seller" aspect/account(s) from previous System |   |
