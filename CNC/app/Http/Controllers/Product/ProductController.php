@@ -38,21 +38,6 @@ class ProductController extends Controller
             $pictures[$i] = Product_Photo::where('product_id', $value->product_id)->take(1)->get();
             $i++;
         }
-
-        // $products = Subcategory_Types::find($subsubcategory->subcategory_types_id);
-        // $final = array();
-        // $i = 0;
-        // foreach ($products->products as $p) {
-        //     if($p->approved_product_id != null){
-        //         $final[$i] = $p;
-        //         $i++;
-        //     }
-        // }
-        // $j = 0;
-        // foreach ($final as $pro) {
-        //     $pictures[$j++] = $pro->pictures;
-        // }
-        // return view('product.products')->with(compact('subsubcategory', 'final', 'pictures'));
         return view('product.products')->with(compact('subsubcategory', 'products', 'pictures'));
     }
 
@@ -90,6 +75,7 @@ class ProductController extends Controller
         $genType = General_Category::where('general_category_id', $gen)->get()->pluck('name');
         $pAtt = Product_Attributes::where('product_id', $id)->get()->pluck('attribute_id');
         $pAttType = Attributes::where('attribute_id', $pAtt)->get();
+        
         return view('product.product')->with(compact('product', 'photos', 'price', 'user', 'productsFromUser', 'subType', 'subsubType', 'genType', 'pAttType', '$pAttType'));
     }
 

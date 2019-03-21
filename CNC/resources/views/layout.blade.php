@@ -56,9 +56,9 @@
             <a class="nav-link" href="{{ url('/users') }}">Users</a>
           </li>
         @endif
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="#">About</a>
-        </li>
+        </li> -->
         @if(Auth::check() && !empty(Auth::user()->first_name) && !empty(Auth::user()->last_name))
           <li class="nav-item">
             <a class="nav-link" id="flagsign" href="{{ url('/signout') }}">Sign out, {{ Auth::user()->first_name }}</a>
@@ -73,12 +73,18 @@
           <a class="nav-link" href="{{ url('/register') }}">Register</a>
         </li>
         @endif        
-        @if(Auth::check())
-          <li class="nav-item">
-          <a class="nav-link" href="{{ url('/shoppingCart') }}">Cart</a>
-        </li>
-        @endif
         
+        @if(Auth::check())
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{{ url('/shoppingCart') }}">Cart</a>
+              <a class="dropdown-item" href="{{ url('/orders') }}">My Orders</a>
+            </div>
+          </li>
+        @endif
       </ul>
       <form class="form-inline my-2 my-lg-0"  action="{{ url('/search') }}" method="get">
         {{ csrf_field() }}
