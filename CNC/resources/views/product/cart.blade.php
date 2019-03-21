@@ -90,7 +90,7 @@
 					update(uid,uqty);
 				}
 			});
-            $("$paynow").on("click",function(e){
+            $("#paynow").on("click",function(e){
                  if($("#total").text()==="$0.00"){  
                    e.preventDefault();
                     return false;   
