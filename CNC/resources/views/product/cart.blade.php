@@ -83,7 +83,7 @@
 			$('.updateqty').on("click",function(e){
                e.preventDefault();
 				if($("#row"+$(this).attr("data")+ " .qtyctr").attr("disabled")!=undefined){
-				$("#row"+$(this).attr("data")+ " .qtyctr").removeAttr("disable")
+				$("#row"+$(this).attr("data")+ " .qtyctr").removeAttr("disabled");
 				}else{
 					var uid =$(this).attr("data");
 					var uqty = $("#row"+$(this).attr("data")+ " .qtyctr").val();		  
