@@ -80,4 +80,17 @@ The program scope has changed and we are now down scaling the scope from marketp
 | 7 | Once the user places an order, the user will be able to see the status of the order.<br /> - User will be able to see that the order has been shipped or not shipped yet. | Completed as planned. |
 | 8 | Admin will be able to see how many orders are left to fulfill (yet to ship).<br /> - Once the customer completes the order, it will show on Admin dashbaord, which needs to be shipped or has not been shipped yet. | Templates and functionalities are in place, we have database and some basic functionality to show, however we have some basic issues with security and authentication about how to proceed on this. |
 | 9 | Admin will be able to update the status of the order.<br /> - If the order has been shipped then the admin can update the status of the order to "Shipped", and customer can see that on their end as well. | The template is there, functionality is finished, the rule about - if orders are in place, allows user to discontinue the product. The current idea is as long as all orders are fullfilled we can discontinue the product - if 0 stock this is not an issue however. |
-| 10 | Update user roles and authentication according the changes made to the system.<br /> - Remove "Seller" aspect/account(s) from previous System | Completed as planned. |
+| 10 | Update user roles and authentication according the changes made to the system.<br /> - Remove "Seller" aspect/account(s) from previous System | Completed as planned. 
+
+## Iteration 4 Task List
+
+| 1 |Inventory page<br>Needs to be connected to the database and updated database<br>
+Add a link to create product | incomplete |
+| 2 | User Dashboard <br>Page needs to have a dashboard it should have  4 links<br>
+- Profile <br> - Orders <br>IF user is an admin there will be  2 aditional links <br>- Inventory <br>- Order to be shipped <br> | incomplete |
+| 3 |Profile page<br> Show user information <br> Edit link -functionality done<br>  | Incomplete |
+| 4 | Orders to be shipped <br> back end calls(get orders, and  update order  status | Incomplete |
+| 5 | Orders<br> -back end calls for update quantity and Cancelation  | Incomplete |
+| 6 |Paypal <br> functionality to paypal | Incomplete |
+| Number | Task Description | Status |
+| --- | --- | --- |
