@@ -86,7 +86,7 @@ The program scope has changed and we are now down scaling the scope from marketp
 | Number | Task Description | Status | 
 | --- | --- | --- |
 | 1 | Admin will be able to add a product.<br /> - Once the admin clicks on "Add a product", the admin will be able to enter details about the products. And it also updates the invenotory. |   |
-| 2 | A user dashboard page will be created, which would have 2 links to navigate to: i) Profile Page ii) Placed Orders. And if the user is an admin, then there will be 2 additional links will be visible: iii) Products/Inventory Page iv) Orders to Ship<br /> - If the user clicks on any of these links, it will navigate/re-direct to that page. |   |
+| 2 | A user dashboard page will be created, which would have 2 links to navigate to: i) Profile Page ii) Placed Orders. And if the user is an admin, then there will be 2 additional links will be visible: iii) Products/Inventory Page iv) Orders to Ship<br /> - If the user clicks on any of these links, it will navigate/re-direct to that perticular page. |   |
 | 3 | A Profile page will be created for all users.<br /> - The page will show all the information about the user, along with the ability to edit/change certain information, such as address.  |   |
 | 4 | An Orders to ship page will be created for admins.<br /> - Admins will be able to keep track of how many orders are left to be shipped and update the status of the order to "Shipped", if it has been shipped successfully. |   |
 | 5 | An Orders page will be created for all users.<br /> - This page will list all the orders that the user has placed, along with the status of each order, whether "Shipped" or "Not Shipped". |   |
