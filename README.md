@@ -85,12 +85,10 @@ The program scope has changed and we are now down scaling the scope from marketp
 ## Iteration 4 Task List
 | Number | Task Description | Status | 
 | --- | --- | --- |
-| 1 |Inventory page<br>Needs to be connected to the database and updated database<br>
-Add a link to create product | incomplete |
-| 2 | User Dashboard <br>Page needs to have a dashboard it should have  4 links<br>
-- Profile <br> - Orders <br>IF user is an admin there will be  2 aditional links <br>- Inventory <br>- Order to be shipped <br> | incomplete |
-| 3 |Profile page<br> Show user information <br> Edit link -functionality done<br>  | Incomplete |
-| 4 | Orders to be shipped <br> back end calls(get orders, and  update order  status | Incomplete |
-| 5 | Orders<br> -back end calls for update quantity and Cancelation  | Incomplete |
-| 6 |Paypal <br> functionality to paypal | Incomplete |
+| 1 |**Inventory page**<br>Needs to be connected to the database and updated database<br>Add a link to create product | incomplete |
+| 2 | **User Dashboard** <br>Page needs to have a dashboard it should have  4 links<br>- Profile <br> - Orders <br>IF user is an admin there will be  2 aditional links <br>- Inventory <br>- Order to be shipped <br> | incomplete |
+| 3 | **Profile page**<br> Show user information <br> Edit link -functionality done<br>  | Incomplete |
+| 4 | **Orders to be shipped** <br> back end calls(get orders, and  update order  status | Incomplete |
+| 5 | **Orders** <br> -back end calls for update quantity and Cancelation  | Incomplete |
+| 6 | **Paypal** <br> functionality to paypal | Incomplete |
 | --- | --- | --- |
