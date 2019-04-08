@@ -1,5 +1,60 @@
 @extends('layout')
 	@section('content')
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+    <div class="container Listings">
+		<div class="row justify-content-center">
+		    <div class="col-lg-12">
+            <h1>Inventory</h1>
+                 <table class="table table-hover">
+					<thead>
+					<tr class="headtable">
+                        <th>Product Name</th>
+                        <th>Description</th>
+                        <th>Quantity Available</th>                        
+                        <th>Update</th>
+                    </tr>
+                    </thead>
+                   <tbody>
+                    @if(!empty($products))
+                        @foreach($products as $p)
+                        <tr id="row{{ $p->product_id }}">
+                            <td>{{ $p->name }}</td>
+                            <td>{{ $p->description }}</td>
+                            <td>{{ $p->quantity }}</td>
+                            <!-- <a href="/CNC/public/orderDetails/{{ $p->product_id }}"> --> 
+                            <td><button class="btn btn-primary" type="button">Update</button></td>
+                        </tr>
+                        @endforeach
+                    @endif
+					 </tbody>
+                </table>                
+            </div>
+		</div>
+	</div>
+	<style>
+		.headtable{background-color: #000; color:white;}
+        .remove{color:white;background: red; padding:.5em 1em;}
+	</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- @extends('layout')
+	@section('content')
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	
 		<div class="container Listings">
@@ -12,8 +67,7 @@
                         <th>Name</th>
                         <th>Description</th>
                         <th>Ammount</th>                        
-                        <th>Cancel</th>
-                        
+                        <th>Cancel</th>                        
                     </tr>
                     <tr id="row056">
                         <td>00056</td>
@@ -96,6 +150,4 @@
 	.headtable{background-color: #000; color:white;}
         .remove,.tfs{color:white;background: #B22222; padding:.5em 1em;display: inline-block;    text-align: center;}
         .tfe,.reaproval {color:white;background: limegreen; padding:.5em 1em;display: inline-block;    text-align: center;}
-        
-		
-	</style>
+	</style> -->

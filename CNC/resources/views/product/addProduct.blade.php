@@ -49,10 +49,12 @@
     });
 
 </script>
+<script>    
+    var attributes = {!! json_encode($attributes->toArray()) !!};
+    console.log(attributes);
+</script>
 </head>
-
 <body>
-   
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 col-md-offset-2 ">
@@ -60,7 +62,6 @@
                     <div class="panel-heading text-center">
                         <h1>Add Product</h1>
                     </div>
-
                     <div class="panel-body">
                         <form class="form-horizontal" method="POST" action="/CNC/public/addProduct" enctype="multipart/form-data">
                         {{ csrf_field() }}
@@ -71,7 +72,6 @@
                             <div class="col-md-12">
                                 <input id="pname" type="text" class="form-control" name="pname" value="" required autofocus>
 
-                               
                                     <span class="invalid-feedback"  ><!-- Remove  display block -->
                                       @if ($errors->has('pname')) 
                                             <strong>{{ $errors->first('pname') }}</strong>

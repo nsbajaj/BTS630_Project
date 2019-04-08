@@ -103,6 +103,13 @@ class ProductController extends Controller
         if(Auth::check() && (Auth::user()->role_id == 1) || Auth::user()->role_id == 3){
             $subcategory = Subcategory_Types::all();
             $attributes = Attributes::all();
+            // $data = array(
+            //     "id" => "3",
+            //     "name" => $productName,
+            //     "quantity" => $quantity,
+            //     "price" => $price
+            // );            
+            // $data = json_encode($data);
             $sellers = User::where('role_id', 3)->get();
             return view('product.addProduct')->with(compact('subcategory', 'attributes', 'sellers'));
         }
@@ -353,7 +360,9 @@ class ProductController extends Controller
         */
     }
 	public function inventory(){
-		return view('product.inventory');
+        $products = Product::all();
+        //$p->price()->latest()->pluck('amount')->first(); //For view        
+        return view('product.inventory')->with(compact('products'));
 	}
 	public function otp(){
         $orders = Orders::where('user_id', Auth::user()->user_id)->get();
@@ -459,27 +468,28 @@ class ProductController extends Controller
     public function checkout(){
         if(Auth::check()){ //Logged in
             if(!empty(request('itemlist'))){
-                $itemList = request('itemlist');
-                $arr = json_decode($itemList);
+                return redirect('/paypal');
+                // $itemList = request('itemlist');
+                // $arr = json_decode($itemList);
                 
-                $order = new Orders;
-                $order->user_id = Auth::user()->user_id;
-                $order->payment_method = 0; //Needs to be changed later
+                // $order = new Orders;
+                // $order->user_id = Auth::user()->user_id;
+                // $order->payment_method = 0; //Needs to be changed later
                 
-                $order->order_status_code = 1;
-                $order->order_placed_date = Carbon::now();
-                $order->order_paid_date = Carbon::now();
-                $order->total_order_price = 100; //Calculate it later
-                $order->save();
+                // $order->order_status_code = 1;
+                // $order->order_placed_date = Carbon::now();
+                // $order->order_paid_date = Carbon::now();
+                // $order->total_order_price = 100; //Calculate it later
+                // $order->save();
 
-                foreach($arr as $key => $value){
-                    $orderDetails = new User_Order_Products;
-                    $orderDetails->order_id = $order->order_id;
-                    $orderDetails->product_id = $value->id;
-                    $orderDetails->quantity = $value->quantity;
-                    $orderDetails->save();
-                }
-                return redirect('/orders');
+                // foreach($arr as $key => $value){
+                //     $orderDetails = new User_Order_Products;
+                //     $orderDetails->order_id = $order->order_id;
+                //     $orderDetails->product_id = $value->id;
+                //     $orderDetails->quantity = $value->quantity;
+                //     $orderDetails->save();
+                // }
+                // return redirect('/orders');
             }
             //Cart is empty
             else{
@@ -490,5 +500,9 @@ class ProductController extends Controller
         else{
             return redirect('/signin');
         }
+    }
+
+    public function paypal(){
+        
     }
 }

@@ -75,6 +75,7 @@ Route::get('/shoppingCart', 'Product\ProductController@shoppingCart');
 Route::post('/checkout', 'Product\ProductController@checkout');
 Route::get('/orderDetails/{id}', 'Product\ProductController@orderDetails');
 Route::get('/deleteOrder/{id}', 'Product\ProductController@deleteOrder');
+Route::get('/paypal', 'Product\ProductController@paypal');
 
 //orders to be changed to its own controll at later day
 Route::get('/orders/', 'Product\ProductController@otp');

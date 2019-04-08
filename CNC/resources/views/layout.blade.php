@@ -82,6 +82,7 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="{{ url('/shoppingCart') }}">Cart</a>
               <a class="dropdown-item" href="{{ url('/orders') }}">My Orders</a>
+              <a class="dropdown-item" href="{{ url('/inventory') }}">Inventory</a>
             </div>
           </li>
         @endif

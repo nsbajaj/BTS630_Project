@@ -6,7 +6,7 @@
 
 	<div class="container Listings">
 		<div class="row justify-content-center">
-						<div class="col-lg-12">
+		    <div class="col-lg-12">
             <h1>Orders</h1>
                  <table class="table table-hover">
 					<thead>
