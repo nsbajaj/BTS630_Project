@@ -167,6 +167,23 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label for="exampleSelect1">SIM Type</label>
+                                    <select required class="form-control" id="sim" name="sim">
+                                        <option></option>
+                                      @if(!empty($sim))
+                                        @foreach ($sim as $s)
+                                            <option value="{{$s->attribute_id}}">{{ $s->value }}</option>
+                                        @endforeach
+                                      @endif
+                                    </select>
+                                    <span class="invalid-feedback" style="display:block;">
+                                        @if ($errors->has('sim')) 
+                                            <strong>{{ $errors->first('sim') }}</strong>
+                                        @endif
+                                    </span>
+                                </div>
+
+                                <div class="form-group">
                                   <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="customCheck1" name="customCheck1" value="unlocked"
                                     @if(old('customCheck1') == 'unlocked')

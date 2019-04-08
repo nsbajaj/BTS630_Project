@@ -119,16 +119,10 @@ class ProductController extends Controller
             $subcategory = Subcategory_Types::all();
             $colours = Attributes::where('attribute_name', "Colour")->get();
             $size = Attributes::where('attribute_name', "Size")->get();
-            // $data = array(
-            //     "id" => "3",
-            //     "name" => $productName,
-            //     "quantity" => $quantity,
-            //     "price" => $price
-            // );            
-            // $data = json_encode($data);
+            $sim = Attributes::where('attribute_name', "Sim")->get();
             $sellers = User::where('role_id', 3)->get();
             
-            return view('product.addProduct')->with(compact('subcategory', 'attributes', 'sellers', 'colours', 'size'));
+            return view('product.addProduct')->with(compact('subcategory', 'attributes', 'sellers', 'colours', 'size', 'sim'));
         }
         else{
             abort(404);
@@ -190,6 +184,11 @@ class ProductController extends Controller
                 $paSize->product_id = $product->product_id;
                 $paSize->attribute_id = request('size');
                 $paSize->save();
+
+                $paSim = new Product_Attributes;
+                $paSim->product_id = $product->product_id;
+                $paSim->attribute_id = request('sim');
+                $paSim->save();
 
                 $paUnlocked = new Product_Attributes;
                 $paUnlocked->product_id = $product->product_id;
