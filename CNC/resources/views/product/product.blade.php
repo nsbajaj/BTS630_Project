@@ -128,7 +128,7 @@
             <div class="product-payment-details">
               <p class="last-sold text-muted"><small>145 items sold</small></p>
               <h4 class="product-title mb-2">{{ $product->name }}</h4>
-              <h2 class="product-price display-4">$ {{ $price->get('0') }}</h2>
+              <h2 class="product-price display-4">$ {{ number_format($price->get('0'), 2) }}</h2>
               <!-- <p class="text-success"><i class="fa fa-credit-card"></i> 12x or  5x $ 5.00</p> -->
               <p class="mb-0"><i class="fa fa-truck"></i> Delivery in all territory</p>
               <div class="text-muted mb-2"><small>know more about delivery time and shipping forms</small></div>

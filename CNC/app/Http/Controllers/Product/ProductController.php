@@ -67,16 +67,17 @@ class ProductController extends Controller
         $price = Price::where('product_id', $id)->get()->pluck('amount');
         $user = User::where('user_id', $product->user_id)->get();
         $productsFromUser = Product::where('user_id', $product->user_id)->whereNotIn('product_id', array($id))->take(4)->get();
-        $psub = Product_Subcategory_Types::where('product_id', $id)->get()->pluck('subcategory_types_id');
-        $subType = Subcategory_Types::where('subcategory_types_id', $psub)->get()->pluck('name');
-        $subsub = Subcategory_Subcategory_Types::where('subcategory_types_id', $psub)->get()->pluck('subcategory_id');
-        $subsubType = Subcategory::where('subcategory_id', $subsub)->get()->pluck('name');
-        $gen = General_Category_Subcategory::where('subcategory_id', $subsub)->get()->pluck('general_category_id');
-        $genType = General_Category::where('general_category_id', $gen)->get()->pluck('name');
-        $pAtt = Product_Attributes::where('product_id', $id)->get()->pluck('attribute_id');
-        $pAttType = Attributes::where('attribute_id', $pAtt)->get();
+        //$psub = Product_Subcategory_Types::where('product_id', $id)->get()->pluck('subcategory_types_id');
+        //$subType = Subcategory_Types::where('subcategory_types_id', $psub)->get()->pluck('name');
+        //$subsub = Subcategory_Subcategory_Types::where('subcategory_types_id', $psub)->get()->pluck('subcategory_id');
+        //$subsubType = Subcategory::where('subcategory_id', $subsub)->get()->pluck('name');
+        //$gen = General_Category_Subcategory::where('subcategory_id', $subsub)->get()->pluck('general_category_id');
+        //$genType = General_Category::where('general_category_id', $gen)->get()->pluck('name');
+        //$pAtt = Product_Attributes::where('product_id', $id)->get()->pluck('attribute_id');
+        //$pAttType = Attributes::where('attribute_id', $pAtt)->get();
         
-        return view('product.product')->with(compact('product', 'photos', 'price', 'user', 'productsFromUser', 'subType', 'subsubType', 'genType', 'pAttType', '$pAttType'));
+        //return view('product.product')->with(compact('product', 'photos', 'price', 'user', 'productsFromUser', 'subType', 'subsubType', 'genType', 'pAttType', '$pAttType'));
+        return view('product.product')->with(compact('product', 'photos', 'price', 'user', 'productsFromUser'));
     }
 
     public function showAdminProductsView(){
@@ -102,7 +103,8 @@ class ProductController extends Controller
         }
         if(Auth::check() && (Auth::user()->role_id == 1) || Auth::user()->role_id == 3){
             $subcategory = Subcategory_Types::all();
-            $attributes = Attributes::all();
+            $colours = Attributes::where('attribute_name', "Colour")->get();
+            $size = Attributes::where('attribute_name', "Size")->get();
             // $data = array(
             //     "id" => "3",
             //     "name" => $productName,
@@ -111,7 +113,8 @@ class ProductController extends Controller
             // );            
             // $data = json_encode($data);
             $sellers = User::where('role_id', 3)->get();
-            return view('product.addProduct')->with(compact('subcategory', 'attributes', 'sellers'));
+            
+            return view('product.addProduct')->with(compact('subcategory', 'attributes', 'sellers', 'colours', 'size'));
         }
         else{
             abort(404);
@@ -149,31 +152,43 @@ class ProductController extends Controller
                 $product->description = request('description');
                 $product->user_id = Auth::user()->user_id;  
                 $product->quantity = request('quantity');
-
-        
-                $price = new Price;
-                $price = request('price');
-                $now = new DateTime();
-                $price->price_set_datetime = $now;
-                $price->last_updated = $now;
-                $price->save();
-
-                //$product->price_id = request('price');
-                //$product->price_id = '1';
-
                 $product->save();
+
+                $price = new Price;
+                $price->amount = request('price');
+                $price->price_start_date = Carbon::now();
+                $price->price_end_date = Carbon::now();
+                $price->product_id = $product->product_id;
+                $price->save();
                 
-                //Create a temp table for approvals and disapproval
-                
+                //Create a temp table for approvals and disapproval                
                 $psub = new Product_Subcategory_Types;
                 $psub->product_id = $product->product_id;
                 $psub->subcategory_types_id = request('subcategories');
                 $psub->save();
 
-                $pa = new Product_Attributes;
-                $pa->product_id = $product->product_id;
-                $pa->attribute_id = request('attributes');
-                $pa->save();
+                $paColours = new Product_Attributes;
+                $paColours->product_id = $product->product_id;
+                $paColours->attribute_id = request('colours');
+                $paColours->save();
+
+                $paSize = new Product_Attributes;
+                $paSize->product_id = $product->product_id;
+                $paSize->attribute_id = request('size');
+                $paSize->save();
+
+                $paUnlocked = new Product_Attributes;
+                $paUnlocked->product_id = $product->product_id;
+                if(!empty(request('customCheck1'))){
+                    $status = Attributes::where('value', "True")->pluck('attribute_id')->toArray();    
+                    $paUnlocked->attribute_id = $status[0];    
+                }
+                else{
+                    $status = Attributes::where('value', "False")->pluck('attribute_id')->toArray();
+                    $paUnlocked->attribute_id = $status[0];       
+                }
+                $paUnlocked->save();
+
 
                 //Product Photo
         /*
@@ -192,21 +207,12 @@ class ProductController extends Controller
                         $photo->filename = $name;
                         $photo->product_id = $product->product_id;
                         $photo->user_id = Auth::user()->user_id;
-                        $photo->save();
+                        $photo->save(); 
                     }
                 }
 
                 if(Auth::check() && Auth::user()->role_id == 1){
                     $products = Product::all();
-                    /*
-                    $prices = array();
-                    $i = 0;
-                    foreach ($products as $q) {
-                        $prices[$i] = Price::find($q->price_id);
-                        $i++;
-                    }
-                    */
-                    
                     return redirect('/products')->with(compact('products'));
                 }
                 else{

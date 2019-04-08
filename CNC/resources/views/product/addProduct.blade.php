@@ -49,10 +49,7 @@
     });
 
 </script>
-<script>    
-    var attributes = {!! json_encode($attributes->toArray()) !!};
-    console.log(attributes);
-</script>
+
 </head>
 <body>
     <div class="container">
@@ -83,9 +80,7 @@
                             <label for="Description" class="col-md-6 control-label">Description</label>
 
                             <div class="col-md-12">
-                                <input id="description" type="text" class="form-control" name="description" value="" required autofocus>
-
-                               
+                                <input id="description" type="text" class="form-control" name="description" value="" required autofocus>                              
                                     <span class="invalid-feedback"  ><!-- Remove  display block -->
                                          @if ($errors->has('description')) 
                                             <strong>{{ $errors->first('description') }}</strong>
@@ -138,20 +133,55 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="exampleSelect1">Attributes</label>
-                                    <select class="form-control" id="attributes" name="attributes" required>
+                                    <label for="exampleSelect1">Colours</label>
+                                    <select required class="form-control" id="colours" name="colours">
                                         <option></option>
-                                      @if(!empty($attributes))
-                                        @foreach ($attributes as $a)
-                                            <option value="{{$a->attribute_id}}">{{ $a->attribute_name . " " . $a->value }}</option>
+                                      @if(!empty($colours))
+                                        @foreach ($colours as $c)
+                                            <option value="{{$c->attribute_id}}">{{ $c->value }}</option>
                                         @endforeach
                                       @endif
                                     </select>
                                     <span class="invalid-feedback" style="display:block;">
-                                        @if ($errors->has('attributes')) 
-                                            <strong>{{ $errors->first('attributes') }}</strong>
+                                        @if ($errors->has('colours')) 
+                                            <strong>{{ $errors->first('colours') }}</strong>
                                         @endif
                                     </span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleSelect1">Size</label>
+                                    <select required class="form-control" id="size" name="size">
+                                        <option></option>
+                                      @if(!empty($size))
+                                        @foreach ($size as $s)
+                                            <option value="{{$s->attribute_id}}">{{ $s->value }}</option>
+                                        @endforeach
+                                      @endif
+                                    </select>
+                                    <span class="invalid-feedback" style="display:block;">
+                                        @if ($errors->has('size')) 
+                                            <strong>{{ $errors->first('size') }}</strong>
+                                        @endif
+                                    </span>
+                                </div>
+
+                                <div class="form-group">
+                                  <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck1" name="customCheck1" value="unlocked"
+                                    @if(old('customCheck1') == 'accepted')
+                                            checked='checked'
+                                        @else
+                                            ''
+                                        @endif
+                                    >
+                                    <label class="custom-control-label" for="customCheck1">Unlocked.</label>
+                                    <span class="invalid-feedback " style="display:block;" >
+                                            @if ($errors->has('customCheck1') && old('customCheck1') != 'accepted') 
+                                            <strong>{{ $errors->first('customCheck1') }}</strong>
+                                            @endif
+                                        </span>
+                                  </div>
                                 </div>
 
                                 <div class="form-group">
