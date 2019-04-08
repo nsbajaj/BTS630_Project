@@ -222,22 +222,25 @@ class ProductController extends Controller
                 abort(404);
             }
         }
-            //Admin can edit and the product being edited has to be by the seller.
-            if(Auth::check() && (Auth::user()->role_id == 1) || (Auth::user()->user_id == $product->user_id)){
-                $subcategory = Subcategory_Types::all();
-                
-                //$subsubcategory = Product_Subcategory_Types::where('product_id', $product->product_id); --
+        //Admin can edit and the product being edited has to be by the seller.
+        if(Auth::check() && (Auth::user()->role_id == 1) || (Auth::user()->user_id == $product->user_id)){
+            $subcategory = Subcategory_Types::all();
+            
+            //$subsubcategory = Product_Subcategory_Types::where('product_id', $product->product_id); --
 
-                $attributes = Attributes::all();
-                $sellers = User::where('role_id', 3)->get();
-                $price = Price::where('product_id', $product->product_id)->latest()->first();
-                $quantityTemp = Product::where('product_id', $product->product_id)->pluck('quantity')->toArray();
-                $quantity = $quantityTemp[0];
-                return view('product.editProduct')->with(compact('subcategory', 'attributes', 'sellers', 'product', 'price', 'quantity'));
-            }
-            else{
-                abort(404);
-            }
+            $attributes = Attributes::all();
+            $sellers = User::where('role_id', 3)->get();
+            $price = Price::where('product_id', $product->product_id)->latest()->first();
+            $quantityTemp = Product::where('product_id', $product->product_id)->pluck('quantity')->toArray();
+            $quantity = $quantityTemp[0];
+            
+            //old
+            //return view('product.editProduct')->with(compact('subcategory', 'attributes', 'sellers', 'product', 'price', 'quantity'));
+            return view('product.editProduct')->with(compact('product', 'price', 'quantity'));
+        }
+        else{
+            abort(404);
+        }
     }
 
     public function updateProduct($id){
@@ -281,11 +284,11 @@ class ProductController extends Controller
                             $price->save();
                         }
 
-                        Product::find($id)->subcategory()->updateExistingPivot($id, ['subcategory_types_id' => request('subcategories')]);
+                        //Product::find($id)->subcategory()->updateExistingPivot($id, ['subcategory_types_id' => request('subcategories')]);
 
                         //Attribute
                         //Only one attribute can be updated at the moment
-                        Product::find($id)->attributes()->updateExistingPivot($id, ['attribute_id' => request('attributes')]);
+                        //Product::find($id)->attributes()->updateExistingPivot($id, ['attribute_id' => request('attributes')]);
 
                         
                         $product->user_id = Auth::user()->user_id;
@@ -293,7 +296,8 @@ class ProductController extends Controller
                         $product->save();
 
                         if(Auth::check() && Auth::user()->role_id == 1){
-                            return $this->showAdminProductsView();
+                            return redirect('/inventory');
+                            //return $this->showAdminProductsView();
                         }
                         else if(Auth::check() && Auth::user()->role_id == 3){
                             return $this->showProduct($id);
@@ -365,35 +369,57 @@ class ProductController extends Controller
         return view('product.inventory')->with(compact('products'));
 	}
 	public function otp(){
-        $orders = Orders::where('user_id', Auth::user()->user_id)->get();
-        $orderDetails = array();
-        $products = array();
-        if(!empty($orders)){
-            foreach($orders as $key => $value){
-                $orderDetails[$key] = User_Order_Products::where('order_id', $value->order_id)->get()->toArray();
+        if(Auth::check() && Auth::user()->role_id == 1){
+            $orders = Orders::all();
+            $orderDetails = array();
+            $products = array();
+            //List of order status
+            $orderStatusTypes = array(1 => "Placed", 2 => "Shipped", 3 =>"Completed"); 
+            if(!empty($orders)){
+                foreach($orders as $key => $value){
+                    $orderDetails[$key] = User_Order_Products::where('order_id', $value->order_id)->get()->toArray();
+                }
+                $orderSuccess = true;
+                return view('orders.otp')->with(compact('orders', 'orderSuccess', 'orderStatusTypes'));
             }
-            
-            // foreach($orderDetails as $key => $value){
-            //     foreach($value as $v){
-            //         $t = $v->products($v->product_id);
-            //     }
-            // }
-            // $i = 0;
-            // foreach($orderDetails as $key => $value){
-            //     foreach($value as $v){
-            //         $products[$i++] = Product::where('product_id', $v->product_id)->get();
-            //     }
-            // }
-            $orderSuccess = true;
-            return view('orders.otp')->with(compact('orders', 'orderSuccess'));
-        }        
+        }
+        else if(Auth::check() && Auth::user()->role_id == 3){
+            $orders = Orders::where('user_id', Auth::user()->user_id)->get();
+            $orderDetails = array();
+            $products = array();
+            if(!empty($orders)){
+                foreach($orders as $key => $value){
+                    $orderDetails[$key] = User_Order_Products::where('order_id', $value->order_id)->get()->toArray();
+                }
+                
+                // foreach($orderDetails as $key => $value){
+                //     foreach($value as $v){
+                //         $t = $v->products($v->product_id);
+                //     }
+                // }
+                // $i = 0;
+                // foreach($orderDetails as $key => $value){
+                //     foreach($value as $v){
+                //         $products[$i++] = Product::where('product_id', $v->product_id)->get();
+                //     }
+                // }
+                $orderSuccess = true;
+                return view('orders.otp')->with(compact('orders', 'orderSuccess'));
+            }
+        }      
+        else{
+            abort(404);
+        }  
     }
 
     public function orderDetails($id){
         //Add validation for current order being viewed is users own order.
         if(!empty($id)){
+            //List of order status
+            $orderStatusTypes = array(1 => "Placed", 2 => "Shipped", 3 =>"Completed");
+            $orderStatus = Orders::where('order_id', $id)->get()->pluck('order_status_code');
             $orderDetails = User_Order_Products::where('order_id', $id)->get();
-            return view('orders.orderDetails')->with(compact('orderDetails'));
+            return view('orders.orderDetails')->with(compact('orderDetails', 'orderStatusTypes', 'orderStatus', 'id'));
         }
     }
 
@@ -505,4 +531,13 @@ class ProductController extends Controller
     public function paypal(){
         
     }
+
+    public function updateShippingStatus($id){
+        $order = Orders::where('order_id', $id)->first();
+        $order->order_status_code = request('shippingStatusForm');
+        $order->save();
+        return redirect('/orders');
+    }
+
+
 }

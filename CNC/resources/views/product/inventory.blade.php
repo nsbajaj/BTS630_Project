@@ -23,7 +23,7 @@
                             <td>{{ $p->description }}</td>
                             <td>{{ $p->quantity }}</td>
                             <!-- <a href="/CNC/public/orderDetails/{{ $p->product_id }}"> --> 
-                            <td><button class="btn btn-primary" type="button">Update</button></td>
+                            <td><a href="/CNC/public/editProduct/{{ $p->product_id }}"><button class="btn btn-primary" type="button">Update</button></a></td>
                         </tr>
                         @endforeach
                     @endif

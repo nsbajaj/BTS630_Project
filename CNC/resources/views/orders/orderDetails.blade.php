@@ -23,35 +23,26 @@
                         </tr>
                         @endforeach
                     @endif
-<!--                     
-                    <tr id="row071">
-                        <td>00067</td>
-                        <td><ul>
-                                <li>1x guitar</li>
-                                <li>2x cloth</li>
-                            </ul>
-                        </td>
-                        <td>2019-01-31 </td>
-                        <td>2019-02-01 </td>
-                        <td>2 - shipped</td>
-                        <td>
-                    </tr>
-                    <tr id="row072">
-                        <td>00067</td>
-                        <td><ul>
-                                <li>1x guitar</li>
-                                <li>2x cloth</li>
-                            </ul>
-                        </td>
-                        <td>2019-01-31 </td>
-                        <td>2019-02-01 </td>
-                        <td>3 - completed</td>
-                        <td>
-                    </tr> -->
 					 </tbody>
                 </table>
-                  
-                   
+                <p>Status: </p>
+                @if(Auth::check() && Auth::user()->role_id == 1)
+                <form class="form-inline my-2 my-lg-0"  action="/CNC/public/updateShippingStatus/{{ $id }}" method="get">
+                    {{ csrf_field() }}
+                    <select name="shippingStatusForm" class="form-control">
+                        @if(!empty($orderStatusTypes))
+                            @foreach($orderStatusTypes as $key => $value)
+                                <option 
+                                @if($key == $orderStatus[0])
+                                    selected 
+                                @endif                                        
+                                value="{{ $key }}">{{ $value }}</option>
+                            @endforeach
+                        @endif
+                    </select>
+                    <button class="btn btn-primary my-2 my-sm-0" type="submit">Update Status</button>
+                </form>
+                @endif
             </div>
 		</div>
 	</div>

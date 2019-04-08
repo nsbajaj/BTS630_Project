@@ -1,8 +1,6 @@
 @extends('layout')
 	@section('content')
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>   
 
 	<div class="container Listings">
 		<div class="row justify-content-center">
@@ -36,11 +34,29 @@
                                     <td>Completed</td>
                                 @endif
                             @endif
+                            
+                            <!-- @if(Auth::check() && Auth::user()->role_id == 1)
+                                <select>
+                                @if(!empty($orderStatusTypes))
+                                    @foreach($orderStatusTypes as $key => $value)
+                                        <option 
+                                            @if($key == $o->order_status_code)
+                                                selected 
+                                            @endif                                        
+                                        value="{{ $key }}">{{ $value }}</option>
+                                    @endforeach
+                                @endif
+                                </select>
+                            @endif -->
+                            
+                            
+
+                            
 
                             <td><a href="/CNC/public/orderDetails/{{ $o->order_id }}"><button class="btn btn-primary" type="button">Details</button></a></td>
 
                             @if(!empty($o->order_status_code))
-                                @if($o->order_status_code == 1)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+                                @if($o->order_status_code == 1)                                       
                                     <!-- <td><a href="javascript:void" class="remove btn btn-primary" data="{{ $o->order_id }}">Cancel</a></td> -->
                                     <td><a href="/CNC/public/deleteOrder/{{ $o->order_id }}" class="remove btn btn-primary" data="{{ $o->order_id }}">Cancel Order</a></td>
                                 @endif

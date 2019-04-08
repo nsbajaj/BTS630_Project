@@ -120,7 +120,7 @@
 
                             <!-- Step 2 -->
                             <div class="step2">
-                              <div class="form-group">
+                              <!-- <div class="form-group">
                                 <label for="exampleSelect1">Category</label>
                                 <select class="form-control" id="subcategories" name="subcategories" required>
                                     <option></option>
@@ -135,9 +135,9 @@
                                         <strong>{{ $errors->first('subcategories') }}</strong>
                                     @endif
                                 </span>
-                                </div>
+                                </div> -->
 
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label for="exampleSelect1">Attributes</label>
                                     <select class="form-control" id="attributes" name="attributes" required>
                                         <option></option>
@@ -152,7 +152,7 @@
                                             <strong>{{ $errors->first('attributes') }}</strong>
                                         @endif
                                     </span>
-                                </div>
+                                </div> -->
 
                                 <div class="form-group">
                                     <label for="quantity" class="col-md-6 control-label">Quantity</label>
@@ -168,13 +168,13 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <div class="input-group control-group increment" >
                                   <input type="file" name="filename[]" class="form-control">
                                   <div class="input-group-btn"> 
                                     <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
                                   </div>
-                                </div>
+                                </div> -->
                                 <!--
                                 <div class="clone hide">
                                   <div class="control-group input-group" style="margin-top:10px">
