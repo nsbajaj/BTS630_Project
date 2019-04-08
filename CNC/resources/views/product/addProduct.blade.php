@@ -169,7 +169,7 @@
                                 <div class="form-group">
                                   <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="customCheck1" name="customCheck1" value="unlocked"
-                                    @if(old('customCheck1') == 'accepted')
+                                    @if(old('customCheck1') == 'unlocked')
                                             checked='checked'
                                         @else
                                             ''

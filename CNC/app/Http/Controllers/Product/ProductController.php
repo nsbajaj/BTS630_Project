@@ -73,11 +73,25 @@ class ProductController extends Controller
         //$subsubType = Subcategory::where('subcategory_id', $subsub)->get()->pluck('name');
         //$gen = General_Category_Subcategory::where('subcategory_id', $subsub)->get()->pluck('general_category_id');
         //$genType = General_Category::where('general_category_id', $gen)->get()->pluck('name');
-        //$pAtt = Product_Attributes::where('product_id', $id)->get()->pluck('attribute_id');
-        //$pAttType = Attributes::where('attribute_id', $pAtt)->get();
         
+        $pAtt = Product_Attributes::where('product_id', $id)->get()->pluck('attribute_id');
+        
+        $attArray = array();
+        $i = 0;
+        if(!empty($pAtt)){
+            foreach($pAtt as $key => $value){
+                $attArray[$i++] = Attributes::where('attribute_id', $value)->get();    
+            }
+            // if(!empty($attArray)){   
+            //     foreach($attArray as $key => $value){
+            //         print($value->get('0')->value);
+            //     }
+            // }
+        }
         //return view('product.product')->with(compact('product', 'photos', 'price', 'user', 'productsFromUser', 'subType', 'subsubType', 'genType', 'pAttType', '$pAttType'));
-        return view('product.product')->with(compact('product', 'photos', 'price', 'user', 'productsFromUser'));
+
+
+        return view('product.product')->with(compact('product', 'photos', 'price', 'user', 'productsFromUser', 'attArray'));
     }
 
     public function showAdminProductsView(){
@@ -180,11 +194,11 @@ class ProductController extends Controller
                 $paUnlocked = new Product_Attributes;
                 $paUnlocked->product_id = $product->product_id;
                 if(!empty(request('customCheck1'))){
-                    $status = Attributes::where('value', "True")->pluck('attribute_id')->toArray();    
+                    $status = Attributes::where('value', "Yes")->pluck('attribute_id')->toArray();    
                     $paUnlocked->attribute_id = $status[0];    
                 }
                 else{
-                    $status = Attributes::where('value', "False")->pluck('attribute_id')->toArray();
+                    $status = Attributes::where('value', "No")->pluck('attribute_id')->toArray();
                     $paUnlocked->attribute_id = $status[0];       
                 }
                 $paUnlocked->save();

@@ -87,7 +87,7 @@
                     <dt class="col-sm-3">Fabric</dt>
                     <dd class="col-sm-9">Cottom</dd>
                   -->
-                  @if(!empty($pAttType))
+                  <!-- @if(!empty($pAttType))
                     @foreach($pAttType as $key => $value)
                       @if($value['attribute_name'] == "Colour")
                         <dt class="col-sm-3">Color</dt>
@@ -98,7 +98,26 @@
                         <dd class="col-sm-9">{{ $value['value'] }}</dd>
                       @endif
                     @endforeach
-                  @endif
+                  @endif -->
+
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    @if(!empty($attArray))
+                      @foreach($attArray as $key => $value)
+                        <tr>
+                          <td>{{ $value->get('0')->attribute_name }}</td>
+                          <td>{{ $value->get('0')->value }}</td>
+                        </tr>
+                      @endforeach
+                    @endif
+                    </tbody>
+                  </table>
                   </dl>
                   <h2 class="mb-5">Description</h2>
                   <p>{{ $product->description }}</p>
