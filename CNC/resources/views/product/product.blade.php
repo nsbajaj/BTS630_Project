@@ -156,8 +156,22 @@
                 {{ csrf_field() }}
                 <input type="hidden" id="productName" name="productName" value="{{ $product->name }}"> 
                 <input type="hidden" id="price" name="price" value="{{ $price->get('0') }}"> 
-                <input type="number" name="quantity" min="1" id="quantity" class="form-control mb-5 input-lg" placeholder="Choose the quantity" required>
-                <button id="addToCart" class="btn btn-primary btn-lg btn-block">Add to Cart</button>
+                @if($product->quantity == 0)
+                    <h4>Sorry, this product is currently out of stock.</h4>
+                @elseif($product->quantity == -1)
+                  <h4>Sorry, this product is no longer being offered.</h4>
+                @endif
+                <input type="number" name="quantity" min="1" id="quantity" class="form-control mb-5 input-lg" placeholder="Choose the quantity" required
+                  @if($product->quantity == 0 || $product->quantity == -1)
+                      disabled
+                    @endif
+                >
+                
+                <button id="addToCart" class="btn btn-primary btn-lg btn-block" 
+                  @if($product->quantity == 0 || $product->quantity == -1)
+                    disabled
+                  @endif
+                >Add to Cart</button>
               </form>
             </div>
           </div>

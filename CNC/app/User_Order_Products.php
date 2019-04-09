@@ -14,4 +14,8 @@ class User_Order_Products extends Model
     public function products($id){
         return Product::where('product_id', $id)->get();
     }
+
+    public function name($id){
+    	return Product::where('product_id', $id)->pluck('name')->toArray();
+    }
 }

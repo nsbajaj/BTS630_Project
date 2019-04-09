@@ -8,9 +8,9 @@
                  <table class="table table-hover">
 					<thead>
 					<tr class="headtable">
-                        <th>Order</th>
-                        <th>Product ID</th>
-                        <th>Quantity</th>
+                        <th>Order #</th>
+                        <th>Product Name</th>
+                        <th>Quantity Ordered</th>
                     </tr>
                     </thead>
                    <tbody>
@@ -18,15 +18,16 @@
                         @foreach($orderDetails as $o)
                         <tr id="row{{ $o->order_id }}">
                             <td><a href="{{ url('/orders') }}">{{ $o->order_id }}</a></td>
-                            <td><a href="/CNC/public/product/{{ $o->product_id }}">{{ $o->product_id }}</a></td>
+                            <td><a href="/CNC/public/product/{{ $o->product_id }}">{{ $o->name($o->product_id)[0] }}</a></td>
                             <td>{{ $o->quantity }}</td>
                         </tr>
                         @endforeach
                     @endif
 					 </tbody>
                 </table>
-                <p>Status: </p>
+                
                 @if(Auth::check() && Auth::user()->role_id == 1)
+                <p>Status: </p>
                 <form class="form-inline my-2 my-lg-0"  action="/CNC/public/updateShippingStatus/{{ $id }}" method="get">
                     {{ csrf_field() }}
                     <select name="shippingStatusForm" class="form-control">

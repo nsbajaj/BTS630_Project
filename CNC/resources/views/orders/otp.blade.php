@@ -10,8 +10,8 @@
 					<thead>
 					<tr class="headtable">
                         <th>Order</th>
-                        <th>Date placed</th>
-                        <th>Date shipped</th>
+                        <th>Date placed (DD/MM/YY)</th>
+                        <th>Date shipped (DD/MM/YY)</th>
                         <th>status</th>
                         <th>View Details</th>
                         <th>Cancel</th>
@@ -22,8 +22,8 @@
                         @foreach($orders as $o)
                         <tr id="row{{ $o->order_id }}">
                             <td>{{ $o->order_id }}  </td>
-                            <td>{{ $o->order_placed_date }}</td>
-                            <td>{{ $o->order_paid_date }}</td>
+                            <td>{{ date('d-m-Y', strtotime($o->order_placed_date)) }}</td>
+                            <td>{{ date('d-m-Y', strtotime($o->order_paid_date)) }}</td>
                             
                             @if(!empty($o->order_status_code))
                                 @if($o->order_status_code == 1)

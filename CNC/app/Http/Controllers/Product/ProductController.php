@@ -158,8 +158,13 @@ class ProductController extends Controller
                 $product = new Product;
                 $product->name = request('pname');
                 $product->description = request('description');
-                $product->user_id = Auth::user()->user_id;  
-                $product->quantity = request('quantity');
+                $product->user_id = Auth::user()->user_id; 
+                if(request('quantity') > 0){
+                    $product->quantity = request('quantity');
+                }
+                else{
+                    $product->quantity = 0;   
+                }
                 $product->save();
 
                 $price = new Price;
@@ -311,7 +316,12 @@ class ProductController extends Controller
 
                         
                         $product->user_id = Auth::user()->user_id;
-                        $product->quantity = request('quantity');
+                        if(request('quantity') > 0){
+                            $product->quantity = request('quantity');
+                        }
+                        else{
+                            $product->quantity = 0;   
+                        }
                         $product->save();
 
                         if(Auth::check() && Auth::user()->role_id == 1){
@@ -438,6 +448,9 @@ class ProductController extends Controller
             $orderStatusTypes = array(1 => "Placed", 2 => "Shipped", 3 =>"Completed");
             $orderStatus = Orders::where('order_id', $id)->get()->pluck('order_status_code');
             $orderDetails = User_Order_Products::where('order_id', $id)->get();
+            foreach($orderDetails as $key => $value){
+                //$value->name($value->product_id);
+            }
             return view('orders.orderDetails')->with(compact('orderDetails', 'orderStatusTypes', 'orderStatus', 'id'));
         }
     }
