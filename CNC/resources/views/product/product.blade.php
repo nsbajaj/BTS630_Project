@@ -66,7 +66,7 @@
                     <div class="card">
                       <img src="https://via.placeholder.com/157x157" alt="" class="card-img-top">
                       <div class="card-body">
-                        <h5 class="card-title">$ {{ $value->price->get('0')->amount }}</h5>
+                        <h5 class="card-title">$ {{ $value->getPrice($value->product_id)->get('0') }}</h5>
                         <span class="text-muted"><small>{{ $value->name }}</small></span>
                       </div>
                     </div>

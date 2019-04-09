@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Price;
 use App\Subcategory_Types;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use DB;
 
 class Product extends Model
 {
@@ -34,5 +35,9 @@ class Product extends Model
 
     public function pictures(){
         return $this->hasMany('App\Product_Photo', 'product_id');
+    }
+
+    public function getPrice($id){
+        return Price::where('product_id', $id)->orderBy('updated_at', 'desc')->limit(1)->pluck('amount');        
     }
 }

@@ -64,7 +64,8 @@ class ProductController extends Controller
         //Add approved check
         $product = Product::find($id);
         $photos = Product_Photo::where('product_id', $id)->take(5)->get()->pluck('filename');
-        $price = Price::where('product_id', $id)->get()->pluck('amount');
+        //Gets latest updated price
+        $price = Price::where('product_id', $id)->orderBy('updated_at', 'desc')->limit(1)->pluck('amount');
         $user = User::where('user_id', $product->user_id)->get();
         $productsFromUser = Product::where('user_id', $product->user_id)->whereNotIn('product_id', array($id))->take(4)->get();
         //$psub = Product_Subcategory_Types::where('product_id', $id)->get()->pluck('subcategory_types_id');

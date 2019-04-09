@@ -92,6 +92,7 @@
     <div class="row">
       @if(!empty($p))
             @foreach ($p as $product)
+
         <div class="col-md-4 col-sm-6">
             <div class="product-grid8">
                 <div class="product-image8">
@@ -114,9 +115,10 @@
                     <span class="product-discount-label">-20%</span>
                 </div>
                 <div class="product-content">
-                    <div class="price">$ 00.00
+                    <div class="price">$ {{ $product->getPrice($product->product_id)->get('0') }}
                         <span>$ 00.00</span>
                     </div>
+
                     <span class="product-shipping">Free Shipping</span>
                     <h3 class="title"><a href="/CNC/public/product/{{ $product->product_id}}">{{ $product->name }}</a></h3>
                     <!-- <a class="all-deals" href="">See all deals <i class="fa fa-angle-right icon"></i></a> -->
