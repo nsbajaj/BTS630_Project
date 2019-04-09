@@ -443,7 +443,32 @@ $factory->define(App\Attributes::class, function (Faker\Generator $faker) {
     $attribute6->value = "Large";
     $attribute6->save();
 
-    return $last = ['attribute_name' => 'X-Size', 'value' => 'x-Large'];
+    $attribute7 = new App\Attributes;
+    $attribute7->attribute_name = "Unlocked";
+    $attribute7->value = "Yes";
+    $attribute7->save();
+
+    $attribute8 = new App\Attributes;
+    $attribute8->attribute_name = "Unlocked";
+    $attribute8->value = "No";
+    $attribute8->save();
+
+    $attribute9 = new App\Attributes;
+    $attribute9->attribute_name = "Sim";
+    $attribute9->value = "Standard";
+    $attribute9->save();
+
+    $attribute10 = new App\Attributes;
+    $attribute10->attribute_name = "Sim";
+    $attribute10->value = "Micro";
+    $attribute10->save();
+
+    $attribute11 = new App\Attributes;
+    $attribute11->attribute_name = "Sim";
+    $attribute11->value = "Nano";
+    $attribute11->save();
+
+    return $last = ['attribute_name' => 'Size', 'value' => 'X-Large'];
 });
 
 $factory->define(App\Product_Photo::class, function (Faker\Generator $faker) {
@@ -565,7 +590,6 @@ $factory->define(App\Product_Photo::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Product_Attributes::class, function (Faker\Generator $faker) {
-    //$productLastElement = DB::table('product')->orderBy('product_id', 'desc')->pluck('product_id')->first();
     $products = App\Product::limit(19)->pluck('product_id');
     $lastElement = DB::table('attributes')->orderBy('attribute_id', 'desc')->pluck('attribute_id')->first();
     $attributes = App\Attributes::limit($lastElement)->pluck('attribute_id');
