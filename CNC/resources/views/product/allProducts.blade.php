@@ -115,7 +115,7 @@
                     <span class="product-discount-label">-20%</span>
                 </div>
                 <div class="product-content">
-                    <div class="price">$ {{ $product->getPrice($product->product_id)->get('0') }}
+                    <div class="price">$ {{ number_format($product->getPrice($product->product_id)->get('0'), 2) }}
                         <span>$ 00.00</span>
                     </div>
 

@@ -158,7 +158,7 @@
                                     <label for="quantity" class="col-md-6 control-label">Quantity</label>
 
                                     <div class="col-md-12">
-                                        <input id="quantity" type="number" min="1" class="form-control" name="quantity" value="{{ $quantity }}" required autofocus>
+                                        <input id="quantity" type="number" min="-1" class="form-control" name="quantity" value="{{ $quantity }}" required autofocus>
 
                                             <span class="invalid-feedback"  ><!-- Remove  display block -->
                                                 @if ($errors->has('quantity')) 

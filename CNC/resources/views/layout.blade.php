@@ -81,8 +81,10 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="{{ url('/shoppingCart') }}">Cart</a>
-              <a class="dropdown-item" href="{{ url('/orders') }}">My Orders</a>
-              <a class="dropdown-item" href="{{ url('/inventory') }}">Inventory</a>
+              <a class="dropdown-item" href="{{ url('/orders') }}">Orders</a>
+              @if(Auth::check() && Auth::user()->role_id == 1)
+                <a class="dropdown-item" href="{{ url('/inventory') }}">Inventory</a>
+              @endif
             </div>
           </li>
         @endif

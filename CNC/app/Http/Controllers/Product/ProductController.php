@@ -229,6 +229,14 @@ class ProductController extends Controller
                         $photo->save(); 
                     }
                 }
+                //No file attached
+                else{
+                    $photo = new Product_Photo();
+                    $photo->filename = "imagenotfound.png";
+                    $photo->product_id = $product->product_id;
+                    $photo->user_id = Auth::user()->user_id;
+                    $photo->save(); 
+                }
 
                 if(Auth::check() && Auth::user()->role_id == 1){
                     $products = Product::all();
@@ -317,11 +325,8 @@ class ProductController extends Controller
 
                         
                         $product->user_id = Auth::user()->user_id;
-                        if(request('quantity') > 0){
+                        if(!empty(request('quantity'))){
                             $product->quantity = request('quantity');
-                        }
-                        else{
-                            $product->quantity = 0;   
                         }
                         $product->save();
 
@@ -394,46 +399,40 @@ class ProductController extends Controller
         */
     }
 	public function inventory(){
-        $products = Product::all();
-        //$p->price()->latest()->pluck('amount')->first(); //For view        
-        return view('product.inventory')->with(compact('products'));
+        if(Auth::check() && Auth::user()->role_id == 1){
+            $products = Product::all();
+            //$p->price()->latest()->pluck('amount')->first(); //For view        
+            return view('product.inventory')->with(compact('products'));
+        }
+        else{
+            abort(404);
+        }
 	}
 	public function otp(){
         if(Auth::check() && Auth::user()->role_id == 1){
-            $orders = Orders::all();
+            $orders = Orders::withTrashed()->get();
             $orderDetails = array();
             $products = array();
             //List of order status
-            $orderStatusTypes = array(1 => "Placed", 2 => "Shipped", 3 =>"Completed"); 
+            $orderStatusTypes = array(1 => "Placed", 2 => "Shipped", 3 => "Completed", 4 => "Cancelled"); 
             if(!empty($orders)){
                 foreach($orders as $key => $value){
-                    $orderDetails[$key] = User_Order_Products::where('order_id', $value->order_id)->get()->toArray();
+                    // $orderDetails[$key] = User_Order_Products::where('order_id', $value->order_id)->get()->toArray();
+                    $orderDetails[$key] = User_Order_Products::where('order_id', $value->order_id)->withTrashed()->get();
                 }
                 $orderSuccess = true;
                 return view('orders.otp')->with(compact('orders', 'orderSuccess', 'orderStatusTypes'));
             }
         }
         else if(Auth::check() && Auth::user()->role_id == 3){
-            $orders = Orders::where('user_id', Auth::user()->user_id)->get();
+            $orders = Orders::where('user_id', Auth::user()->user_id)->withTrashed()->get();
             $orderDetails = array();
             $products = array();
             if(!empty($orders)){
                 foreach($orders as $key => $value){
                     $orderDetails[$key] = User_Order_Products::where('order_id', $value->order_id)->get()->toArray();
                 }
-                
-                // foreach($orderDetails as $key => $value){
-                //     foreach($value as $v){
-                //         $t = $v->products($v->product_id);
-                //     }
-                // }
-                // $i = 0;
-                // foreach($orderDetails as $key => $value){
-                //     foreach($value as $v){
-                //         $products[$i++] = Product::where('product_id', $v->product_id)->get();
-                //     }
-                // }
-                $orderSuccess = true;
+                //$orderSuccess = true;
                 return view('orders.otp')->with(compact('orders', 'orderSuccess'));
             }
         }      
@@ -442,17 +441,23 @@ class ProductController extends Controller
         }  
     }
 
-    public function orderDetails($id){
+    public function orderDetails($id, $orderSuccess = false){
         //Add validation for current order being viewed is users own order.
         if(!empty($id)){
             //List of order status
-            $orderStatusTypes = array(1 => "Placed", 2 => "Shipped", 3 =>"Completed");
-            $orderStatus = Orders::where('order_id', $id)->get()->pluck('order_status_code');
-            $orderDetails = User_Order_Products::where('order_id', $id)->get();
+            $orderStatusTypes = array(1 => "Placed", 2 => "Shipped", 3 => "Completed", 4 => "Cancelled");
+            $orderStatus = Orders::where('order_id', $id)->withTrashed()->get()->pluck('order_status_code');
+            $orderDetails = User_Order_Products::where('order_id', $id)->withTrashed()->get();
             foreach($orderDetails as $key => $value){
                 //$value->name($value->product_id);
             }
-            return view('orders.orderDetails')->with(compact('orderDetails', 'orderStatusTypes', 'orderStatus', 'id'));
+            
+            if($orderSuccess == true){
+                return view('orders.orderDetails')->with(compact('orderDetails', 'orderStatusTypes', 'orderStatus', 'id', 'orderSuccess'));
+            }
+            else{
+                return view('orders.orderDetails')->with(compact('orderDetails', 'orderStatusTypes', 'orderStatus', 'id'));
+            }
         }
     }
 
@@ -461,6 +466,7 @@ class ProductController extends Controller
         //Add validation for order status, cannot delete once shipped.
         if(!empty($id)){
             $order = Orders::where('order_id', $id)->first();
+            $order->order_status_code = 4;
             $order->deleted_at = Carbon::now();
             $order->save();
         }
@@ -524,31 +530,36 @@ class ProductController extends Controller
     //1 - Placed
     //2 - Shipped
     //3 - Completed
+    //4 - Cancelled
     public function checkout(){
         if(Auth::check()){ //Logged in
             if(!empty(request('itemlist'))){
-                return redirect('/paypal');
-                // $itemList = request('itemlist');
-                // $arr = json_decode($itemList);
+                $itemList = request('itemlist');
+                $arr = json_decode($itemList);
                 
-                // $order = new Orders;
-                // $order->user_id = Auth::user()->user_id;
-                // $order->payment_method = 0; //Needs to be changed later
+                $order = new Orders;
+                $order->user_id = Auth::user()->user_id;
+                $order->payment_method = 0; //Needs to be changed later
                 
-                // $order->order_status_code = 1;
-                // $order->order_placed_date = Carbon::now();
-                // $order->order_paid_date = Carbon::now();
-                // $order->total_order_price = 100; //Calculate it later
-                // $order->save();
+                $order->order_status_code = 1;
+                $order->order_placed_date = Carbon::now();
+                $order->order_paid_date = Carbon::now();
+                $order->total_order_price = 100; //Calculate it later
+                $order->save();
 
-                // foreach($arr as $key => $value){
-                //     $orderDetails = new User_Order_Products;
-                //     $orderDetails->order_id = $order->order_id;
-                //     $orderDetails->product_id = $value->id;
-                //     $orderDetails->quantity = $value->quantity;
-                //     $orderDetails->save();
-                // }
-                // return redirect('/orders');
+                foreach($arr as $key => $value){
+                    $orderDetails = new User_Order_Products;
+                    $orderDetails->order_id = $order->order_id;
+                    $orderDetails->product_id = $value->id;
+                    $orderDetails->quantity = $value->quantity;
+                    $orderDetails->save();
+
+                    $product = Product::where('product_id', $value->id)->first();
+                    $product->quantity = $product->quantity - $value->quantity;
+                    $product->save();
+                }
+                $orderSuccess = true;
+                return $this->orderDetails($order->order_id, $orderSuccess);
             }
             //Cart is empty
             else{
@@ -561,16 +572,10 @@ class ProductController extends Controller
         }
     }
 
-    public function paypal(){
-        
-    }
-
     public function updateShippingStatus($id){
         $order = Orders::where('order_id', $id)->first();
         $order->order_status_code = request('shippingStatusForm');
         $order->save();
         return redirect('/orders');
     }
-
-
 }

@@ -66,6 +66,8 @@
                           @foreach($pic as $p)
                             @if($value->product_id == $p->product_id)
                               <img class="pic-1" height="445" width="348" src="/CNC/public/files/{{ $p->filename }}">
+                            @elseif(!empty($p->filename))
+                              
                             @endif
                           @endforeach  
                         @endforeach

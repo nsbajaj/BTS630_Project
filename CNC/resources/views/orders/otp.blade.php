@@ -11,7 +11,7 @@
 					<tr class="headtable">
                         <th>Order</th>
                         <th>Date placed (DD/MM/YY)</th>
-                        <th>Date shipped (DD/MM/YY)</th>
+                        <!-- <th>Date shipped (DD/MM/YY)</th> -->
                         <th>status</th>
                         <th>View Details</th>
                         <th>Cancel</th>
@@ -23,7 +23,7 @@
                         <tr id="row{{ $o->order_id }}">
                             <td>{{ $o->order_id }}  </td>
                             <td>{{ date('d-m-Y', strtotime($o->order_placed_date)) }}</td>
-                            <td>{{ date('d-m-Y', strtotime($o->order_paid_date)) }}</td>
+                            <!-- <td>{{ date('d-m-Y', strtotime($o->order_paid_date)) }}</td> -->
                             
                             @if(!empty($o->order_status_code))
                                 @if($o->order_status_code == 1)
@@ -32,32 +32,14 @@
                                     <td>Shipped</td>
                                 @elseif($o->order_status_code == 3)
                                     <td>Completed</td>
+                                @elseif($o->order_status_code == 4)
+                                    <td>Cancelled</td>
                                 @endif
                             @endif
-                            
-                            <!-- @if(Auth::check() && Auth::user()->role_id == 1)
-                                <select>
-                                @if(!empty($orderStatusTypes))
-                                    @foreach($orderStatusTypes as $key => $value)
-                                        <option 
-                                            @if($key == $o->order_status_code)
-                                                selected 
-                                            @endif                                        
-                                        value="{{ $key }}">{{ $value }}</option>
-                                    @endforeach
-                                @endif
-                                </select>
-                            @endif -->
-                            
-                            
-
-                            
-
                             <td><a href="/CNC/public/orderDetails/{{ $o->order_id }}"><button class="btn btn-primary" type="button">Details</button></a></td>
 
                             @if(!empty($o->order_status_code))
-                                @if($o->order_status_code == 1)                                       
-                                    <!-- <td><a href="javascript:void" class="remove btn btn-primary" data="{{ $o->order_id }}">Cancel</a></td> -->
+                                @if($o->order_status_code == 1 && empty($o->deleted_at))                                       
                                     <td><a href="/CNC/public/deleteOrder/{{ $o->order_id }}" class="remove btn btn-primary" data="{{ $o->order_id }}">Cancel Order</a></td>
                                 @endif
                             @endif

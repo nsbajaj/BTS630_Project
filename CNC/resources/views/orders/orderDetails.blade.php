@@ -54,6 +54,10 @@
                     $("#row"+$(this).attr("data")).hide();
                 }
             });
+            @if(!empty($orderSuccess))
+                var dummy = [];
+                localStorage.setItem( "products", JSON.stringify(dummy)); 
+            @endif
         });
     </script> 
     <style>
