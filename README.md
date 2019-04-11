@@ -85,9 +85,9 @@ The program scope has changed and we are now down scaling the scope from marketp
 ## Iteration 4 Task List
 | Number | Task Description | Status | 
 | --- | --- | --- |
-| 1 | Admin will be able to add a product.<br /> - Once the admin clicks on "Create a product", the admin will be able to enter details and attributes about about the product. and once it clicks add a product it will add it to the inventory | Complete  |
-| 2 | A user dashboard page will be created, which would have 2 links to navigate to: i) Profile Page ii) Placed Orders. And if the user is an admin, then there will be 2 additional links will be visible: iii) Products/Inventory Page iv) Orders to Ship<br /> - If the user clicks on any of these links, it will navigate/re-direct to that particular page. | Complete |
-| 3 | A Profile page will be created for all users.<br /> - The page will show all the information about the user, along with the ability to edit/change certain information.  | Complete |
-| 4 | An Orders to ship page will be created for admins.<br /> - Admins will be able to keep track of how many orders are left to be shipped and  view or update the status of any order  | Complete |
-| 5 | An Orders page will be created for all users.<br /> - This page will list all the orders that the user has placed, along with the status of each order, whether "Placed" ,"Shipped" or "Complete" , "Cancelled" | Complete |
-| 6 | For payment purpose, Paypal functionality will be added.<br /> - User will be able to pay for their order, once they finalizes the shopping cart.<br />(Need to discuss, whether should we do this or not!) | Incomplete |
+| 1 | Admin will be able to add a product.<br /> - Once the admin clicks on "Create a product", the admin will be able to enter details and attributes about about the product. and once it clicks add a product it will add it to the inventory | Completed as planned. |
+| 2 | A user dashboard page will be created, which would have 2 links to navigate to: i) Profile Page ii) Placed Orders. And if the user is an admin, then there will be 2 additional links will be visible: iii) Products/Inventory Page iv) Orders to Ship<br /> - If the user clicks on any of these links, it will navigate/re-direct to that particular page. | Completed as planned. |
+| 3 | A Profile page will be created for all users.<br /> - The page will show all the information about the user, along with the ability to edit/change certain information.  | Completed as planned. |
+| 4 | An Orders to ship page will be created for admins.<br /> - Admins will be able to keep track of how many orders are left to be shipped and  view or update the status of any order  | Completed as planned. |
+| 5 | An Orders page will be created for all users.<br /> - This page will list all the orders that the user has placed, along with the status of each order, whether "Placed" ,"Shipped" or "Complete" , "Cancelled" | Completed as planned. |
+| 6 | For payment purpose, Paypal functionality will be added.<br /> - User will be able to pay for their order, once they finalizes the shopping cart.<br />(NOTE: IF TIME PERMITS!) | Not completed as planned (Time did not permit!) |
