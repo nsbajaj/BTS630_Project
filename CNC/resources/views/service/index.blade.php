@@ -53,7 +53,7 @@
 	                <div style="clear:both;"></div>
 	            @endif
             </div>
- 
+             <div style="clear:both;"></div>
 			<!------ Include the above in your HEAD tag ---------->
 		    <style>
 		        .block50 {
