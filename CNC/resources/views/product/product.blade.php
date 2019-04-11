@@ -56,7 +56,11 @@
                   </ol>
                 </div>
                 <div class="product-gallery-featured">
-                  <img src="" alt="" height="350px" width="350px">
+                  @if(!empty($photos))
+                    <img src="{{ URL::to('/') }}/files/{{$photos[0]}}" alt="" height="350px" width="350px">
+                  @else
+                    <img src="{{ URL::to('/') }}/files/imagenotfound.png" alt="" height="350px" width="350px">
+                  @endif
                 </div>
               </div>
               <div class="product-seller-recommended">
