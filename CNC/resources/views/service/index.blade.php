@@ -29,9 +29,15 @@
         		<h1>Welcome</h1>
         	@endif
             <div class="welcomeBlock">
+			@if(Auth::check())
                 <div class="block50">
                     <a href="/CNC/public/users/{{ Auth::user()->user_id }}">Profile</a>
                 </div>
+			@else
+			<div class="block50">
+                    <a href="{{ url('signin') }}">Profile</a>
+                </div>
+			@endif
                 <!--in admin it sees all orders-->
                 <div class="block50">
                     <a href="{{ url('orders') }}">(Your) Orders</a>
